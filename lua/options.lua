@@ -1,52 +1,62 @@
--- This is copied from https://github.com/LunarVim/Neovim-from-scratch
--- TODO: Revisit this and refine it
+local opt = vim.opt
+local g = vim.g
+local config = require("config")
 
-local options = {
-	backup = false, -- creates a backup file
-	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-	cmdheight = 2, -- more space in the neovim command line for displaying messages
-	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-	conceallevel = 0, -- so that `` is visible in markdown files
-	fileencoding = "utf-8", -- the encoding written to a file
-	hlsearch = true, -- highlight all matches on previous search pattern
-	ignorecase = true, -- ignore case in search patterns
-	incsearch = true, -- search as you type
-	mouse = "a", -- allow the mouse to be used in neovim
-	pumheight = 10, -- pop up menu height
-	showmode = false, -- we don't need to see things like -- INSERT -- anymore
-	showtabline = 2, -- always show tabs
-	smartcase = true, -- smart case
-	smartindent = true, -- make indenting smarter again
-	splitbelow = true, -- force all horizontal splits to go below current window
-	splitright = true, -- force all vertical splits to go to the right of current window
-	swapfile = false, -- creates a swapfile
-	termguicolors = true, -- set term gui colors (most terminals support this)
-	timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)
-	undofile = true, -- enable persistent undo
-	updatetime = 300, -- faster completion (4000ms default)
-	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-	expandtab = true, -- convert tabs to spaces
-	shiftwidth = 2, -- the number of spaces inserted for each indentation
-	tabstop = 2, -- insert 2 spaces for a tab
-	cursorline = true, -- highlight the current line
-	number = true, -- set numbered lines
-	relativenumber = true, -- set relative numbered lines
-	numberwidth = 4, -- set number column width to 2 {default 4}
-	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-	wrap = false, -- display lines as one long line
-	scrolloff = 8, -- is one of my fav
-	sidescrolloff = 8,
-	guifont = "monospace:h17", -- the font used in graphical neovim applications
-}
+-- Indenting
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
 
-vim.opt.shortmess:append("c")
+opt.backup = false -- disable a backup file
+opt.swapfile = true -- enable swap file creation
+opt.dir = vim.fn.stdpath("data") .. "/swp" -- swap file directory
+opt.undodir = vim.fn.stdpath("data") .. "/undodir" -- set undo directory
+opt.undofile = true
+opt.history = 500 -- Use the 'history' option to set the number of lines from command mode that are remembered.
+opt.fileencoding = "utf-8" -- the encoding written to a file
+opt.conceallevel = 0 -- so that `` is visible in markdown files
+opt.mouse = config.mouse
+opt.smartcase = true -- smart case
+opt.smartindent = true -- make indenting smarter again
+opt.splitbelow = true -- force all horizontal splits to go below current window
+opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below the cursor
+opt.sidescrolloff = 8 -- The minimal number of columns to scroll horizontally
+opt.pumheight = 10 -- pop up menu height
+opt.hlsearch = true -- highlight all matches on previous search pattern
+opt.ignorecase = true -- ignore case in search patterns
+opt.foldenable = false -- disable folding; enable with zi; wait for https://github.com/neovim/neovim/pull/17446
+opt.foldcolumn = "1"
+opt.foldlevelstart = 99 -- Using ufo provider need a large value, feel free to decrease the value
+opt.list = config.list
+opt.listchars = config.listchars
+opt.wildmode = "full"
+opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+opt.incsearch = true -- search as you type
+opt.number = true
+opt.ruler = false
+opt.numberwidth = 4 -- set number column width to 4 {default 2}
+opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
+opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
+opt.laststatus = 3 -- global statusline
+opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+opt.title = true -- set the title of the window
+opt.clipboard = "unnamedplus"
+opt.cul = true -- cursor line
+opt.fillchars = { eob = " " }
+opt.shortmess:append "sI" -- disable nvim intro
+opt.updatetime = 250 -- interval for writing swap file to disk, also used by gitsigns
+opt.splitbelow = true
+opt.splitright = true
+opt.termguicolors = true
+opt.whichwrap:append "<>[]hl" -- go to previous/next line with h,l,left arrow and right arrow when cursor reaches end/beginning of line
 
-for k, v in pairs(options) do
-	vim.opt[k] = v
-end
+g.mapleader = " "
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
+vim.opt.shortmess:append("c")
+vim.cmd("set inccommand=split") -- incremental substitution as explained here https://www.youtube.com/watch?v=sA3z6gsqOuw
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
 
 vim.cmd([[
