@@ -30,8 +30,10 @@
 - [ ] telescope setup
   - [x] understand `lazyvim` and `nvchad` setup
   - [x] replicate existing setup
+  - [ ] simplify the `lsp_document_symbols` filter for markdown files
   - [ ] revisit bindings for line, buffer and workspace diagnostics after understanding lsp bindings
   - [ ] add feature to have both file search and grep in a given dir (see example.lua)
+  - [ ] check why `<C-l>` is not working in `:Telescope lsp_document_symbols` like [this](https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4) 
   - [ ] read the docs
   - [ ] check [showcase](https://github.com/nvim-telescope/telescope.nvim/wiki/Showcase)
   - [ ] check [extensions](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions)
@@ -49,15 +51,15 @@
 - lsp
   - [x] understand lsp setup for `lazyvim` and compare it with `nvchad`
   - [x] `nvim-lspconfig`
-    - [x] have working knowledge (documented [here](./lsp/nvim-lspconfig.md))
+    - [x] have working knowledge (documented [here](./plugins/nvim-lspconfig.md))
     - [ ] go through the full docs and understand in depth
   - [ ] setup existing language servers
-    - [x] lua
-    - [ ] jsonls
-    - [ ] yamlls
+    - [ ] eslint
     - [ ] markdown
-      - [ ] setup marksman
+      - [x] basic marksman setup
+      - [ ] see marksman option in details [here](https://github.com/artempyanykh/marksman) 
       - [ ] setup markdownlint
+    - [ ] explore tsserver config options
   - [ ] port old keymaps and change if required
   - [ ] read `nvim` lsp docs `:h lsp`
   - [ ] go through lsp protocol
@@ -74,6 +76,8 @@
 - [ ] [octo.nvim](https://github.com/pwntester/octo.nvim)
   - also check [telescope-github](https://github.com/nvim-telescope/telescope-github.nvim) cli extension
 - [ ] [neoterm](https://github.com/kassio/neoterm)
+- [ ] [trees](https://github.com/Wansmer/treesj) 
+- [ ] [easyread](https://github.com/JellyApple102/easyread.nvim) 
 
 ## Other Workflows
 

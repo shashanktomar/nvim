@@ -22,9 +22,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 ## Run on local machine as an alternate nvim setup
 
-To run the nvim with this config without altering your current setup. Run `make alt`
-
-> Make sure you clone the repo with name `nvim` for this to work
+Check this [video](https://www.youtube.com/watch?v=LkHjJlSgKZY)
 
 ## Docs
 
@@ -41,4 +39,3 @@ The config is inspired from `lazyvim`, `nvchad` and [folke's config](https://git
 
 - to add a new language support, check [this](./docs/add-new-language.md) doc
 - config which need to be touched frequently is under `lua/props`
-

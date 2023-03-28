@@ -7,35 +7,7 @@ return {
       "b0o/schemastore.nvim",
     },
     opts = {
-      servers = {
-        jsonls = {
-          settings = {
-            json = {
-              format = { enable = false }, -- let null-ls handle the formatting
-            },
-          },
-        },
-        yamlls = {
-          settings = {
-            yaml = {
-              format = { enable = false }, -- let null-ls handle the formatting
-              completion = true,
-              hover = true,
-              validate = true,
-            },
-          },
-        },
-      },
-    },
-  },
-
-  -- neovim/nvim-lspconfig special setup overrides
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "b0o/schemastore.nvim",
-    },
-    opts = {
+      servers = config.lsp.servers,
       setup = {
         -- need to do it here as `require('schemastore') is not loaded before opts.servers is parsed`
         jsonls = function(_, opts)

@@ -2,6 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local paste = require("util.paste")
+
 local unmap = vim.keymap.del
 local function map(mode, lhs, rhs, opts)
   opts = opts or {}
@@ -59,6 +61,14 @@ map("n", "<C-c>", "<cmd> %y+ <CR>", { desc = "copy whole file" })
 
 -- Save all files
 map({ "i", "v", "n", "s" }, "<C-S-s>", "<cmd>wa<cr><esc>", { desc = "Save all files" })
+
+----------------------------------------------
+-------------- Insert -----------------
+----------------------------------------------
+
+map("n", "<leader>il", function()
+  paste.insert_from_register("+", "markdown_link")
+end, { desc = "Insert markdown link" })
 
 ----------------------------------------------
 ------------------- TODO ---------------------

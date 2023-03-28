@@ -4,7 +4,7 @@
 
 - add lsp support
   - find the language server. You can check `:h lspconfig-all` or [this](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) doc
-  - add the language server to the lsp list in `my-config/code.lua` file. If you need a custom setup for the lsp, check `Extending the setup` section in [lspconfig](./plugins/nvim-lspconfig.md) doc
+  - add the language server to the lsp list in `props/coding.lua` file. If you need a custom setup for the lsp, check `Extending the setup` section in [lspconfig](./plugins/nvim-lspconfig.md) doc
 
 ## JSON or Yaml Schema
 

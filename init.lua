@@ -6,7 +6,7 @@ require("util.globals")
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
   callback = function()
-    require("config.env")
+    pcall(require, "config.env") -- config/env.lua is gitignored. It is used to store env related stuff
     require("util").version()
   end,
 })

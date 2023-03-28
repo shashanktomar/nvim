@@ -21,6 +21,37 @@ M.lsp = {
     -- other
     "Buildkite",
   },
+
+  servers = {
+    -- for lua_ls config, check folke's dotfile setup https://github.com/folke/dot/blob/master/nvim/lua/plugins/lsp.lua
+    -- 'eslint',
+    tsserver = {}, -- TODO: Check config in depth https://github.com/typescript-language-server/typescript-language-server
+    bashls = {},
+    dockerls = {},
+    pyright = {},
+    gopls = {},
+    marksman = {}, -- TODO: Check config in depth https://github.com/artempyanykh/marksman
+    html = {},
+    cssls = {},
+
+    jsonls = {
+      settings = {
+        json = {
+          format = { enable = false }, -- let null-ls handle the formatting
+        },
+      },
+    },
+    yamlls = {
+      settings = {
+        yaml = {
+          format = { enable = false }, -- let null-ls handle the formatting
+          completion = true,
+          hover = true,
+          validate = true,
+        },
+      },
+    },
+  },
 }
 
 return M
