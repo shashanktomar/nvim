@@ -17,5 +17,28 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 ### After cloning the repo
 
-- `make build` to build the docker image
-- `make run` to bring up docker. Then run `nvim`
+- `make buildd` to build the docker image
+- `make rund` to bring up docker. Then run `nvim`
+
+## Run on local machine as an alternate nvim setup
+
+To run the nvim with this config without altering your current setup. Run `make alt`
+
+> Make sure you clone the repo with name `nvim` for this to work
+
+## Docs
+
+- [plugins](./docs/plugins/plugins-used.md) used
+- [lsp](./docs/lsp.md) setup
+- [nvchad vs lazyvim](./docs/nvchad-vs-lazyvim.md)
+- [project specific setup](./docs/project-specific-setup.md)
+- [add a new language](./docs/add-new-language.md)
+- [cheatsheet.md](./docs/cheatsheet.md)
+
+## Making Changes
+
+The config is inspired from `lazyvim`, `nvchad` and [folke's config](https://github.com/folke/dot/blob/master/nvim/README.md) configs. Refer to the repos in case of doubts.
+
+- to add a new language support, check [this](./docs/add-new-language.md) doc
+- config which need to be touched frequently is under `lua/props`
+

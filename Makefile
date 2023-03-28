@@ -1,8 +1,12 @@
 SHELL = /bin/bash
 DIR=$(PWD)
 
-build:
+buildd:
 	docker build . -t my/nvim
 
-run:
-	docker run --rm -it -v $(DIR):/root/.config/nvim my/nvim 
+rund:
+	docker run --rm -it -v $(DIR):/root/.config/nvim my/nvim
+
+.PHONY: alt
+alt:
+	./alt.sh
