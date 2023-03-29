@@ -2,88 +2,89 @@
 
 To understand how to configure plugins, have a look at `example.lua` file under `plugins`
 
-`*` marks plugin added by lazyvim
-`**` optional in `lazyvim` extras
+`(lz)` marks plugin added by lazyvim
+`(lzo)` optional in `lazyvim` extras
 
 - core
   - [lazyvim](../nvchad-vs-lazyvim.md)
-  - [telescope](./telescope.md) *
-  - [which-key](https://github.com/folke/which-key.nvim) *
-  - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) *
-  - [mini-bufremove](https://github.com/echasnovski/mini.bufremove) *
-  - [mason.nvim](https://github.com/williamboman/mason.nvim) *
+  - [telescope](./telescope.md) (lz)
+  - [which-key](https://github.com/folke/which-key.nvim) (lz)
+  - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (lz)
+  - [mini-bufremove](https://github.com/echasnovski/mini.bufremove) (lz)
+  - [mason.nvim](https://github.com/williamboman/mason.nvim) (lz)
 - settings management
-    - [neoconf.nvim](https://github.com/folke/neoconf.nvim) * 
+  - [neoconf.nvim](https://github.com/folke/neoconf.nvim) (lz)
 - code
   - lsp
-    - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) *
+    - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) (lz)
       - [b0o/schemastore.nvim](https://github.com/b0o/SchemaStore.nvim)
-    - [mason.nvim](https://github.com/williamboman/mason.nvim) *
-    - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) *
-    - [neodev.nvim](https://github.com/folke/neodev.nvim) *
-    - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) *
+    - [mason.nvim](https://github.com/williamboman/mason.nvim) (lz)
+    - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) (lz)
+    - [mason-null-ls.nvim](https://github.com/jay-babu/mason-null-ls.nvim)
+    - [neodev.nvim](https://github.com/folke/neodev.nvim) (lz)
+    - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) (lz)
     - formatters
-      - [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) *
+      - [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) (lz)
   - code completion
-    - [nvim-cmp](./nvim-cmp.md) *
-    - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) *
-    - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) *
-    - [cmp-path](https://github.com/hrsh7th/cmp-path) *
-    - [cmp-lausnip](https://github.com/saadparwaiz1/cmp_luasnip) *
-    - [mini.pairs](https://github.com/echasnovski/mini.pairs) *
-    - [mini.surround](https://github.com/echasnovski/mini.surround) *
+    - [nvim-cmp](./nvim-cmp.md) (lz)
+    - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) (lz)
+    - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) (lz)
+    - [cmp-path](https://github.com/hrsh7th/cmp-path) (lz)
+    - [cmp-lausnip](https://github.com/saadparwaiz1/cmp_luasnip) (lz)
+    - [mini.pairs](https://github.com/echasnovski/mini.pairs) (lz)
+    - [mini.surround](https://github.com/echasnovski/mini.surround) (lz)
   - code highlight
-    - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) *
+    - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (lz)
   - code selection (text objects)
-    - [mini.ai](https://github.com/echasnovski/mini.ai) *
-    - [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) *
+    - [mini.ai](https://github.com/echasnovski/mini.ai) (lz)
+    - [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) (lz)
   - diagnostics
-    - [trouble.nvim](https://github.com/folke/trouble.nvim) *
+    - [trouble.nvim](https://github.com/folke/trouble.nvim) (lz)
   - highlights
-    - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) *
-    - [vim-illuminate](https://www.lazyvim.org/plugins/editor#vim-illuminate) *
+    - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (lz)
+    - [vim-illuminate](https://www.lazyvim.org/plugins/editor#vim-illuminate) (lz)
   - comments
-    - [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) *
-    - [mini-comment](https://github.com/echasnovski/mini.comment) *
+    - [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) (lz)
+    - [mini-comment](https://github.com/echasnovski/mini.comment) (lz)
   - marks
-    - [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) *
+    - [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) (lz)
   - snippets
-    - [lauSnip](https://github.com/L3MON4D3/LuaSnip) *
-    - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) *
+    - [lauSnip](https://github.com/L3MON4D3/LuaSnip) (lz)
+    - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) (lz)
   - copilot
-    - [copilot.lua](https://github.com/zbirenbaum/copilot.lua) **
-    - [copilot-cmp](https://github.com/zbirenbaum/copilot-cmp) **
+    - [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (lzo)
+    - [copilot-cmp](https://github.com/zbirenbaum/copilot-cmp) (lzo)
   - language specific
-    - typescript **
-    - prettier **
-    - eslint **
-    - JSON **
+    - typescript (lzo)
+    - prettier (lzo)
+    - eslint (lzo)
+    - JSON (lzo)
 - search/replace
-  - [nvim-spectre](https://github.com/windwp/nvim-spectre) *
+  - [nvim-spectre](https://github.com/windwp/nvim-spectre) (lz)
 - movement
-  - [leap](https://github.com/ggandor/leap.nvim) *
-  - [flit](https://github.com/ggandor/flit.nvim) *
+  - [leap](https://github.com/ggandor/leap.nvim) (lz)
+  - [flit](https://github.com/ggandor/flit.nvim) (lz)
 - ui
-  - [nui.nvim](https://github.com/MunifTanjim/nui.nvim) *
-  - [nvim-notify](https://github.com/rcarriga/nvim-notify) *
-  - [dressing.nvim](https://github.com/stevearc/dressing.nvim) *
-  - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) *
-  - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) *
-  - [noice.nvim](./noice.md) *
-  - [alpha-nvim](https://github.com/goolord/alpha-nvim) *
-  - [nvim-navic](https://github.com/SmiteshP/nvim-navic) *
-  - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) *
+  - [nui.nvim](https://github.com/MunifTanjim/nui.nvim) (lz)
+  - [nvim-notify](https://github.com/rcarriga/nvim-notify) (lz)
+  - [dressing.nvim](https://github.com/stevearc/dressing.nvim) (lz)
+  - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) (lz)
+  - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) (lz)
+  - [noice.nvim](https://github.com/folke/noice.nvim) (lz)
+  - [alpha-nvim](https://github.com/goolord/alpha-nvim) (lz)
+  - [nvim-navic](https://github.com/SmiteshP/nvim-navic) (lz)
+  - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) (lz)
   - indent lines
-    - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) *
-    - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) *
+    - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) (lz)
+    - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (lz)
   - colorscheme
-    - [tokyonight](https://github.com/folke/tokyonight.nvim) *
-    - [catppuccin](https://github.com/catppuccin/nvim) *
-  - [mini animate](https://github.com/echasnovski/mini.animate) **
-  - [mini starter](https://www.lazyvim.org/plugins/extras/ui.mini-starter) **
+    - [tokyonight](https://github.com/folke/tokyonight.nvim) (lz)
+    - [catppuccin](https://github.com/catppuccin/nvim) (lz)
+  - [mini animate](https://github.com/echasnovski/mini.animate) (lzo)
+  - [mini starter](https://www.lazyvim.org/plugins/extras/ui.mini-starter) (lzo)
 - session management
-  - [persistence.nvim](https://github.com/folke/persistence.nvim) *
+  - [persistence.nvim](https://github.com/folke/persistence.nvim) (lz)
 - util
-  - [vim-startuptime](https://github.com/dstein64/vim-startuptime) *
-  - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) *
-  - [vim-repeat](https://github.com/tpope/vim-repeat) *
+  - [vim-startuptime](https://github.com/dstein64/vim-startuptime) (lz)
+  - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) (lz)
+  - [vim-repeat](https://github.com/tpope/vim-repeat) (lz)

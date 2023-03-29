@@ -3,7 +3,7 @@
 --[[ 
 
 I want to write a simple nvim util function. Following are the requirements:
-- the function take two parameters, a register name and a template name.
+- the function take two https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4 a register name and a template name.
 - there is a predefined table of templates with template name as key and a string template which can be interpolated as value. The string template also define the cursor position.
 - this function generate the a string from the template string and value in register
 - this result is added under the current cursor in current buffer and the cursor should move to cursor position defined in string

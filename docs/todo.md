@@ -23,7 +23,8 @@
 - [ ] neotree setup
   - [ ] understand `lazyvim` setup
   - [ ] read the docs `:h neo-tree`
-  - [ ] add thrash and undo delete support. Some help is [here](https://github.com/nvim-neo-tree/neo-tree.nvim/issues/202)
+  - [ ] add thrash and undo delete support. Some help is
+        [here](https://github.com/nvim-neo-tree/neo-tree.nvim/issues/202)
   - [ ] check [recipes](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes)
   - [ ] see [tips](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Tips)
 - [x] which-key setup
@@ -33,13 +34,15 @@
   - [ ] simplify the `lsp_document_symbols` filter for markdown files
   - [ ] revisit bindings for line, buffer and workspace diagnostics after understanding lsp bindings
   - [ ] add feature to have both file search and grep in a given dir (see example.lua)
-  - [ ] check why `<C-l>` is not working in `:Telescope lsp_document_symbols` like [this](https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4) 
+  - [ ] check why `<C-l>` is not working in `:Telescope lsp_document_symbols` like
+        [this](https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4)
   - [ ] read the docs
   - [ ] check [showcase](https://github.com/nvim-telescope/telescope.nvim/wiki/Showcase)
   - [ ] check [extensions](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions)
     - [x] install a native sorter
     - [ ] set dap extension
-    - [ ] explore [telescope-frecency extension](https://github.com/nvim-telescope/telescope-frecency.nvim), it looks interesting
+    - [ ] explore [telescope-frecency extension](https://github.com/nvim-telescope/telescope-frecency.nvim), it looks
+          interesting
     - [ ] add [telescope-software-licenses](https://github.com/chip/telescope-software-licenses.nvim) extension
     - [ ] do we need [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)?
   - [ ] check [recipes](https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes)
@@ -53,31 +56,39 @@
   - [x] `nvim-lspconfig`
     - [x] have working knowledge (documented [here](./plugins/nvim-lspconfig.md))
     - [ ] go through the full docs and understand in depth
-  - [ ] setup existing language servers
-    - [ ] eslint
-    - [ ] markdown
-      - [x] basic marksman setup
-      - [ ] see marksman option in details [here](https://github.com/artempyanykh/marksman) 
-      - [ ] setup markdownlint
-    - [ ] explore tsserver config options
+    - [x] setup existing language servers
+      - [ ] markdown
+        - [x] basic marksman setup
+        - [ ] see marksman option in details [here](https://github.com/artempyanykh/marksman)
+        - [ ] setup vale and markdownlint. Check
+              [this](https://docs.gitlab.com/ee/development/documentation/testing.html#vale) gitlab guide
+      - [ ] explore tsserver config options
+  - [ ] null-ls
+    - [x] replicate existing setup
+    - [ ] see how to sync mason install. Check [mason-null-ls](https://github.com/jay-babu/mason-null-ls.nvim)
+    - [ ] test if format on save is working
   - [ ] port old keymaps and change if required
   - [ ] read `nvim` lsp docs `:h lsp`
   - [ ] go through lsp protocol
-- code completion 
+  - [ ] add show minimal diagnostics icons toggle
+- code completion
   - [ ] `nvim-cmp`
     - [ ] check the [wiki](https://github.com/hrsh7th/nvim-cmp/wiki)
 
 ### Other
+
 - [ ] setup `lazyvim` extras plugins
 - [ ] check example lua for more plugins and options
 
 ### Plugins to Explore
+
 - [ ] all the [mini](https://github.com/echasnovski/mini.nvim) plugins
 - [ ] [octo.nvim](https://github.com/pwntester/octo.nvim)
   - also check [telescope-github](https://github.com/nvim-telescope/telescope-github.nvim) cli extension
 - [ ] [neoterm](https://github.com/kassio/neoterm)
-- [ ] [trees](https://github.com/Wansmer/treesj) 
-- [ ] [easyread](https://github.com/JellyApple102/easyread.nvim) 
+- [ ] [trees](https://github.com/Wansmer/treesj)
+- [ ] [easyread](https://github.com/JellyApple102/easyread.nvim)
+- [ ] [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 
 ## Other Workflows
 
@@ -90,4 +101,5 @@
 - [ ] start using `marks`
 - [ ] setup a good `registers` workflow
 - [ ] learn how to use jumplist, there is also a telescope shortcut
-- [ ] add case related utils, check twiddleCase at [this](https://vim.fandom.com/wiki/Switching_case_of_characters) fandom wiki. Also check for relevant plugins
+- [ ] add case related utils, check twiddleCase at [this](https://vim.fandom.com/wiki/Switching_case_of_characters)
+      fandom wiki. Also check for relevant plugins

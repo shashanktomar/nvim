@@ -1,4 +1,5 @@
-local config = require("props.coding")
+local props = require("props.coding")
+local keys = require("props.keys")
 
 return {
   {
@@ -6,32 +7,37 @@ return {
     dependencies = {
       "b0o/schemastore.nvim",
     },
-    opts = {
-      servers = config.lsp.servers,
-      setup = {
-        -- need to do it here as `require('schemastore') is not loaded before opts.servers is parsed`
-        jsonls = function(_, opts)
-          local settings = {
-            json = {
-              schemas = require("schemastore").json.schemas({
-                select = config.lsp.jsonSchemas,
-              }),
-              validate = { enable = true },
-            },
-          }
-          opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, settings)
-        end,
-        yamlls = function(_, opts)
-          local settings = {
-            yaml = {
-              schemas = require("schemastore").yaml.schemas({
-                select = config.lsp.jsonSchemas,
-              }),
-            },
-          }
-          opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, settings)
-        end,
-      },
+    opts = function(_, opts)
+      local ext = {
+        servers = props.language_servers(),
+      }
+      return vim.tbl_deep_extend("force", opts, ext)
+    end,
+  },
+
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.sources, props.null_ls_sources())
+      opts.debug = true
+    end,
+    keys = keys.null_ls,
+  },
+
+  -- This act as a bridge between mason and null-ls and auto install null-ls deps using mason
+  {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
     },
+    config = function()
+      require("mason-null-ls").setup({
+        ensure_installed = {},
+        automatic_installation = true,
+        automatic_setup = false,
+      })
+    end,
   },
 }

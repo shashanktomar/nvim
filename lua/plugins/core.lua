@@ -1,5 +1,5 @@
 local ta = require("telescope.actions")
-local config = require("props.core")
+local keys = require("props.keys")
 
 return {
   {
@@ -14,13 +14,13 @@ return {
     },
     init = function()
       local wk = require("which-key")
-      wk.register(config["which-key"].groups)
+      wk.register(keys.which_key.groups)
     end,
   },
 
   {
     "nvim-telescope/telescope.nvim",
-    keys = config.telescope.keys,
+    keys = keys.telescope,
     opts = {
       defaults = {
         vimgrep_arguments = { -- add -L options which make rg follow symlinks

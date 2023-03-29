@@ -9,4 +9,4 @@ If something doesn't seem right, first thing you should do it run healthcheck fo
   - use `z=` for spelling suggestions
 - lsp
   - jsonls
-    - if schema is not auto-detected using filename, you can add to `$schema` field as described in [nvim-lspconfig](./lsp/nvim-lspconfig.md) doc
+    - if schema is not auto-detected using filename, you can add to `$schema` field as described in [nvim-lspconfig](./plugins/nvim-lspconfig.md) doc
