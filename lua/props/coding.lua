@@ -1,11 +1,17 @@
 local M = {}
 
+M.settings = {
+  lsp = {
+    timeout_ms = 3000,
+  },
+}
+
 local language_props = function()
   local null_ls = require("null-ls")
   local code_actions = null_ls.builtins.code_actions
   local formatting = null_ls.builtins.formatting
   local diagnostics = null_ls.builtins.diagnostics
-  local completion = null_ls.builtins.completion
+  -- local completion = null_ls.builtins.completion
 
   return {
     ts = {
@@ -14,11 +20,11 @@ local language_props = function()
         -- eslint = {},
       },
       code_actions = {
-        code_actions.eslint_d,
+        code_actions.eslint_d, -- check lazyvim plugin extras eslint setup if required
       },
       formatting = {
         formatting.eslint_d,
-        formatting.prettier,
+        formatting.prettierd,
       },
     },
     go = {
@@ -62,11 +68,6 @@ local language_props = function()
         diagnostics.misspell,
       },
       formatting = { -- prettier is the best option for formatting markdown
-      },
-      completion = {
-        completion.spell.with({
-          filetypes = { "markdown", "text" },
-        }),
       },
     },
     scripting = {

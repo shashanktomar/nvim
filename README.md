@@ -27,6 +27,8 @@ Check this [video](https://www.youtube.com/watch?v=LkHjJlSgKZY)
 
 ## Docs
 
+- [todo](./docs/todo.md)
+- [learning path](./docs/learning-path.md)
 - [plugins](./docs/plugins/plugins-used.md) used
 - [lsp](./docs/lsp.md) setup
 - [nvchad vs lazyvim](./docs/nvchad-vs-lazyvim.md)

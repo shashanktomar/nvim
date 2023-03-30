@@ -22,11 +22,8 @@
 
 - [ ] neotree setup
   - [ ] understand `lazyvim` setup
-  - [ ] read the docs `:h neo-tree`
   - [ ] add thrash and undo delete support. Some help is
         [here](https://github.com/nvim-neo-tree/neo-tree.nvim/issues/202)
-  - [ ] check [recipes](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes)
-  - [ ] see [tips](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Tips)
 - [x] which-key setup
 - [ ] telescope setup
   - [x] understand `lazyvim` and `nvchad` setup
@@ -36,8 +33,6 @@
   - [ ] add feature to have both file search and grep in a given dir (see example.lua)
   - [ ] check why `<C-l>` is not working in `:Telescope lsp_document_symbols` like
         [this](https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4)
-  - [ ] read the docs
-  - [ ] check [showcase](https://github.com/nvim-telescope/telescope.nvim/wiki/Showcase)
   - [ ] check [extensions](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions)
     - [x] install a native sorter
     - [ ] set dap extension
@@ -45,9 +40,8 @@
           interesting
     - [ ] add [telescope-software-licenses](https://github.com/chip/telescope-software-licenses.nvim) extension
     - [ ] do we need [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)?
-  - [ ] check [recipes](https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes)
 - [x] go through `mini-bufremove` setup
-- [ ] `mason` setup
+- [x] `mason` setup
 
 ### Code
 
@@ -55,8 +49,7 @@
   - [x] understand lsp setup for `lazyvim` and compare it with `nvchad`
   - [x] `nvim-lspconfig`
     - [x] have working knowledge (documented [here](./plugins/nvim-lspconfig.md))
-    - [ ] go through the full docs and understand in depth
-    - [x] setup existing language servers
+    - [ ] setup existing language servers
       - [ ] markdown
         - [x] basic marksman setup
         - [ ] see marksman option in details [here](https://github.com/artempyanykh/marksman)
@@ -64,24 +57,22 @@
               [this](https://docs.gitlab.com/ee/development/documentation/testing.html#vale) gitlab guide
       - [ ] typescript
         - [ ] explore tsserver config options
-        - [ ] try prettierd
-        - [ ] check if eslintd is enough or we need eslint lsp
+        - [x] try prettierd
+        - [x] check if eslintd is enough or we need eslint lsp
         - [ ] find a way to remove duplicate diagnostic errors from both tsserver and eslint
         - [ ] see example.lua typescript setup and give
               [typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim) a try
-      - [ ] jsonls
-        - check `example.lua` jsonls extras plugin setup
   - [x] null-ls
   - [ ] understand how `neoconf` and `neodev` works
-  - [ ] port old keymaps and change if required
-  - [ ] read `nvim` lsp docs `:h lsp`
-  - [ ] go through lsp protocol
-  - [ ] add show minimal diagnostics icons toggle
+  - [ ] port old keymaps and change if required -- bookmark
+  - [ ] add minimal diagnostics icons toggle
 - code completion
   - [x] `lua-snip` setup
   - [ ] `nvim-cmp`
     - [ ] replicate existing setup
     - [ ] check the [wiki](https://github.com/hrsh7th/nvim-cmp/wiki)
+- highlights
+  - [ ] treesitter
 
 ### UI
 
@@ -91,11 +82,12 @@
     - [x] add border
     - [ ] set border highlight
   - [ ] for lspinfo
+- [ ] notify keep popping up way too much
 
 ### Other
 
 - [ ] setup `lazyvim` extras plugins
-- [ ] check example lua for more plugins and options
+- [ ] check `example.lua` for more plugins and options
 
 ### Plugins to Explore
 
@@ -106,19 +98,12 @@
 - [ ] [trees](https://github.com/Wansmer/treesj)
 - [ ] [easyread](https://github.com/JellyApple102/easyread.nvim)
 - [ ] [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
-- [ ] check [awesome-neovim](https://github.com/rockerBOO/awesome-neovim) list
+- [ ] check [awesome-neovim](https://github.com/rockerBOO/awesome-neovim) list.
+      [This](https://www.trackawesomelist.com/2023/12/) is a nice changelog for the same list
 
 ## Other Workflows
 
-- [ ] learn how to use type annotations in lua
 - [ ] can `nvchad` themes be ported for `lazyvim`?
 - [ ] refine the `my-help` document
-- [ ] understand folding in depth, try for json and yaml. Also check for plugins around the same.
-- [ ] session management
-- [ ] learn window management
-  - check window split commands provided by lazyvim under leader key
-- [ ] start using `marks`
-- [ ] setup a good `registers` workflow
-- [ ] learn how to use jumplist, there is also a telescope shortcut
 - [ ] add case related utils, check twiddleCase at [this](https://vim.fandom.com/wiki/Switching_case_of_characters)
       fandom wiki. Also check for relevant plugins

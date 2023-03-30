@@ -1,0 +1,35 @@
+# Learning Path
+
+- lua
+  - [ ] learn how to use type annotations in lua
+- vim core
+  - [ ] understand folding in depth, try for json and yaml. Also check for plugins around the same.
+  - [ ] session management
+  - [ ] learn window and tab management
+    - check window split commands provided by lazyvim under leader key
+  - [ ] start using `marks`
+  - [ ] setup a good `registers` workflow
+  - [ ] learn how to use jumplist, there is also a telescope shortcut
+- nvchad
+  - [ ] read the code
+- neo-tree
+  - [ ] check [recipes](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes)
+  - [ ] see [tips](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Tips)
+  - [ ] read the code
+- telescope
+  - [ ] read the docs
+  - [ ] check [showcase](https://github.com/nvim-telescope/telescope.nvim/wiki/Showcase)
+  - [ ] check [extensions](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions)
+  - [ ] check [recipes](https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes)
+  - [ ] read the code
+- lsp
+  - notes
+    - [lsp](./lsp.md)
+    - [nvim-lspconfig](./plugins/nvim-lspconfig.md)
+  - path
+    - [ ] read `nvim` lsp docs `:h lsp`
+    - [ ] go through lsp protocol
+    - [ ] go through full `nvim-lspconfig` docs and understand in depth
+- the power of `g`
+  - [ ] check the shortcuts under `g`
+  - [ ] [Power of g](https://vim.fandom.com/wiki/Power_of_g)
