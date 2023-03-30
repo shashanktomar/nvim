@@ -62,18 +62,35 @@
         - [ ] see marksman option in details [here](https://github.com/artempyanykh/marksman)
         - [ ] setup vale and markdownlint. Check
               [this](https://docs.gitlab.com/ee/development/documentation/testing.html#vale) gitlab guide
-      - [ ] explore tsserver config options
-  - [ ] null-ls
-    - [x] replicate existing setup
-    - [ ] see how to sync mason install. Check [mason-null-ls](https://github.com/jay-babu/mason-null-ls.nvim)
-    - [ ] test if format on save is working
+      - [ ] typescript
+        - [ ] explore tsserver config options
+        - [ ] try prettierd
+        - [ ] check if eslintd is enough or we need eslint lsp
+        - [ ] find a way to remove duplicate diagnostic errors from both tsserver and eslint
+        - [ ] see example.lua typescript setup and give
+              [typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim) a try
+      - [ ] jsonls
+        - check `example.lua` jsonls extras plugin setup
+  - [x] null-ls
+  - [ ] understand how `neoconf` and `neodev` works
   - [ ] port old keymaps and change if required
   - [ ] read `nvim` lsp docs `:h lsp`
   - [ ] go through lsp protocol
   - [ ] add show minimal diagnostics icons toggle
 - code completion
+  - [x] `lua-snip` setup
   - [ ] `nvim-cmp`
+    - [ ] replicate existing setup
     - [ ] check the [wiki](https://github.com/hrsh7th/nvim-cmp/wiki)
+
+### UI
+
+- [ ] add borders to mason, lsp and null windows
+  - [x] for mason
+  - [ ] for null-ls
+    - [x] add border
+    - [ ] set border highlight
+  - [ ] for lspinfo
 
 ### Other
 
@@ -89,9 +106,11 @@
 - [ ] [trees](https://github.com/Wansmer/treesj)
 - [ ] [easyread](https://github.com/JellyApple102/easyread.nvim)
 - [ ] [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
+- [ ] check [awesome-neovim](https://github.com/rockerBOO/awesome-neovim) list
 
 ## Other Workflows
 
+- [ ] learn how to use type annotations in lua
 - [ ] can `nvchad` themes be ported for `lazyvim`?
 - [ ] refine the `my-help` document
 - [ ] understand folding in depth, try for json and yaml. Also check for plugins around the same.

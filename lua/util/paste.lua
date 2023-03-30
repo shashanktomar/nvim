@@ -20,6 +20,8 @@ M.templates = {
   markdown_link = " [#CUR#](#VAL#)",
 }
 
+-- TODO: achieve this through lua snippets
+
 M.insert_from_register = function(register, template_name)
   local template = M.templates[template_name]
   if not template then

@@ -2,11 +2,12 @@
 
 TODO: Add Image
 
-## Try in docker 
+## Try in docker
 
 ### Directly in Docker
 
 Try with docker without cloning repo:
+
 ```sh
 docker run -w /root -it --rm alpine:edge sh -uelic '
     apk add git nodejs neovim ripgrep fd fzf alpine-sdk --update
@@ -35,7 +36,9 @@ Check this [video](https://www.youtube.com/watch?v=LkHjJlSgKZY)
 
 ## Making Changes
 
-The config is inspired from `lazyvim`, `nvchad` and [folke's config](https://github.com/folke/dot/blob/master/nvim/README.md) configs. Refer to the repos in case of doubts.
+The config is inspired from `lazyvim`, `nvchad` and
+[folke's config](https://github.com/folke/dot/blob/master/nvim/README.md) configs. Refer to the repos in case of doubts.
 
 - to add a new language support, check [this](./docs/add-new-language.md) doc
 - config which need to be touched frequently is under `lua/props`
+- always check `lua/plugins/example.lua` for examples

@@ -2,8 +2,7 @@
 
 To understand how to configure plugins, have a look at `example.lua` file under `plugins`
 
-`(lz)` marks plugin added by lazyvim
-`(lzo)` optional in `lazyvim` extras
+`(lz)` marks plugin added by lazyvim `(lzo)` optional in `lazyvim` extras
 
 - core
   - [lazyvim](../nvchad-vs-lazyvim.md)
@@ -19,8 +18,8 @@ To understand how to configure plugins, have a look at `example.lua` file under 
     - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) (lz)
       - [b0o/schemastore.nvim](https://github.com/b0o/SchemaStore.nvim)
     - [mason.nvim](https://github.com/williamboman/mason.nvim) (lz)
-    - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) (lz)
-    - [mason-null-ls.nvim](https://github.com/jay-babu/mason-null-ls.nvim)
+      - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) (lz)
+      - [mason-null-ls.nvim](https://github.com/jay-babu/mason-null-ls.nvim)
     - [neodev.nvim](https://github.com/folke/neodev.nvim) (lz)
     - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) (lz)
     - formatters

@@ -1,0 +1,11 @@
+{
+  "saferequire": {
+    "prefix": "sreq",
+    "body": ["local ok, $0 = pcall(require, '$1')\n\nif not ok then return end\n\n"],
+    "description": "Require module"
+  },
+  "M": {
+    "prefix": "M",
+    "body": ["local M = {}\n$0\nreturn M"]
+  }
+}

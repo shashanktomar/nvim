@@ -19,6 +19,15 @@ return {
   },
 
   {
+    "williamboman/mason.nvim",
+    opts = {
+      ui = {
+        border = "single",
+      },
+    },
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     keys = keys.telescope,
     opts = {
