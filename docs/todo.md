@@ -12,9 +12,7 @@
 
 - [ ] compare `nvchad` and personal setup options with `lazyvim` and add if missing
 - [ ] compare `nvchad` and personal autocmds with `lazyvim` and add if missing
-- [ ] check `nvchad` default mappings and move them to new setup
-- [ ] check my old mappings and retain whatever is required
-- [ ] get familiar with `lazygit` mappings and change if required
+- [ ] own all the mappings and consolidate `nvchad`, `lazygit` and personal mappings
 
 ## Plugins
 
@@ -64,13 +62,13 @@
               [typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim) a try
   - [x] null-ls
   - [ ] understand how `neoconf` and `neodev` works
-  - [ ] port old keymaps and change if required -- bookmark
+  - [x] port old keymaps and change if required
   - [ ] add minimal diagnostics icons toggle
+  - [ ] do we need async auto formatting as used in current setup
 - code completion
   - [x] `lua-snip` setup
   - [ ] `nvim-cmp`
     - [ ] replicate existing setup
-    - [ ] check the [wiki](https://github.com/hrsh7th/nvim-cmp/wiki)
 - highlights
   - [ ] treesitter
 
@@ -81,7 +79,7 @@
   - [ ] for null-ls
     - [x] add border
     - [ ] set border highlight
-  - [ ] for lspinfo
+  - [x] for lspinfo
 - [ ] notify keep popping up way too much
 
 ### Other

@@ -22,6 +22,19 @@ return {
     -- Use <tab> for completion and snippets (supertab)
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
+      local function border(hl_name)
+        return {
+          { "╭", hl_name },
+          { "─", hl_name },
+          { "╮", hl_name },
+          { "│", hl_name },
+          { "╯", hl_name },
+          { "─", hl_name },
+          { "╰", hl_name },
+          { "│", hl_name },
+        }
+      end
+
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -30,6 +43,18 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+
+      opts.window = {
+        completion = {
+          side_padding = 1,
+          -- winhighlight = "Normal:CmpPmenu,CursorLine:Cmp",
+          scrollbar = false,
+          border = border("CmpBorder"),
+        },
+        documentation = {
+          border = border("CmpDocumentationBorder"),
+        },
+      }
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)

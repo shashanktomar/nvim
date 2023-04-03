@@ -2,7 +2,7 @@ local M = {}
 
 M.settings = {
   lsp = {
-    timeout_ms = 3000,
+    timeout_ms = 5000,
   },
 }
 

@@ -27,6 +27,9 @@ return {
     end,
     init = function()
       require("lspconfig.ui.windows").default_options.border = "single"
+
+      local km = require("lazyvim.plugins.lsp.keymaps").get()
+      vim.list_extend(km, keys.lsp)
     end,
   },
 

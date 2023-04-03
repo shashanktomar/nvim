@@ -18,6 +18,7 @@ M.output_in_scratch_buffer = function(data)
   vim.api.nvim_buf_set_lines(scratch_bufnr, -1, -1, true, lines)
   vim.api.nvim_buf_set_option(scratch_bufnr, "readonly", true)
   vim.api.nvim_buf_set_option(scratch_bufnr, "modified", false)
+  vim.api.nvim_buf_set_option(scratch_bufnr, "filetype", "scratch.out")
 end
 
 return M

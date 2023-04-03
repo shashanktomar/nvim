@@ -1,8 +1,4 @@
-local bf = require("util.buffer")
+local bf = require("util.debug")
 -- bf.output_in_scratch_buffer({ "hello", "world" })
-
-local props = require("props.coding")
-
-local servers = props.null_ls_sources()
-
-bf.output_in_scratch_buffer(vim.inspect(servers))
+local ui = require("props.ui")
+bf.output_in_scratch_buffer(vim.inspect(ui.highlights()))

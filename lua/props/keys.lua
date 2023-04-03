@@ -1,4 +1,5 @@
 local Util = require("lazyvim.util")
+local LzUtil = require("lazy.core.util")
 local M = {}
 
 M.setup_keys = function()
@@ -37,37 +38,65 @@ M.setup_keys = function()
   ----------------------------------------------
 
   -- In insert mode
-  map("i", "<C-b>", "<ESC>^i", { desc = "Move to the end of line" })
-  map("i", "<C-e>", "<End>", { desc = "Move to the beginning of line" })
-  map("i", "<C-h>", "<Left>", { desc = "Move left" })
-  map("i", "<C-l>", "<Right>", { desc = "Move right" })
-  map("i", "<C-j>", "<Down>", { desc = "Move down" })
-  map("i", "<C-k>", "<Up>", { desc = "Move up" })
+  map("i", "<C-e>", "<End>", { desc = "󰞓 Goto beginning of line" })
+  map("i", "<C-b>", "<ESC>^i", { desc = "󰞔 Goto end of line" })
+  map("i", "<C-h>", "<Left>", { desc = " Move left" })
+  map("i", "<C-l>", "<Right>", { desc = " Move right" })
+  map("i", "<C-k>", "<Up>", { desc = " Move up" })
+  map("i", "<C-j>", "<Down>", { desc = " Move down" })
 
   -- Quick movement on line
-  map("n", "H", "^", { desc = "Goto beginning of line" })
-  map("n", "L", "$", { desc = "Goto end of line" })
+  map("n", "H", "^", { desc = "󰞓 Goto beginning of line" })
+  map("n", "L", "$", { desc = "󰞔 Goto end of line" })
 
   -- Goto to last buffer
-  map("n", "<leader>a", "<cmd> b# <CR>", { desc = "last buffer" })
+  map("n", "<leader>a", "<cmd> b# <CR>", { desc = "󰒮 Previous buffer" })
 
   ----------------------------------------------
   -------------- Yank and Save -----------------
   ----------------------------------------------
 
   -- Copy whole file
-  map("n", "<C-c>", "<cmd> %y+ <CR>", { desc = "copy whole file" })
+  map("n", "<C-c>", "<cmd> %y+ <CR>", { desc = "󰆏 Copy whole file" })
 
   -- Save all files
-  map({ "i", "v", "n", "s" }, "<C-S-s>", "<cmd>wa<cr><esc>", { desc = "Save all files" })
+  map({ "i", "v", "n", "s" }, "<C-S>", "<cmd>wa<cr><esc>", { desc = " Save all files" })
+
+  -- Paste from yank register
+  map("n", "gp", '"0p', { desc = "p from yank register" })
+  map("n", "gP", '"0P', { desc = "P from yank register" })
 
   ----------------------------------------------
-  -------------- Insert -----------------
+  ------------------- Insert -------------------
   ----------------------------------------------
 
   map("n", "<leader>il", function()
     paste.insert_from_register("+", "markdown_link")
-  end, { desc = "Insert markdown link" })
+  end, { desc = " Insert markdown link" })
+  map("n", "<leader>iO", "O<Esc>", { desc = "󰞕 Insert a new line up" })
+  map("n", "<leader>io", "o<Esc>", { desc = "󰞒 Insert a new line down" })
+  map("n", "gO", "O<Esc>", { desc = "󰞕 Insert a new line up" })
+  map("n", "go", "o<Esc>", { desc = "󰞒 Insert a new line down" })
+
+  ----------------------------------------------
+  ------------------- Debug --------------------
+  ----------------------------------------------
+
+  map("n", "<F2>s", "<cmd>luafile lua/scratch/test.lua<cr>", { desc = "Execute scratch/test.lua" })
+
+  ----------------------------------------------
+  ------------------- LSP ----------------------
+  ----------------------------------------------
+
+  map("n", "<leader>ci", function()
+    local clients = vim.lsp.get_active_clients({ name = "tsserver" })
+    local ts_sever_missing = vim.tbl_isempty(clients)
+    if ts_sever_missing then
+      LzUtil.error("No tsserver attached", { title = "Command Unavailable" })
+      return
+    end
+    vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
+  end, { desc = "organize imports" })
 
   ----------------------------------------------
   ------------------- TODO ---------------------
@@ -87,14 +116,17 @@ M.setup_keys = function()
   -- ['<C-M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
   -- ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
   -- ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
-  -- ['<A-p>'] = { '"0p', 'p from yank register' },
-  -- ['<A-P>'] = { '"0P', 'P from yank register' },
 end
+
+M.lsp = {
+  { "gr", "<cmd>Telescope lsp_references show_line=false<cr>", desc = "References" },
+}
 
 M.which_key = {
   groups = {
     ["<leader>sv"] = { name = "+vim" },
     ["<leader>i"] = { name = "+insert" },
+    ["<F2>"] = { name = "+debug" },
   },
 }
 
@@ -110,7 +142,6 @@ M.telescope = {
   -- change the keymap to explore recent files
   { "<leader>fr", false }, -- disable the keymap to switch buffers
   { "<leader>fo", Util.telescope("oldfiles"), desc = "Recent" },
-  { "<leader>fo", Util.telescope("oldfiles"), desc = "Recent" },
 
   -- add more file search commands
   {
@@ -124,7 +155,7 @@ M.telescope = {
   { "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
 
   -- insert
-  { "<leader>ie", "<cmd>Telescope symbols<cr>", desc = "😊 Emojis" },
+  { "<leader>is", "<cmd>Telescope symbols<cr>", desc = "😊 Symbols/Emojis" },
   { "<leader>ip", "<cmd>Telescope registers<cr>", desc = "Paste From Registers" },
 
   -- search commands

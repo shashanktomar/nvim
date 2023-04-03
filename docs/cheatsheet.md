@@ -4,6 +4,7 @@ If something doesn't seem right, first thing you should do it run healthcheck fo
 `checkhealth <plugin-name>`. Example `checkhealth telescope`.
 
 - telescope
+  - `:telescope builtin` to see a list of builtin pickers
   - help is `<C-/>` in `insert` mode and `?` in `normal` mode
   - check `:h telescope.setup` for available configuration
 - which-key

@@ -3,6 +3,7 @@
 - lua
   - [ ] learn how to use type annotations in lua
 - vim core
+  - [ ] learn scroll shortcuts
   - [ ] understand folding in depth, try for json and yaml. Also check for plugins around the same.
   - [ ] session management
   - [ ] learn window and tab management
@@ -22,14 +23,19 @@
   - [ ] check [extensions](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions)
   - [ ] check [recipes](https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes)
   - [ ] read the code
+- mini
+  - [ ] check the code
 - lsp
   - notes
     - [lsp](./lsp.md)
     - [nvim-lspconfig](./plugins/nvim-lspconfig.md)
   - path
     - [ ] read `nvim` lsp docs `:h lsp`
+    - [ ] play around with `vim.lsp.*` api
     - [ ] go through lsp protocol
     - [ ] go through full `nvim-lspconfig` docs and understand in depth
+- cmp
+  - [ ] check the `nvim-cmp` [wiki](https://github.com/hrsh7th/nvim-cmp/wiki)
 - the power of `g`
   - [ ] check the shortcuts under `g`
   - [ ] [Power of g](https://vim.fandom.com/wiki/Power_of_g)
