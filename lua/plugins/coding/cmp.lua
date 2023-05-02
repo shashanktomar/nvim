@@ -47,12 +47,12 @@ return {
       opts.window = {
         completion = {
           side_padding = 1,
-          -- winhighlight = "Normal:CmpPmenu,CursorLine:Cmp",
+          winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
           scrollbar = false,
-          border = border("CmpBorder"),
         },
         documentation = {
-          border = border("CmpDocumentationBorder"),
+          border = border("CmpDocBorder"),
+          winhighlight = "Normal:CmpDoc",
         },
       }
 

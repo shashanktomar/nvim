@@ -2,7 +2,7 @@ local M = {}
 
 local highlights = {
   cmp = {
-    CmpBorder = { fg = "#4e4d5d" },
+    -- CmpBorder = { fg = "#4e4d5d" },
   },
 }
 

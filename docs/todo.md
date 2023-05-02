@@ -98,6 +98,8 @@
 - [ ] [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 - [ ] check [awesome-neovim](https://github.com/rockerBOO/awesome-neovim) list.
       [This](https://www.trackawesomelist.com/2023/12/) is a nice changelog for the same list
+- [ ] [navbuddy](https://github.com/SmiteshP/nvim-navbuddy)
+- [ ] [deadcolumn](https://github.com/Bekaboo/deadcolumn.nvim)
 
 ## Other Workflows
 
