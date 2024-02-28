@@ -7,7 +7,10 @@ M.settings = {
 }
 
 local language_props = function()
-  local null_ls = require("null-ls")
+  local ok, null_ls = pcall(require, "null-ls")
+  if not ok then
+    return
+  end
   local code_actions = null_ls.builtins.code_actions
   local formatting = null_ls.builtins.formatting
   local diagnostics = null_ls.builtins.diagnostics

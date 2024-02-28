@@ -1,17 +1,16 @@
 return {
   {
     "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
-        require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
-        require("luasnip").filetype_extend("typescript", { "javascript" })
-      end,
-    },
     -- disable default <tab> and <s-tab> behavior in LuaSnip
     keys = function()
       return {}
+    end,
+  },
+  {
+    "rafamadriz/friendly-snippets",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
+      require("luasnip").filetype_extend("typescript", { "javascript" })
     end,
   },
   {
@@ -43,6 +42,8 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+
+      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
 
       opts.window = {
         completion = {

@@ -27,11 +27,8 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+
   checker = { enabled = true }, -- automatically check for plugin updates
-  dev = {
-    path = "~/projects/personal/nvim-plugins",
-  },
   performance = {
     rtp = {
       -- disable some rtp plugins
@@ -58,7 +55,6 @@ require("lazy").setup({
         "tar",
         "tarPlugin",
         "tohtml",
-        "tutor",
         "tutor",
         "vimball",
         "vimballPlugin",

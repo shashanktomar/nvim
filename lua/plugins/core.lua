@@ -3,6 +3,19 @@ local keys = require("props.keys")
 
 return {
   {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+      news = {
+          -- When enabled, NEWS.md will be shown when changed.
+          -- This only contains big new features and breaking changes.
+          lazyvim = true,
+          -- Same but for Neovim's news.txt
+          neovim = true,
+        },
+    },
+  },
+  {
     "folke/which-key.nvim",
     opts = {
       icons = {
@@ -82,13 +95,7 @@ return {
       },
     },
     dependencies = {
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        config = function()
-          require("telescope").load_extension("fzf")
-        end,
-      },
+      "nvim-telescope/telescope-fzf-native.nvim",
       "nvim-telescope/telescope-symbols.nvim",
       "LinArcX/telescope-env.nvim",
     },

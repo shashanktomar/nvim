@@ -4,7 +4,7 @@ Most of the information here is from `:h lspconfig`
 
 This plugin provides four primary functionalities:
 
-- default launch commands, initialization options, and settings for each server
+- default launch commands, initialization options, and settings for each lsp server
 - a root directory resolver which attempts to detect the root of your project
 - an autocommand mapping that either launches a new language server or attempts to attach a language server to each
   opened buffer if it falls under a tracked project
@@ -17,9 +17,9 @@ Things to note:
     automatically launch a language server.
   - all `config` elements described in `:help vim.lsp.start_client()` can additionally be overridden via the `setup {}`
     call. The most commonly passed overrides to `setup {}` are:
-  - `capabilities`: a table which represents the neovim client capabilities. Useful for broadcasting to the server
+    - `capabilities`: a table which represents the neovim client capabilities. Useful for broadcasting to the server
     additional functionality (snippets, off-protocol features) provided by plugins.
-  - `on_attach`: Callback invoked by Nvim's built-in client when attaching a buffer to a language server. Often used to
+    - `on_attach`: Callback invoked by Nvim's built-in client when attaching a buffer to a language server. Often used to
     set Nvim (buffer or global) options or to override the Nvim client properties (`resolved_capabilities`) after a
     language server attaches. Most commonly used for settings buffer local keybindings.
 - all the available servers are listed under `:h lspconfig-all`

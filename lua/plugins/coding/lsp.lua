@@ -10,7 +10,7 @@ return {
     },
     opts = function(_, opts)
       local ext = {
-        servers = props.language_servers(),
+        -- servers = props.language_servers(),
         diagnostics = {
           virtual_text = {
             source = "always", -- Or "if_many"
@@ -32,33 +32,31 @@ return {
       vim.list_extend(km, keys.lsp)
     end,
   },
-
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      opts.border = "single"
-      vim.list_extend(opts.sources, props.null_ls_sources())
-    end,
-    keys = keys.null_ls,
-  },
-
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   opts = function(_, opts)
+  --     opts.border = "single"
+  --     vim.list_extend(opts.sources, props.null_ls_sources())
+  --   end,
+  --   keys = keys.null_ls,
+  -- },
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
   },
 
   -- This act as a bridge between mason and null-ls and auto install null-ls deps using mason
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-    },
-    opts = {
-      ensure_installed = {},
-      automatic_installation = true,
-      automatic_setup = false,
-    },
-  },
+  -- {
+  --   "jay-babu/mason-null-ls.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --     -- "nvimtools/none-ls.nvim",
+  --   },
+  --   opts = {
+  --     ensure_installed = {},
+  --     automatic_installation = true,
+  --     automatic_setup = false,
+  --   },
+  -- },
 }
