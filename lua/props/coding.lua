@@ -4,6 +4,9 @@ M.settings = {
   lsp = {
     timeout_ms = 5000,
   },
+  snippets = {
+    path = "./snippets",
+  },
 }
 
 local language_props = function()
@@ -17,44 +20,6 @@ local language_props = function()
   -- local completion = null_ls.builtins.completion
 
   return {
-    ts = {
-      lsp_servers = {
-        tsserver = {}, -- TODO: Check config in depth https://github.com/typescript-language-server/typescript-language-server
-        -- eslint = {},
-      },
-      code_actions = {
-        code_actions.eslint_d, -- check lazyvim plugin extras eslint setup if required
-      },
-      formatting = {
-        formatting.eslint_d,
-        formatting.prettierd,
-      },
-    },
-    go = {
-      lsp_servers = {
-        gopls = {},
-      },
-      formatting = {
-        formatting.gofumpt,
-        formatting.goimports,
-        formatting.golines,
-      },
-      diagnostics = {
-        diagnostics.golangci_lint,
-        -- diagnostics.revive,
-        diagnostics.staticcheck,
-      },
-    },
-    python = {
-      lsp_servers = {
-        pyright = {},
-      },
-    },
-    lua = {
-      formatting = {
-        formatting.stylua,
-      },
-    },
     frontend = {
       lsp_servers = {
         html = {},
@@ -111,26 +76,7 @@ local language_props = function()
           },
         },
       },
-      -- From https://github.com/b0o/SchemaStore.nvim/blob/main/lua/schemastore/catalog.lua
-      schemas = {
-        -- nodejs
-        ".eslintrc",
-        "package.json",
-        "prettierrc.json",
-        "tsconfig.json",
-        -- aws
-        "AWS CloudFormation",
-        "AWS CloudFormation Serverless Application Model (SAM)",
-        -- github
-        "GitHub Action",
-        "GitHub Issue Template configuration",
-        "GitHub Workflow Template Properties",
-        "GitHub Workflow",
-        "GitHub issue forms",
-        -- other
-        "Buildkite",
-        "Markdownlint",
-      },
+      schemas = {},
     },
   }
 end

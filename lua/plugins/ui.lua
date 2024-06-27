@@ -1,44 +1,8 @@
 return {
   {
-    "catppuccin/nvim",
-    lazy = true,
-    name = "catppuccin",
+    "LazyVim/LazyVim",
     opts = {
-      integrations = {
-        aerial = true,
-        alpha = true,
-        cmp = true,
-        dashboard = true,
-        flash = true,
-        gitsigns = true,
-        headlines = true,
-        illuminate = true,
-        indent_blankline = { enabled = true },
-        leap = true,
-        lsp_trouble = true,
-        mason = true,
-        markdown = true,
-        mini = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-          },
-        },
-        navic = { enabled = true, custom_bg = "lualine" },
-        neotest = true,
-        neotree = true,
-        noice = true,
-        notify = true,
-        semantic_tokens = true,
-        telescope = true,
-        treesitter = true,
-        treesitter_context = true,
-        which_key = true,
-      },
+      colorscheme = "catppuccin",
     },
   },
   {
@@ -51,5 +15,39 @@ return {
     --   })
     -- end,
     -- lazy = false,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    -- keys = keys.telescope,
+    opts = {
+      defaults = {
+        layout_config = { -- make telescope windows a bit wider
+          horizontal = {
+            preview_width = 0.55,
+            results_width = 0.8,
+          },
+          vertical = {
+            mirror = false,
+          },
+          width = 0.87,
+          height = 0.80,
+          preview_cutoff = 120,
+        },
+      },
+    },
+  },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      icons = {
+        separator = "  ", -- symbol used between a key and it's label
+      },
+      layout = {
+        spacing = 6, -- spacing between columns
+      },
+      window = {
+        border = "single",
+      },
+    },
   },
 }

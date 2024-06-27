@@ -5,12 +5,16 @@
 - vim core
   - [ ] learn scroll shortcuts
   - [ ] understand folding in depth, try for json and yaml. Also check for plugins around the same.
+  - [ ] autocmd
   - [ ] session management
   - [ ] learn window and tab management
     - check window split commands provided by lazyvim under leader key
   - [ ] start using `marks`
   - [ ] setup a good `registers` workflow
   - [ ] learn how to use jumplist, there is also a telescope shortcut
+  - the power of `g`
+    - [ ] check the shortcuts under `g`
+    - [ ] [Power of g](https://vim.fandom.com/wiki/Power_of_g)
 - nvchad
   - [ ] read the code
 - neo-tree
@@ -36,6 +40,3 @@
     - [ ] go through full `nvim-lspconfig` docs and understand in depth
 - cmp
   - [ ] check the `nvim-cmp` [wiki](https://github.com/hrsh7th/nvim-cmp/wiki)
-- the power of `g`
-  - [ ] check the shortcuts under `g`
-  - [ ] [Power of g](https://vim.fandom.com/wiki/Power_of_g)

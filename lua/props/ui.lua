@@ -1,3 +1,5 @@
+local t = require("util.table")
+
 local M = {}
 
 local highlights = {
@@ -6,12 +8,6 @@ local highlights = {
   },
 }
 
-M.highlights = function()
-  local result = {}
-  for _, group in pairs(highlights) do
-    result = vim.tbl_extend("force", result, group)
-  end
-  return result
-end
+M.highlights = t.merge_table(highlights)
 
 return M

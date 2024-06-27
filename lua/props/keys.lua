@@ -1,8 +1,7 @@
-local Util = require("lazyvim.util")
 local LzUtil = require("lazy.core.util")
 local M = {}
 
-M.setup_keys = function()
+M.global_keys = function()
   local paste = require("util.paste")
 
   local unmap = vim.keymap.del
@@ -38,12 +37,12 @@ M.setup_keys = function()
   ----------------------------------------------
 
   -- In insert mode
-  map("i", "<C-e>", "<End>", { desc = "󰞓 Goto beginning of line" })
-  map("i", "<C-b>", "<ESC>^i", { desc = "󰞔 Goto end of line" })
+  map("i", "<C-e>", "<End>", { desc = "󰞔 Goto end of line" })
+  map("i", "<C-b>", "<ESC>^i", { desc = "󰞓 Goto beginning of line" })
   map("i", "<C-h>", "<Left>", { desc = " Move left" })
   map("i", "<C-l>", "<Right>", { desc = " Move right" })
-  map("i", "<C-k>", "<Up>", { desc = " Move up" })
-  map("i", "<C-j>", "<Down>", { desc = " Move down" })
+  map("i", "<C-k>", "<Up>", { desc = " Move up" })
+  map("i", "<C-j>", "<Down>", { desc = " Move down" })
 
   -- Quick movement on line
   map("n", "H", "^", { desc = "󰞓 Goto beginning of line" })
@@ -60,11 +59,11 @@ M.setup_keys = function()
   map("n", "<C-c>", "<cmd> %y+ <CR>", { desc = "󰆏 Copy whole file" })
 
   -- Save all files
-  map({ "i", "v", "n", "s" }, "<C-S>", "<cmd>wa<cr><esc>", { desc = " Save all files" })
+  -- map({ "i", "v", "n", "s" }, "<C-S>", "<cmd>wa<cr><esc>", { desc = " Save all files" })
 
   -- Paste from yank register
-  map("n", "gp", '"0p', { desc = "p from yank register" })
-  map("n", "gP", '"0P', { desc = "P from yank register" })
+  -- map("n", "gp", '"0p', { desc = "p from yank register" })
+  -- map("n", "gP", '"0P', { desc = "P from yank register" })
 
   ----------------------------------------------
   ------------------- Insert -------------------
@@ -75,8 +74,6 @@ M.setup_keys = function()
   end, { desc = " Insert markdown link" })
   map("n", "<leader>iO", "O<Esc>", { desc = "󰞕 Insert a new line up" })
   map("n", "<leader>io", "o<Esc>", { desc = "󰞒 Insert a new line down" })
-  map("n", "gO", "O<Esc>", { desc = "󰞕 Insert a new line up" })
-  map("n", "go", "o<Esc>", { desc = "󰞒 Insert a new line down" })
 
   ----------------------------------------------
   ------------------- Debug --------------------
@@ -88,15 +85,15 @@ M.setup_keys = function()
   ------------------- LSP ----------------------
   ----------------------------------------------
 
-  map("n", "<leader>ci", function()
-    local clients = vim.lsp.get_active_clients({ name = "tsserver" })
-    local ts_sever_missing = vim.tbl_isempty(clients)
-    if ts_sever_missing then
-      LzUtil.error("No tsserver attached", { title = "Command Unavailable" })
-      return
-    end
-    vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
-  end, { desc = "organize imports" })
+  -- map("n", "<leader>ci", function()
+  --   local clients = vim.lsp.get_clients({ name = "tsserver" })
+  --   local ts_sever_missing = vim.tbl_isempty(clients)
+  --   if ts_sever_missing then
+  --     LzUtil.error("No tsserver attached", { title = "Command Unavailable" })
+  --     return
+  --   end
+  --   vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
+  -- end, { desc = "organize imports" })
 
   ----------------------------------------------
   ------------------- TODO ---------------------
@@ -118,64 +115,63 @@ M.setup_keys = function()
   -- ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
 end
 
-M.lsp = {
-  { "gr", "<cmd>Telescope lsp_references show_line=false<cr>", desc = "References" },
-}
-
 M.which_key = {
   groups = {
     ["<leader>sv"] = { name = "+vim" },
     ["<leader>i"] = { name = "+insert" },
+    ["<leader>cl"] = { name = "+lsp" },
     ["<F2>"] = { name = "+debug" },
   },
 }
 
-M.null_ls = {
-  { "<leader>cn", "<cmd>NullLsInfo<cr>", desc = "NullLs" },
+M.lsp = {
+  disable = { "<leader>cl", false },
+  enable = { "<leader>cll", "<cmd>LspInfo<cr>", "Lsp Info" },
+
+  null_ls = {
+    { "<leader>cln", "<cmd>NullLsInfo<cr>", desc = "NullLs" },
+  },
+
+  mason = {
+    { "<leader>cm", false }, -- disable lazyvim binding
+    { "<leader>clm", "<cmd>Mason<cr>" }, -- disable lazyvim binding
+  },
+}
+
+M.neo_tree = {
+  -- we use this to switch buffers and rather use the longer version <leader>fe to open neo_tree
+  { "<leader>e", false },
 }
 
 M.telescope = {
-  -- change the keymap to switch buffers
-  { "<leader>,", false }, -- disable the keymap to switch buffers
-  { "<leader>p", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
+  -- change the keymap for switching buffers
+  { "<leader>,", false }, -- disable lazyvim binding
+  { "<leader>e", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 
-  -- change the keymap to explore recent files
-  { "<leader>fr", false }, -- disable the keymap to switch buffers
-  { "<leader>fo", Util.telescope("oldfiles"), desc = "Recent" },
-
-  -- add more file search commands
-  {
-    "<leader>fF",
-    "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>",
-    desc = "Find All (Including Hidden)",
-  },
-
-  -- code related commands
-  { "<leader>cD", "<cmd>Telescope diagnostics bufnr=0 theme=ivy height=30<cr>", desc = "Buffer Diagnostics" },
-  { "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
+  -- overrides
+  { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0 theme=ivy height=25<cr>", desc = "Document Diagnostics" },
+  { "<leader>sD", "<cmd>Telescope diagnostics theme=ivy height=25<cr>", desc = "Workspace Diagnostics" },
 
   -- insert
-  { "<leader>is", "<cmd>Telescope symbols<cr>", desc = "😊 Symbols/Emojis" },
-  { "<leader>ip", "<cmd>Telescope registers<cr>", desc = "Paste From Registers" },
+  { '<leader>s"', false }, -- disable lazyvim binding
+  -- { "<leader>is", "<cmd>Telescope symbols<cr>", desc = "😊 Symbols/Emojis" },
+  { '<leader>i"', "<cmd>Telescope registers<cr>", desc = "Paste From Registers" },
 
-  -- search commands
-  { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fzy Search In Buffer" },
+  -- additonal search commands
   { "<leader>sH", "<cmd>Telescope search_history<cr>", desc = "Search History" },
   { "<leader>se", "<cmd>Telescope env<cr>", desc = "Environment Vars" },
-  { "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
-  { "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix" },
   { "<leader>sQ", "<cmd>Telescope quickfixhistory<cr>", desc = "Quickfix History" },
+  { "<leader>sN", "<cmd>Telescope notify<cr>", desc = "Notification History" },
 
   -- vim search commands
   { "<leader>sa", false }, -- disable auto command search set by lazyvim
   { "<leader>sva", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
   { "<leader>sC", false }, -- disable command search set by lazyvim
   { "<leader>svc", "<cmd>Telescope commands<cr>", desc = "Commands" },
-  { "<leader>sH", false }, -- disable highlight groups search set by lazyvim
   { "<leader>svh", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
   { "<leader>sk", false }, -- disable keymaps search set by lazyvim
   { "<leader>svk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
-  { "<leader>so", false }, -- disable keymaps search set by lazyvim
+  { "<leader>so", false }, -- disable vim_options search set by lazyvim
   { "<leader>svo", "<cmd>Telescope vim_options<cr>", desc = "Options" },
   { "<leader>svf", "<cmd>Telescope filetypes<cr>", desc = "Filetypes" },
 }

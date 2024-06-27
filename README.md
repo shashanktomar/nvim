@@ -2,6 +2,11 @@
 
 TODO: Add Image
 
+This was forked from `lazyvim` [repo](https://github.com/LazyVim/starter).
+
+- `lazy.nvim` is the plugin manager that is at the root of this setup
+- `lazyvim` is a quick starter boilerplate off which this is based.
+
 ## Try in docker
 
 ### Directly in Docker
@@ -27,19 +32,19 @@ Check this [video](https://www.youtube.com/watch?v=LkHjJlSgKZY)
 
 ## Docs
 
+- [plugins used](./docs/plugins.md)
 - [todo](./docs/todo.md)
+- [practice routine](./docs/practice-routine.md)
 - [learning path](./docs/learning-path.md)
-- [lsp](./docs/lsp.md) setup
 - [nvchad vs lazyvim](./docs/nvchad-vs-lazyvim.md)
 - [project specific setup](./docs/project-specific-setup.md)
-- [add a new language](./docs/add-new-language.md)
 - [cheatsheet.md](./docs/cheatsheet.md)
 
 ## Making Changes
 
 The config is inspired from `lazyvim`, `nvchad` and
-[folke's config](https://github.com/folke/dot/blob/master/nvim/README.md) configs. Refer to the repos in case of doubts.
+[folke's](https://github.com/folke/dot/blob/master/nvim/README.md) configs. Refer to the repos in case of doubts.
 
 - to add a new language support, check [this](./docs/add-new-language.md) doc
 - config which need to be touched frequently is under `lua/props`
-- always check `lua/plugins/example.lua` for examples
+- always check `lua/plugins/example.lua` for examples and read <https://lazy.folke.io/> docs

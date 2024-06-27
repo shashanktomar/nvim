@@ -16,4 +16,6 @@ M.close_with_q_filetypes = {
   "scratch.out",
 }
 
+M.telescope = { file_ignore_patterns = {} }
+
 return M
