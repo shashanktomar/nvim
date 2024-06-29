@@ -1,5 +1,9 @@
 local M = {}
 
+M.toggles = {
+  CMP = { flag = "cmp_enabled", default = true, key = "c" },
+}
+
 -- close some filetypes with <q>
 M.close_with_q_filetypes = {
   "PlenaryTestPopup",

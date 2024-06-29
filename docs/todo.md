@@ -6,8 +6,8 @@
   - check [nvchad vs lazyvim](./nvchad-vs-lazyvim.md)
 - [x] bootstrap from `lazyvim` `starter` repo
 - [x] add `.stylua.toml` and add support for it
-- [ ] setup custom plugins like extras are setup in `lazyvim` repo
-- [ ] enable lang, formatting and editing sections in extras from `lazyvim`
+- [x] follow `lazyvim` pattern to structure plugins
+- [x] enable lang, formatting and editing sections in extras from `lazyvim`
 - [ ] add `.luarc.json` and add support for it. Check `nvchad` repo for reference
 
 ## Mappings, Autocmds and Options
@@ -17,6 +17,8 @@
 - [ ] compare `nvchad` and personal autocmds with `lazyvim` and add if missing
 - [ ] own all the mappings and consolidate `nvchad`, `lazygit` and personal mappings
 - [ ] keep the mapping as close a possible to [vimium](https://github.com/philc/vimium/wiki) plugin in browser
+- [ ] change default macro key
+- [x] introduce toggles
 
 ## Plugins
 
@@ -27,6 +29,11 @@
   - [ ] add thrash and undo delete support. Some help is
         [here](https://github.com/nvim-neo-tree/neo-tree.nvim/issues/202)
 - [ ] which-key setup
+- [ ] nvim-cmp setup
+  - [x] change tab and supertab behaviour
+  - [x] add borders
+  - [ ] check the list of extensions [here](https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources)
+  - [x] [customise ui](https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance)
 - [ ] telescope setup
   - [x] understand `lazyvim` and `nvchad` setup
   - [x] replicate existing setup
@@ -41,7 +48,7 @@
           interesting
     - [ ] add [telescope-software-licenses](https://github.com/chip/telescope-software-licenses.nvim) extension
     - [ ] do we need [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)?
-- [ ] `mason` setup
+- [x] `mason` setup
 
 ### Code
 
@@ -66,6 +73,7 @@
   - [ ] understand how `neoconf` and `neodev` works
   - [x] port old keymaps and change if required
   - [ ] add minimal diagnostics icons toggle
+    - check `:help vim.diagnostic.config`
   - [ ] do we need async auto formatting as used in current setup
 - code completion
   - [ ] `nvim-cmp`
@@ -90,5 +98,5 @@
 - [ ] add case related utils, check twiddleCase at [this](https://vim.fandom.com/wiki/Switching_case_of_characters)
       fandom wiki. Also check for relevant plugins
 - [ ] check [dot files](http://www.lazyvim.org/extras/util/dot) extras in lazyvim
-- [ ] gitui in lazyvim? http://www.lazyvim.org/extras/util/gitui
+- [ ] [gitui](http://www.lazyvim.org/extras/util/gitui) in lazyvim?
 - [ ] check lazyvim tips and tricks as per document

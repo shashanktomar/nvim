@@ -42,9 +42,8 @@ Check this [video](https://www.youtube.com/watch?v=LkHjJlSgKZY)
 
 ## Making Changes
 
-The config is inspired from `lazyvim`, `nvchad` and
-[folke's](https://github.com/folke/dot/blob/master/nvim/README.md) configs. Refer to the repos in case of doubts.
+The config is inspired from `lazyvim`, `nvchad` and [folke's](https://github.com/folke/dot/blob/master/nvim/README.md)
+configs. Refer to the repos in case of doubts.
 
-- to add a new language support, check [this](./docs/add-new-language.md) doc
 - config which need to be touched frequently is under `lua/props`
 - always check `lua/plugins/example.lua` for examples and read <https://lazy.folke.io/> docs

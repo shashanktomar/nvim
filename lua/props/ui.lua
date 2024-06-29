@@ -10,4 +10,16 @@ local highlights = {
 
 M.highlights = t.merge_table(highlights)
 
+M.cmp = {
+  sources = {
+    buffer = "[Buffer]",
+    nvim_lsp = "[LSP]",
+    nvim_lua = "[Lua]",
+    latex_symbols = "[LaTeX]",
+    snippets = "[Snippet]",
+    cmdline = "[CMD]",
+    path = "[Path]",
+  },
+}
+
 return M

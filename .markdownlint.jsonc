@@ -4,5 +4,6 @@
     "strict": true,
     "code_blocks": false,
     "line_length": 120
-  }
+  },
+  "MD024": false
 }

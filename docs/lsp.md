@@ -31,6 +31,7 @@ This document try to capture how the lsp works under the hood and why so many pl
     `filesystem-paths` etc.
   - `cmp-nvim-lsp`
     - it is one of the sources for `nvim-cmp` but not sure what it does
+  - a list of extensions can be found [here](https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources)
 
 ## Other LSP Plugins
 

@@ -1,4 +1,4 @@
-local LzUtil = require("lazy.core.util")
+local editor = require("props.editor")
 local M = {}
 
 M.global_keys = function()
@@ -82,6 +82,21 @@ M.global_keys = function()
   map("n", "<F2>s", "<cmd>luafile lua/scratch/test.lua<cr>", { desc = "Execute scratch/test.lua" })
 
   ----------------------------------------------
+  ------------------- Toggles ------------------
+  ----------------------------------------------
+
+  -- setup toggle global vars
+  for name, toggle in pairs(editor.toggles) do
+    local key = "<leader>t" .. toggle.key
+    map("n", key, function()
+      vim.g[toggle.flag] = not vim.g[toggle.flag]
+      local status = vim.g[toggle.flag] == true and "on" or "off"
+      local msg = ("%s toggled %s"):format(name, status)
+      vim.notify(msg, vim.log.levels.INFO, { title = "Toggle " .. status })
+    end, { desc = "Toggle " .. name })
+  end
+
+  ----------------------------------------------
   ------------------- LSP ----------------------
   ----------------------------------------------
 
@@ -115,12 +130,17 @@ M.global_keys = function()
   -- ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
 end
 
+----------------------------------------------
+------------------- Plugins ------------------
+----------------------------------------------
+
 M.which_key = {
   groups = {
     ["<leader>sv"] = { name = "+vim" },
     ["<leader>i"] = { name = "+insert" },
     ["<leader>cl"] = { name = "+lsp" },
     ["<F2>"] = { name = "+debug" },
+    ["<leader>t"] = { name = "+toggles" },
   },
 }
 
