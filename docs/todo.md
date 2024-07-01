@@ -29,24 +29,22 @@
   - [ ] add thrash and undo delete support. Some help is
         [here](https://github.com/nvim-neo-tree/neo-tree.nvim/issues/202)
 - [ ] which-key setup
-- [ ] nvim-cmp setup
+- [x] nvim-cmp setup
   - [x] change tab and supertab behaviour
   - [x] add borders
-  - [ ] check the list of extensions [here](https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources)
   - [x] [customise ui](https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance)
+- [ ] nvim-cmp list of extensions from [here](https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources)
 - [ ] telescope setup
   - [x] understand `lazyvim` and `nvchad` setup
   - [x] replicate existing setup
-  - [ ] simplify the `lsp_document_symbols` filter for markdown files
   - [ ] add feature to have both file search and grep in a given dir (see example.lua)
-  - [ ] check why `<C-l>` is not working in `:Telescope lsp_document_symbols` like
-        [this](https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4)
+  - check why `<C-l>` is not working in `:Telescope lsp_document_symbols` like
+    [this](https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4)
   - [ ] check [extensions](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions)
     - [x] install a native sorter
     - [ ] set dap extension
     - [ ] explore [telescope-frecency extension](https://github.com/nvim-telescope/telescope-frecency.nvim), it looks
           interesting
-    - [ ] add [telescope-software-licenses](https://github.com/chip/telescope-software-licenses.nvim) extension
     - [ ] do we need [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)?
 - [x] `mason` setup
 
@@ -75,21 +73,8 @@
   - [ ] add minimal diagnostics icons toggle
     - check `:help vim.diagnostic.config`
   - [ ] do we need async auto formatting as used in current setup
-- code completion
-  - [ ] `nvim-cmp`
-    - [ ] replicate existing setup
 - highlights
   - [ ] treesitter
-
-### UI
-
-- [ ] add borders to mason, lsp and null windows
-  - [x] for mason
-  - [ ] for null-ls
-    - [x] add border
-    - [ ] set border highlight
-  - [x] for lspinfo
-- [ ] notify keep popping up way too much
 
 ## Other Workflows
 
@@ -100,3 +85,4 @@
 - [ ] check [dot files](http://www.lazyvim.org/extras/util/dot) extras in lazyvim
 - [ ] [gitui](http://www.lazyvim.org/extras/util/gitui) in lazyvim?
 - [ ] check lazyvim tips and tricks as per document
+- [ ] add markdown toggle,

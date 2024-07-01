@@ -1,6 +1,7 @@
 local editor_props = require("props.editor")
 local keys = require("props.keys")
 
+local dial = {}
 return {
   {
     "LazyVim/LazyVim",
@@ -22,6 +23,20 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = keys.neo_tree,
+  },
+
+  {
+    "monaqa/dial.nvim",
+    keys = keys.dial(),
+    opts = function(_, opts)
+      for key, value in pairs(editor_props.dials.groups()) do
+        if opts.groups[key] then
+          vim.list_extend(opts.groups[key], value)
+        else
+          opts.groups[key] = value
+        end
+      end
+    end,
   },
 
   {

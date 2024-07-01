@@ -12,6 +12,7 @@
   - [ ] session management
   - [ ] learn window and tab management
     - check window split commands provided by lazyvim under leader key
+  - [ ] understand nvim [startup sequence](https://neovim.io/doc/user/starting.html#initialization)
   - the power of `g`
     - [ ] check the shortcuts under `g`
     - [ ] [Power of g](https://vim.fandom.com/wiki/Power_of_g)

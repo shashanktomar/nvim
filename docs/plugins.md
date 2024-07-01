@@ -33,6 +33,9 @@
   - [mini.ai](https://github.com/echasnovski/mini.ai): better text objects
 - [ts-comments.nvim](https://github.com/folke/ts-comments.nvim): plugin to enhance Neovim's native comments
 - [Luvit-Meta](https://github.com/Bilal2453/luvit-meta): has something to do with luvit lua framework
+- language
+  - markdown
+    - [mkdnflow](https://github.com/jakewvincent/mkdnflow.nvim)
 
 ### Git
 
@@ -70,6 +73,10 @@
 - [nui.nvim](https://github.com/MunifTanjim/nui.nvim): ui components
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim): dashboard
 
+### Utils
+
+- [dial.nvim](https://github.com/monaqa/dial.nvim): Extended increment/decrement plugin for Neovim
+
 ### Libraries
 
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim): library used by other plugins
@@ -85,6 +92,7 @@
     - maybe not, check [this](https://github.com/LazyVim/LazyVim/issues/2428) issue
   - nvim-cmp extensions
     - [cmp-rg](https://github.com/lukas-reineke/cmp-rg): project words using ripgrep
+    - [vim-dadbod-completion](https://github.com/kristijanhusak/vim-dadbod-completion): database tables using vim-dadbod
     - [cmp-nerdfont](https://github.com/chrisgrieser/cmp-nerdfont): nerdfont icons
     - check AI related completion plugins [here](https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources#ai)
     - css colors and font [extensions](https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources#css-colors-and-font)
@@ -93,6 +101,14 @@
       mentions, etc.
     - [cmp-tmux](https://github.com/andersevenrud/cmp-tmux)
     - [cmp-dictionary](https://github.com/uga-rosa/cmp-dictionary)
+    - note-taking and academic writin plugins
+      [here](https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources#note-taking-and-academic-writing)
+    - [cmp-look](https://github.com/octaltree/cmp-look)
+    - [cmp-sql](https://github.com/ray-x/cmp-sql): source for sql keywords
+    - [nvim-cmp-lua](https://github.com/hrsh7th/cmp-nvim-lua): source for neovim Lua API.
+    - [otter.nvim](https://github.com/jmbuhr/otter.nvim): completion for injected languages based on synced buffers
+    - [cmp-dotenv](https://github.com/SergioRibera/cmp-dotenv)
+    - [cmp-dynamic](https://github.com/uga-rosa/cmp-dynamic): dynamically generate candidates using Lua functions.
 - formatting
   - \*[conform.nvim](https://github.com/stevearc/conform.nvim): Lightweight yet powerful formatter plugin for Neovim
 - llm tools
@@ -172,7 +188,6 @@
 
 ### Utils
 
-- \*[dial.nvim](https://github.com/monaqa/dial.nvim): Extended increment/decrement plugin for Neovim
 - \*[harpoon2](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)
 - \*[vim-repeat](https://github.com/tpope/vim-repeat): makes some plugins dot-repeatable like leap
 - \*[mini.files](https://github.com/echasnovski/mini.files): Navigate and manipulate file system

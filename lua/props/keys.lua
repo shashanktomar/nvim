@@ -1,6 +1,6 @@
 local editor = require("props.editor")
-local M = {}
 
+local M = {}
 M.global_keys = function()
   local paste = require("util.paste")
 
@@ -157,6 +157,61 @@ M.lsp = {
     { "<leader>clm", "<cmd>Mason<cr>" }, -- disable lazyvim binding
   },
 }
+
+M.dial = function()
+  -- copied from https://github.com/LazyVim/LazyVim/blob/73e72ee21d7673e4040bb99f4de834410219d6cb/lua/lazyvim/plugins/extras/editor/dial.lua#L5s
+  ---@param increment boolean
+  ---@param g? boolean
+  local function map_dial(increment, g)
+    local mode = vim.fn.mode(true)
+    -- Use visual commands for VISUAL 'v', VISUAL LINE 'V' and VISUAL BLOCK '\22'
+    local is_visual = mode == "v" or mode == "V" or mode == "\22"
+    local func = (increment and "inc" or "dec") .. (g and "_g" or "_") .. (is_visual and "visual" or "normal")
+    local group = editor.dials.dials_by_ft[vim.bo.filetype] or "default"
+    return require("dial.map")[func](group)
+  end
+
+  return {
+    { "<C-a>", false },
+    { "g<C-a>", false },
+    {
+      "<C-i>",
+      function()
+        return map_dial(true)
+      end,
+      expr = true,
+      desc = "Increment",
+      mode = { "n", "v" },
+    },
+    {
+      "<C-x>",
+      function()
+        return map_dial(false)
+      end,
+      expr = true,
+      desc = "Decrement",
+      mode = { "n", "v" },
+    },
+    {
+      "g<C-i>",
+      function()
+        return map_dial(true, true)
+      end,
+      expr = true,
+      desc = "Increment",
+      mode = { "n", "v" },
+    },
+    {
+      "g<C-x>",
+      function()
+        return map_dial(false, true)
+      end,
+      expr = true,
+      desc = "Decrement",
+      mode = { "n", "v" },
+    },
+  }
+end
 
 M.neo_tree = {
   -- we use this to switch buffers and rather use the longer version <leader>fe to open neo_tree

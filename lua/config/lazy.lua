@@ -13,6 +13,7 @@ require("lazy").setup({
     -- LazyVim extra plugins
     { import = "lazyvim.plugins.extras.editor.telescope" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    { import = "lazyvim.plugins.extras.editor.dial" },
     -- LazyVim language extras, see the setup code here
     -- https://github.com/LazyVim/LazyVim/tree/5e1c474192372caca7d95d4a85dd5939fe95cca3/lua/lazyvim/plugins/extras/lang
     { import = "lazyvim.plugins.extras.lang.docker" },
