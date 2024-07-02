@@ -1,9 +1,5 @@
 {
   "default": true,
-  "line-length": {
-    "strict": true,
-    "code_blocks": false,
-    "line_length": 120
-  },
-  "MD024": false
+  "MD013": false, // disable line-length as we use nvim setting using ftplugin
+  "MD024": false // no-duplicate-heading
 }

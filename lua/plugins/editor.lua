@@ -1,7 +1,6 @@
 local editor_props = require("props.editor")
 local keys = require("props.keys")
 
-local dial = {}
 return {
   {
     "LazyVim/LazyVim",

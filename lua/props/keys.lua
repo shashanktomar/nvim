@@ -82,21 +82,6 @@ M.global_keys = function()
   map("n", "<F2>s", "<cmd>luafile lua/scratch/test.lua<cr>", { desc = "Execute scratch/test.lua" })
 
   ----------------------------------------------
-  ------------------- Toggles ------------------
-  ----------------------------------------------
-
-  -- setup toggle global vars
-  for name, toggle in pairs(editor.toggles) do
-    local key = "<leader>t" .. toggle.key
-    map("n", key, function()
-      vim.g[toggle.flag] = not vim.g[toggle.flag]
-      local status = vim.g[toggle.flag] == true and "on" or "off"
-      local msg = ("%s toggled %s"):format(name, status)
-      vim.notify(msg, vim.log.levels.INFO, { title = "Toggle " .. status })
-    end, { desc = "Toggle " .. name })
-  end
-
-  ----------------------------------------------
   ------------------- LSP ----------------------
   ----------------------------------------------
 
@@ -128,6 +113,19 @@ M.global_keys = function()
   -- ['<C-M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
   -- ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
   -- ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
+  --
+
+  ----------------------------------------------
+  ------------------- Toggles ------------------
+  ----------------------------------------------
+  -- Change conceal toggle, check https://github.com/LazyVim/LazyVim/blob/78cf6ee024cbf6a17dc8406555eb131994cd8b63/lua/lazyvim/config/keymaps.lua#L125C1-L126C125
+  unmap("n", "<leader>uc")
+  local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
+  map("n", "<leader>uC", function()
+    LazyVim.toggle("conceallevel", false, { 0, conceallevel })
+  end, { desc = "Toggle Conceal" })
+
+  require("util.toggle").set_toggle("<leader>u", editor.toggles)
 end
 
 ----------------------------------------------
@@ -249,6 +247,10 @@ M.telescope = {
   { "<leader>so", false }, -- disable vim_options search set by lazyvim
   { "<leader>svo", "<cmd>Telescope vim_options<cr>", desc = "Options" },
   { "<leader>svf", "<cmd>Telescope filetypes<cr>", desc = "Filetypes" },
+
+  -- change colorscheme shortcut
+  { "<leader>uC", false },
+  { "<leader>ut", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme(Theme) with Preview" },
 }
 
 return M

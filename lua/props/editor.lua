@@ -1,7 +1,9 @@
 local M = {}
 
+-- this is primarily for custom toggles. For vim toggles that involve vim options, use toggle like in
+-- lazyvim https://github.com/LazyVim/LazyVim/blob/78cf6ee024cbf6a17dc8406555eb131994cd8b63/lua/lazyvim/config/keymaps.lua#L117
 M.toggles = {
-  CMP = { flag = "cmp_enabled", default = true, key = "c" },
+  CMP = { flag = "cmp_enabled", text = "Toggle Completion", default = true, key = "c" },
 }
 
 -- close some filetypes with <q>
@@ -28,6 +30,7 @@ M.dials = {
     javascript = "typescript",
     javascriptreact = "typescript",
     json = "json",
+    jsonc = "json",
     lua = "lua",
     markdown = "markdown",
     python = "python",
@@ -46,10 +49,15 @@ M.dials = {
       markdown = {
         checklist,
       },
+      json = {
+        augend.constant.alias.bool,
+      },
     }
   end,
 }
 
+-- avoid using this as it make telescope extremely slow as per this comment https://github.com/nvim-telescope/telescope.nvim/issues/522#issuecomment-1034458495
+-- .gitignore files are already ignored, for other files, use .
 M.telescope = { file_ignore_patterns = {} }
 
 return M

@@ -8,7 +8,14 @@
 - [x] add `.stylua.toml` and add support for it
 - [x] follow `lazyvim` pattern to structure plugins
 - [x] enable lang, formatting and editing sections in extras from `lazyvim`
-- [ ] add `.luarc.json` and add support for it. Check `nvchad` repo for reference
+- [ ] add `.luarc.json` and add support for it. Check `nvchad` repo for reference. Also check why
+      [lazydev.nvim](https://github.com/folke/lazydev.nvim) is disabled when this file is found
+- [x] add `/after/ftplugin` to have language specific settings as in [this](https://github.com/willothy/nvim-config)
+      repo
+- [ ] dictionary support for word under cursor
+- [ ] project specific settings
+- [ ] revisit my-help and set it up using markdown and [panvimdoc](https://github.com/kdheepak/panvimdoc). Folke's
+      plugin generate help like this
 
 ## Mappings, Autocmds and Options
 

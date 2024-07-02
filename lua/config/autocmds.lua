@@ -19,13 +19,3 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
-
--- TODO: Revisit this
---
--- dont list quickfix buffers
--- autocmd("FileType", {
---   pattern = "qf",
---   callback = function()
---     vim.opt_local.buflisted = false
---   end,
--- })
