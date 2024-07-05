@@ -1,5 +1,8 @@
 # Practice Routine
 
+- vim
+  - [ ] finish vim tutor, run `vimtutor` from cli (not from inside vim)
+  - [ ] spelling suggestions with `z=`. This is a builtin in vim but hijacked by `whichkey` in our setup
 - flash
   - [ ] start using labelled search
   - [x] start using jump labels, `s`
@@ -16,4 +19,43 @@
         - perform any motion, like iw or even start flash Treesitter with S
         - the yank will be performed on the new selection
         - you'll be back in the original window / position
-
+- neotree
+  - [ ] get in practice of using all three, `<leader>` `fe`, `ge` and `be` commands. They can also be toggled while you
+        are in neotree window by pressing `>` and `<`
+- mini.surround
+  - [ ] surround
+    - [ ] surround word - `gsaiw` is mapped to `<leader>iw`. Get used to it
+    - [ ] surround word interactively - `gsaiw?` is mapped to `<leader>iW`. Get used to it
+  - [ ] practice replace surroundings - `gsr`
+  - [ ] find and move to next surrounding - `gsf`, find last - `gsfl`
+  - [ ] practice with function calls, the keyword is `f`. So `gsrlf(` will replace last function call with bracket `(`
+- textobjects
+  - [ ] incremental selection with `<c-space>` and `backspace`
+  - text objects
+    - [ ] brackets can also be selected with a generic selector `b`
+    - [ ] quotes can also be selected with a generic selector `q`
+    - [ ] opening brackets are different from closing in how they treat space, see `:h MiniAi-textobject-builtin`
+    - [ ] custom prompt with `?`
+    - [ ] tag with `t`
+    - [ ] underscore
+    - [ ] digit with `d`
+    - [ ] word in camelcase of snakecase with `e`
+    - [ ] sentence with `s` and paragraph with `p`
+    - [ ] next or last text objects with `n` and `l`
+    - [ ] function is `f`
+    - [ ] indent with `i`
+    - [ ] class is `c`
+    - [ ] arguments is `a`
+    - [ ] block, conditional or loop with `o`
+    - [ ] fn call with u and U
+    - [ ] comments with `/`
+    - [ ] variable assignment with with `v`, `a` capture full, `i` capture the side you are on
+    - [ ] lhs of variable assignment with with `y`, as in `y = x`
+    - [ ] rhs of variable assignment with with `x`, as in `y = x`
+  - move with `[`, `]` (treesitter text_objects plugin) and `g[`, `g]` around objects (mini.ai)
+    - [ ] goto next, previous (start and end) of text objects with `[` and `]`
+    - [ ] goto next and previous reference of word under cursor in code with `]]` and `[[`
+    - [ ] you can navigate "around" all mini text objects using `g[` and `g]`. Notice that this is to move around
+          objects and not to next or last
+  - [ ] select all above text objects
+  - [ ] swap for functions and arguments using `<leader>m`

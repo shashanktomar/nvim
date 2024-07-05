@@ -1,0 +1,11 @@
+treesitter
+nvim
+textobjects
+venv
+lspconfig
+tmux
+dap
+vscode
+golang
+sqlite
+lua

@@ -10,11 +10,15 @@ If something doesn't seem right, first thing you should do it run healthcheck fo
   - manual folding example
     - `zf'a` will fold from the current line to wherever the mark `a` has been set
     - `zf3j` folds the current line along with the following 3 lines
-    - if you want to create folds in a text file that uses curly braces (json files) to delimit code blocks ({...}), 
-    you can use the command `zfa}` to create a fold for the current code block.
-
+    - if you want to create folds in a text file that uses curly braces (json files) to delimit code blocks ({...}), you
+      can use the command `zfa}` to create a fold for the current code block.
 
 ## Plugins
+
+- lazyvim
+
+  - you want to use opts inside keys config, check [mini.surround](http://www.lazyvim.org/extras/coding/mini-surround)
+    setup
 
 - telescope
   - `:telescope builtin` to see a list of builtin pickers

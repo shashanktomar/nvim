@@ -42,6 +42,7 @@ return {
     opts = {
       icons = {
         separator = "  ", -- symbol used between a key and it's label
+        group = " ",
       },
       layout = {
         spacing = 6, -- spacing between columns

@@ -60,6 +60,7 @@
   comment in your project and loads them into a browsable list.
 - [persistence.nvim](https://github.com/folke/persistence.nvim): session management
 - [dressing.nvim](https://github.com/stevearc/dressing.nvim): better vim.ui with telescope
+- [mini.surround](https://github.com/echasnovski/mini.surround): surround actions
 
 ### UI
 
@@ -67,6 +68,8 @@
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim): tab manager
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim): status line manager
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim): indent guides for Neovim
+- [mini.indentscope](https://github.com/echasnovski/mini.indentscope): Active indent guide and indent text objects. When
+  you're browsing code, this highlights the current level of indentation, and animates the highlighting.
 - [noice.nvim](https://github.com/folke/noice.nvim): Highly experimental plugin that completely replaces the UI for
   messages, cmdline and the popupmenu
 - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons): icons
@@ -180,10 +183,6 @@
 - \*[alpha.nvim](https://github.com/goolord/alpha-nvim): fast and fully programmable greeter for neovim.
 - \*[mini.starter](https://github.com/echasnovski/mini.starter): Fast and flexible start screen
 - \*[mini.animate](https://github.com/echasnovski/mini.animate): animations
-- \*[mini.indentscope](https://github.com/echasnovski/mini.indentscope): Active indent guide and indent text objects.
-  When you're browsing code, this highlights the current level of indentation, and animates the highlighting.
-- \*[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim): This plugin adds indentation guides
-  to Neovim. It uses Neovim's virtual text feature and no conceal
 - \*[nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context): sticky code context line
 
 ### Utils
@@ -194,6 +193,8 @@
 - \*[mini.hipatterns](https://github.com/echasnovski/mini.hipatterns): highlight patterns in text
 - \*[vim-startuptime](https://github.com/dstein64/vim-startuptime)
 - [obsidian-nvim](https://github.com/epwalsh/obsidian.nvim)
+- [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo): better folding
+- [fold-preview](https://github.com/anuvyklack/fold-preview.nvim)
 
 ### Libraries
 

@@ -7,9 +7,9 @@ M.set_toggle = function(group, toggles)
     vim.keymap.set("n", key, function()
       vim.g[toggle.flag] = not vim.g[toggle.flag]
       local status = vim.g[toggle.flag] == true and "on" or "off"
-      local level = status == "on" and vim.log.levels.INFO or vim.log.levels.WARN
+      local level = status == "on" and "info" or "warn"
       local msg = ("%s toggled %s"):format(name, status)
-      vim.notify(msg, level, { title = "Option" })
+      LazyVim[level](msg, { title = "Option" })
     end, { desc = toggle.text })
   end
 end

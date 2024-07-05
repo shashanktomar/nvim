@@ -1,5 +1,6 @@
 local editor_props = require("props.editor")
 local keys = require("props.keys")
+local Util = require("lazy.core.util")
 
 return {
   {
@@ -36,6 +37,15 @@ return {
         end
       end
     end,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "tmux",
+      },
+    },
   },
 
   {
@@ -77,6 +87,7 @@ return {
     end,
     dependencies = {
       "LinArcX/telescope-env.nvim",
+      "nvim-telescope/telescope-symbols.nvim",
     },
     init = function()
       local extensions_list = { "env" }

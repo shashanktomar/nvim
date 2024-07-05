@@ -2,8 +2,6 @@ local editor = require("props.editor")
 
 local M = {}
 M.global_keys = function()
-  local paste = require("util.paste")
-
   local unmap = vim.keymap.del
   local function map(mode, lhs, rhs, opts)
     opts = opts or {}
@@ -12,12 +10,6 @@ M.global_keys = function()
   ----------------------------------------------
   ---------- Unmap lazyvim bindings ------------
   ----------------------------------------------
-
-  -- Remove window resizing keys
-  unmap("n", "<C-Up>")
-  unmap("n", "<C-Down>")
-  unmap("n", "<C-Left>")
-  unmap("n", "<C-Right>")
 
   -- Remove switch to last buffer binding
   unmap("n", "<leader>`")
@@ -69,11 +61,12 @@ M.global_keys = function()
   ------------------- Insert -------------------
   ----------------------------------------------
 
-  map("n", "<leader>il", function()
-    paste.insert_from_register("+", "markdown_link")
-  end, { desc = " Insert markdown link" })
   map("n", "<leader>iO", "O<Esc>", { desc = "󰞕 Insert a new line up" })
   map("n", "<leader>io", "o<Esc>", { desc = "󰞒 Insert a new line down" })
+  map("n", "<leader>iw", "gsaiw", { desc = "󰡎 Surround word", remap = true })
+  map("n", "<leader>iW", "gsaiw?", { desc = "󰡎 Surround word interactively", remap = true })
+  map("n", "<leader>iw", "gsaiw", { desc = "󰡎 Surround word", remap = true })
+  -- check after/ftplugin/markdown.lua for more shortcuts
 
   ----------------------------------------------
   ------------------- Debug --------------------
@@ -82,42 +75,17 @@ M.global_keys = function()
   map("n", "<F2>s", "<cmd>luafile lua/scratch/test.lua<cr>", { desc = "Execute scratch/test.lua" })
 
   ----------------------------------------------
-  ------------------- LSP ----------------------
+  ---------------- Treesitter ------------------
   ----------------------------------------------
 
-  -- map("n", "<leader>ci", function()
-  --   local clients = vim.lsp.get_clients({ name = "tsserver" })
-  --   local ts_sever_missing = vim.tbl_isempty(clients)
-  --   if ts_sever_missing then
-  --     LzUtil.error("No tsserver attached", { title = "Command Unavailable" })
-  --     return
-  --   end
-  --   vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
-  -- end, { desc = "organize imports" })
-
-  ----------------------------------------------
-  ------------------- TODO ---------------------
-  ----------------------------------------------
-
-  --  TODO: Find alternate keys for these
-
-  -- Move Lines
-  -- map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-  -- map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-  -- map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-  -- map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-  -- map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-  -- map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
-  --
-  -- ['<C-M-j>'] = { '<Esc>:m .+1<CR>', ' move line down' },
-  -- ['<C-M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
-  -- ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
-  -- ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
-  --
+  map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos (Treesitter)" })
+  map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree (Treesitter)" })
+  map("n", "<leader>uq", "<cmd>EditQuery<cr>", { desc = "Edit Query (Treesitter)" })
 
   ----------------------------------------------
   ------------------- Toggles ------------------
   ----------------------------------------------
+
   -- Change conceal toggle, check https://github.com/LazyVim/LazyVim/blob/78cf6ee024cbf6a17dc8406555eb131994cd8b63/lua/lazyvim/config/keymaps.lua#L125C1-L126C125
   unmap("n", "<leader>uc")
   local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
@@ -127,6 +95,42 @@ M.global_keys = function()
 
   require("util.toggle").set_toggle("<leader>u", editor.toggles)
 end
+
+----------------------------------------------
+------------------- LSP ----------------------
+----------------------------------------------
+
+--  TODO: Check if this is still required
+--
+-- map("n", "<leader>ci", function()
+--   local clients = vim.lsp.get_clients({ name = "tsserver" })
+--   local ts_sever_missing = vim.tbl_isempty(clients)
+--   if ts_sever_missing then
+--     LzUtil.error("No tsserver attached", { title = "Command Unavailable" })
+--     return
+--   end
+--   vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
+-- end, { desc = "organize imports" })
+
+----------------------------------------------
+------------------- TODO ---------------------
+----------------------------------------------
+
+--  TODO: Find alternate keys for these
+
+-- Move Lines
+-- map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+-- map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+-- map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+-- map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+-- map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+-- map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+--
+-- ['<C-M-j>'] = { '<Esc>:m .+1<CR>', ' move line down' },
+-- ['<C-M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
+-- ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
+-- ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
+--
 
 ----------------------------------------------
 ------------------- Plugins ------------------
@@ -139,6 +143,7 @@ M.which_key = {
     ["<leader>cl"] = { name = "+lsp" },
     ["<F2>"] = { name = "+debug" },
     ["<leader>t"] = { name = "+toggles" },
+    ["<leader>m"] = { name = "+move" },
   },
 }
 
@@ -153,6 +158,89 @@ M.lsp = {
   mason = {
     { "<leader>cm", false }, -- disable lazyvim binding
     { "<leader>clm", "<cmd>Mason<cr>" }, -- disable lazyvim binding
+  },
+}
+
+-- There are three operations wrt text_objects: select, move and swap
+-- select: this is handled by mini_ai, here we are defining additional text_objects but they are also defined by lazyvim and mini itself. Check http://www.lazyvim.org/plugins/treesitter#nvim-treesitter
+-- swap: ?
+-- move: ?
+M.text_objects = {
+  -- the following text objects are provide by nvim-treesitter-textobjects which is setup by lazyvim. mini.ai support them and that is what we are doing here
+  mini_ai = {
+    ["/"] = {
+      a = "@comment.outer",
+      i = "@comment.inner",
+    },
+
+    v = { -- v as in variable
+      a = "@assignment.outer", -- this select the full variable assignment with both sides
+      i = "@assignment.inner", -- this select the lhs or rhs based on your cursor location
+    },
+
+    y = { -- lhs as in y=x
+      -- there is no inner or outer for this
+      a = "@assignment.lhs",
+      i = "@assignment.lhs",
+    },
+
+    x = { -- rhs as in y=x
+      -- there is no inner or outer for this
+      a = "@assignment.rhs",
+      i = "@assignment.rhs",
+    },
+    -- this is supported by very few languages, check https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    S = {
+      a = "@statement.outer",
+      i = "@statement.inner",
+    },
+  },
+
+  treesitter = {
+    move = {
+      goto_next_start = {
+        ["]/"] = "@comment.outer",
+        ["]v"] = "@assignment.outer",
+        ["]y"] = "@assignment.lhs",
+        ["]x"] = "@assignment.rhs",
+      },
+      goto_previous_start = {
+        ["[/"] = "@comment.outer",
+        ["[v"] = "@assignment.outer",
+        ["[y"] = "@assignment.lhs",
+        ["[x"] = "@assignment.rhs",
+      },
+    },
+
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>ma"] = "@parameter.inner",
+        ["<leader>mf"] = "@function.outer",
+      },
+      swap_previous = {
+        ["<leader>mA"] = "@parameter.inner",
+        ["<leader>mF"] = "@function.outer",
+      },
+    },
+  },
+
+  which_key = {
+    mode = { "o", "x" },
+    a = {
+      ["/"] = "Comment",
+      v = "Variable Assignment",
+      y = "LHS In Assignment",
+      x = "RHS In Assignment",
+      S = "Statement Outer",
+    },
+    i = {
+      ["/"] = "Comment",
+      v = "Variable Assignment Current Side",
+      y = "LHS In Assignment",
+      x = "RHS In Assignment",
+      S = "Statement Inner",
+    },
   },
 }
 
@@ -173,7 +261,7 @@ M.dial = function()
     { "<C-a>", false },
     { "g<C-a>", false },
     {
-      "<C-i>",
+      "<C-g>",
       function()
         return map_dial(true)
       end,
@@ -191,7 +279,7 @@ M.dial = function()
       mode = { "n", "v" },
     },
     {
-      "g<C-i>",
+      "g<C-g>",
       function()
         return map_dial(true, true)
       end,
@@ -233,6 +321,13 @@ M.telescope = {
   -- additonal search commands
   { "<leader>sH", "<cmd>Telescope search_history<cr>", desc = "Search History" },
   { "<leader>se", "<cmd>Telescope env<cr>", desc = "Environment Vars" },
+  {
+    "<leader>sE",
+    function()
+      require("telescope.builtin").symbols({ sources = { "emoji", "kaomoji", "gitmoji" } })
+    end,
+    desc = "Telescope Symbols",
+  },
   { "<leader>sQ", "<cmd>Telescope quickfixhistory<cr>", desc = "Quickfix History" },
   { "<leader>sN", "<cmd>Telescope notify<cr>", desc = "Notification History" },
 

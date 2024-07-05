@@ -12,14 +12,30 @@ return {
     end,
   },
   {
-    "hrsh7th/nvim-cmp",
-    dependencies = {},
-  },
-  {
     "nvimtools/none-ls.nvim",
     keys = keys.lsp.null_ls,
   },
   { "mason.nvim", keys = keys.lsp.mason },
+
+  {
+    "echasnovski/mini.ai",
+    opts = function(_, opts)
+      local mini_ai = require("mini.ai")
+      local k = {}
+      for key, value in pairs(keys.text_objects.mini_ai) do
+        k[key] = mini_ai.gen_spec.treesitter(value)
+      end
+      opts.custom_textobjects = vim.tbl_deep_extend("force", opts.custom_textobjects, k)
+      require("which-key").register(keys.text_objects.which_key)
+    end,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      textobjects = keys.text_objects.treesitter,
+    },
+  },
 
   ----------------------------------------------
   ------------------ CMP -----------------------

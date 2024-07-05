@@ -15,7 +15,7 @@
 - [ ] dictionary support for word under cursor
 - [ ] project specific settings
 - [ ] revisit my-help and set it up using markdown and [panvimdoc](https://github.com/kdheepak/panvimdoc). Folke's
-      plugin generate help like this
+      plugin generate help like this. Maybe generate is from documentation in this repo
 
 ## Mappings, Autocmds and Options
 
@@ -33,9 +33,15 @@
 
 - [ ] neotree setup
   - [ ] understand `lazyvim` setup
+  - [ ] open on launch, maybe using edgy plugin
   - [ ] add thrash and undo delete support. Some help is
         [here](https://github.com/nvim-neo-tree/neo-tree.nvim/issues/202)
-- [ ] which-key setup
+  - [ ] check recipes on wiki and implement useful ones
+- [x] which-key setup
+- [ ] mini.surround
+  - [ ] create shortcuts for common tasks
+  - [ ] check treesitter support in docs
+- [ ] terminal workflow
 - [x] nvim-cmp setup
   - [x] change tab and supertab behaviour
   - [x] add borders
@@ -80,16 +86,75 @@
   - [ ] add minimal diagnostics icons toggle
     - check `:help vim.diagnostic.config`
   - [ ] do we need async auto formatting as used in current setup
-- highlights
-  - [ ] treesitter
+- [ ] textobjects and highlights
+  - [x] treesitter
+  - [x] nvim-treesitter-textobjects
+  - [x] mini.ai
+    - [x] setup textobjects
+    - [x] swap
+    - [x] select
+    - [x] move around
+
+### Other
+
+- check other [mini](https://github.com/echasnovski/mini.nvim) plugins
 
 ## Other Workflows
 
 - [ ] can `nvchad` themes be ported for `lazyvim`?
-- [ ] refine the `my-help` document. Maybe generate it from learnings document in this repo
+- [ ] reconcile old setup
+  - [ ] toggles
+    - [x] toggle format on save (already provided)
+    - [ ] toggle relative line numbers (already provided - bug in lazyvim which is now merged but yet to be released)
+    - [ ] toggle diagnostic
+    - [x] toggle completion suggestions
+    - [ ] toggle current line git blame
+    - [ ] toggle list chars
+  - [ ] autocommands
+    - [x] yank highlight (already provided)
+    - [x] go to last loc when opening a buffer (already provided)
+    - [x] some windows to close with q (already provided)
+    - [ ] do we need async formatting
+  - [ ] verify the options are all set
+  - [ ] verify all mappings are set
+  - [ ] remaining plugins
+    - [ ] verify treesitter is properly setup
+      - [x] nvim-treesitter/playground (this is now bundled in nvim)
+      - [x] RRethy/nvim-treesitter-endwise (don't need this)
+      - [x] nvim-treesitter/nvim-treesitter-textobjects (already provided)
+      - [ ] nvim-treesitter/nvim-treesitter-refactor
+      - [x] nvim-treesitter/nvim-treesitter-context (already provided)
+    - [ ] lspconfig
+      - [ ] detect python venv
+      - [ ] verify new setup is aligned
+    - [ ] null-ls
+      - [ ] verify setup is aligned
+    - [ ] toggleterm.nvim
+    - [ ] mini.nvim
+    - [ ] tmux.nvim
+    - [ ] nvim-autopairs
+    - [ ] gitsigns
+    - [ ] neotest
+    - [ ] dap
+      - [ ] nvim-dap-ui
+      - [ ] nvim-dap-virtual-text
+      - [ ] nvim-dap-vscode-js
+      - [ ] vscode-js-debug
+    - [ ] golang
+      - [ ] nvim-dap-go
+      - [ ] go.nvim
+      - [ ] guihua.lua
+    - [ ] sqlite.lua
+    - [ ] vim.startify
+    - [ ] editorconfig.vim
+    - [ ] verify that lspsaga alternatives are setup
+    - [ ] gitsigns
+    - [ ] nvim-autopairs
+    - [ ] alpha-nvim
+    - [ ] comment-nvim
 - [ ] add case related utils, check twiddleCase at [this](https://vim.fandom.com/wiki/Switching_case_of_characters)
       fandom wiki. Also check for relevant plugins
 - [ ] check [dot files](http://www.lazyvim.org/extras/util/dot) extras in lazyvim
 - [ ] [gitui](http://www.lazyvim.org/extras/util/gitui) in lazyvim?
 - [ ] check lazyvim tips and tricks as per document
-- [ ] add markdown toggle,
+- [x] add markdown checklist toggle

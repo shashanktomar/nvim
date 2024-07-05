@@ -41,3 +41,5 @@
     - [ ] go through full `nvim-lspconfig` docs and understand in depth
 - cmp
   - [ ] check the `nvim-cmp` [wiki](https://github.com/hrsh7th/nvim-cmp/wiki)
+- understand treesitter in depth
+  - this is the [nvim treesitter documentation](https://neovim.io/doc/user/treesitter.html)
