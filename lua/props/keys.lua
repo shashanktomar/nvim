@@ -11,8 +11,7 @@ M.global_keys = function()
   ---------- Unmap lazyvim bindings ------------
   ----------------------------------------------
 
-  -- Remove switch to last buffer binding
-  unmap("n", "<leader>`")
+  unmap("n", "<leader>`") -- Remove switch to last buffer binding
 
   ----------------------------------------------
   ---------------- Generic ---------------------
@@ -66,7 +65,6 @@ M.global_keys = function()
   map("n", "<leader>iw", "gsaiw", { desc = "󰡎 Surround word", remap = true })
   map("n", "<leader>iW", "gsaiw?", { desc = "󰡎 Surround word interactively", remap = true })
   map("n", "<leader>iw", "gsaiw", { desc = "󰡎 Surround word", remap = true })
-  -- check after/ftplugin/markdown.lua for more shortcuts
 
   ----------------------------------------------
   ------------------- Debug --------------------
@@ -81,6 +79,15 @@ M.global_keys = function()
   map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos (Treesitter)" })
   map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree (Treesitter)" })
   map("n", "<leader>uq", "<cmd>EditQuery<cr>", { desc = "Edit Query (Treesitter)" })
+
+  ----------------------------------------------
+  -------------- External Programs -------------
+  ----------------------------------------------
+
+  map("n", "<leader>fw", function()
+    local word = vim.fn.expand("<cword>")
+    vim.fn.system("open dict://" .. word)
+  end)
 
   ----------------------------------------------
   ------------------- Toggles ------------------
@@ -138,12 +145,16 @@ end
 
 M.which_key = {
   groups = {
-    ["<leader>sv"] = { name = "+vim" },
-    ["<leader>i"] = { name = "+insert" },
-    ["<leader>cl"] = { name = "+lsp" },
+    ["<leader>"] = {
+      name = "|____|",
+      i = { name = "+insert" },
+      t = { name = "+terminals" },
+      m = { name = "+move", a = "@parameter.inner" }, -- need atleast one command inside to regiseter this, its a which_key bug
+      ["sv"] = { name = "+vim" },
+      ["cl"] = { name = "+lsp" },
+      ["tc"] = { name = "+commands" },
+    },
     ["<F2>"] = { name = "+debug" },
-    ["<leader>t"] = { name = "+toggles" },
-    ["<leader>m"] = { name = "+move" },
   },
 }
 
@@ -244,6 +255,13 @@ M.text_objects = {
   },
 }
 
+M.yanky = {
+  { "gp", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indented After Cursor (Linewise)" },
+  { "gP", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indented Before Cursor (Linewise)" },
+  { "[p", "<Plug>(YankyCycleForward)", desc = "Cycle Forward Through Yank History" },
+  { "]p", "<Plug>(YankyCycleBackward)", desc = "Cycle Backward Through Yank History" },
+}
+
 M.dial = function()
   -- copied from https://github.com/LazyVim/LazyVim/blob/73e72ee21d7673e4040bb99f4de834410219d6cb/lua/lazyvim/plugins/extras/editor/dial.lua#L5s
   ---@param increment boolean
@@ -304,6 +322,27 @@ M.neo_tree = {
   { "<leader>e", false },
 }
 
+M.toggle_term = {
+  terminals = {
+    ["<leader>tcp"] = { cmd = "pnpm_install" },
+    ["<leader>th"] = { cmd = "htop" },
+    ["<leader>tm"] = { cmd = "glow", ft = "markdown" },
+    ["<leader>tn"] = { cmd = "neofetch" },
+    ["<leader>tw"] = { cmd = "wtfutil" },
+  },
+  keys = {
+    -- disable lazyvim terminal bindings, FIX: None of the disables is working
+    { "<c-/>", false },
+    { "<leader>ft", false },
+    { "<leader>fT", false },
+    { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "terminal" },
+    { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "terminal" },
+    { "<leader>t2", "<cmd>2ToggleTerm name=second<CR>", desc = "2nd split terminal" },
+    { "<leader>t3", "<cmd>3ToggleTerm name=third<CR>", desc = "3nd split terminal" },
+    { "<leader>ts", "<cmd>TermSelect<CR>", desc = "select terminal" },
+  },
+}
+
 M.telescope = {
   -- change the keymap for switching buffers
   { "<leader>,", false }, -- disable lazyvim binding
@@ -345,7 +384,8 @@ M.telescope = {
 
   -- change colorscheme shortcut
   { "<leader>uC", false },
-  { "<leader>ut", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme(Theme) with Preview" },
+  { "<leader>uT", false }, -- we don't use Treesitter highlight toggle
+  { "<leader>uT", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme(Theme) with Preview" },
 }
 
 return M

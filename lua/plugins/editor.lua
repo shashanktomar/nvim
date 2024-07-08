@@ -1,6 +1,5 @@
 local editor_props = require("props.editor")
 local keys = require("props.keys")
-local Util = require("lazy.core.util")
 
 return {
   {
@@ -23,6 +22,38 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = keys.neo_tree,
+  },
+
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    lazy = true,
+    cmd = { "ToggleTerm" },
+    opts = {
+      size = function(term)
+        if term.direction == "horizontal" then
+          return 15
+        elseif term.direction == "vertical" then
+          return vim.o.columns * 0.4
+        end
+      end,
+      float_opts = {
+        border = "single",
+      },
+      terminals = require("props.terminals"),
+    },
+    keys = function()
+      local terms = LazyVim.opts("toggleterm.nvim").terminals()
+      local terminal_keys = keys.toggle_term.keys
+      for key, value in pairs(keys.toggle_term.terminals) do
+        local cmd = function()
+          local term = terms[value.cmd]()
+          term:toggle()
+        end
+        vim.list_extend(terminal_keys, { { key, cmd, desc = value.cmd, ft = value.ft or nil } })
+      end
+      return terminal_keys
+    end,
   },
 
   {
@@ -49,6 +80,25 @@ return {
   },
 
   {
+    "gbprod/yanky.nvim",
+    opts = {
+      system_clipboard = {
+        sync_with_ring = false,
+      },
+      picker = {
+        telescope = {
+          mappings = {
+            n = {
+              x = require("yanky.telescope.mapping").delete(),
+            },
+          },
+        },
+      },
+    },
+    keys = keys.yanky,
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     keys = keys.telescope,
     opts = function(_, opts)
@@ -71,11 +121,7 @@ return {
           buffers = {
             ignore_current_buffer = true,
             sort_mru = true,
-            mappings = {
-              n = {
-                ["x"] = ta.delete_buffer, -- close a buffer from the list
-              },
-            },
+            mappings = {},
           },
           diagnostics = {
             initial_mode = "normal",

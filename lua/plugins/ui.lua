@@ -6,17 +6,17 @@ return {
       colorscheme = "catppuccin-frappe",
     },
   },
-  {
-    -- "shashanktomar/themes.nvim",
-    -- -- dev = true,
-    -- cmd = "Themes",
-    -- config = function()
-    --   require("themes").setup({
-    --     theme = "chadracula",
-    --   })
-    -- end,
-    -- lazy = false,
-  },
+  -- {
+  --   "shashanktomar/themes.nvim",
+  --   -- dev = true,
+  --   cmd = "Themes",
+  --   config = function()
+  --     require("themes").setup({
+  --       theme = "chadracula",
+  --     })
+  --   end,
+  --   lazy = false,
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     -- keys = keys.telescope,

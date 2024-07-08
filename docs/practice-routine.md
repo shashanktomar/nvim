@@ -3,6 +3,7 @@
 - vim
   - [ ] finish vim tutor, run `vimtutor` from cli (not from inside vim)
   - [ ] spelling suggestions with `z=`. This is a builtin in vim but hijacked by `whichkey` in our setup
+  - proper use of `_` register. It is a discard register. Example `"_dd` to delete a line without copying it
 - flash
   - [ ] start using labelled search
   - [x] start using jump labels, `s`
@@ -59,3 +60,7 @@
           objects and not to next or last
   - [ ] select all above text objects
   - [ ] swap for functions and arguments using `<leader>m`
+- yanky
+  - [ ] `<leader>p` for picking yanked text
+  - [ ] `gp` and `gP` to put text in next and previous line with indentation
+  - [ ] `]p` and `[p` to cycle through selection

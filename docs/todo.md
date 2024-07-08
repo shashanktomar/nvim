@@ -12,7 +12,7 @@
       [lazydev.nvim](https://github.com/folke/lazydev.nvim) is disabled when this file is found
 - [x] add `/after/ftplugin` to have language specific settings as in [this](https://github.com/willothy/nvim-config)
       repo
-- [ ] dictionary support for word under cursor
+- [x] dictionary support for word under cursor
 - [ ] project specific settings
 - [ ] revisit my-help and set it up using markdown and [panvimdoc](https://github.com/kdheepak/panvimdoc). Folke's
       plugin generate help like this. Maybe generate is from documentation in this repo
@@ -38,10 +38,10 @@
         [here](https://github.com/nvim-neo-tree/neo-tree.nvim/issues/202)
   - [ ] check recipes on wiki and implement useful ones
 - [x] which-key setup
-- [ ] mini.surround
-  - [ ] create shortcuts for common tasks
-  - [ ] check treesitter support in docs
-- [ ] terminal workflow
+- [x] mini.surround
+  - [x] create shortcuts for common tasks
+  - [x] check treesitter support in docs
+- [x] terminal workflow
 - [x] nvim-cmp setup
   - [x] change tab and supertab behaviour
   - [x] add borders
@@ -101,7 +101,6 @@
 
 ## Other Workflows
 
-- [ ] can `nvchad` themes be ported for `lazyvim`?
 - [ ] reconcile old setup
   - [ ] toggles
     - [x] toggle format on save (already provided)
@@ -129,7 +128,7 @@
       - [ ] verify new setup is aligned
     - [ ] null-ls
       - [ ] verify setup is aligned
-    - [ ] toggleterm.nvim
+    - [x] toggleterm.nvim
     - [ ] mini.nvim
     - [ ] tmux.nvim
     - [ ] nvim-autopairs
@@ -150,11 +149,10 @@
     - [ ] verify that lspsaga alternatives are setup
     - [ ] gitsigns
     - [ ] nvim-autopairs
-    - [ ] alpha-nvim
-    - [ ] comment-nvim
 - [ ] add case related utils, check twiddleCase at [this](https://vim.fandom.com/wiki/Switching_case_of_characters)
       fandom wiki. Also check for relevant plugins
 - [ ] check [dot files](http://www.lazyvim.org/extras/util/dot) extras in lazyvim
 - [ ] [gitui](http://www.lazyvim.org/extras/util/gitui) in lazyvim?
 - [ ] check lazyvim tips and tricks as per document
+- [ ] go through brew install list in dotfiles and see what can be integrated with nvim
 - [x] add markdown checklist toggle

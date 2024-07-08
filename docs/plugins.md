@@ -61,6 +61,7 @@
 - [persistence.nvim](https://github.com/folke/persistence.nvim): session management
 - [dressing.nvim](https://github.com/stevearc/dressing.nvim): better vim.ui with telescope
 - [mini.surround](https://github.com/echasnovski/mini.surround): surround actions
+- [yanky.nvim](https://github.com/gbprod/yanky.nvim): improved yank
 
 ### UI
 
@@ -91,7 +92,8 @@
 ### Coding
 
 - lsp and code completion
-  - [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim/tree/v3.x): simplify the nvim-lspconfig and nvim-cmp setup
+  - ~~[lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim/tree/v3.x): simplify the nvim-lspconfig and nvim-cmp
+    setup~~
     - maybe not, check [this](https://github.com/LazyVim/LazyVim/issues/2428) issue
   - nvim-cmp extensions
     - [cmp-rg](https://github.com/lukas-reineke/cmp-rg): project words using ripgrep
@@ -129,7 +131,6 @@
     find the type of comments. Useful for `tsx` files
   - \*[Neogen](https://github.com/danymat/neogen): code annotation toolkit
 - syntax tree and text objects
-  - \*[mini.surround](https://github.com/echasnovski/mini.surround): surround actions
   - \*[vim-illuminate](https://github.com/RRethy/vim-illuminate): highlight other uses of the word
 - testing
   - \*[neotest](https://github.com/nvim-neotest/neotest): A framework for interacting with tests within NeoVim.
@@ -161,7 +162,6 @@
 
 - \*[edgy.nvim](https://github.com/folke/edgy.nvim): A Neovim plugin to easily create and manage predefined window
   layouts, bringing a new edge to your workflow.
-- \*[yanky.nvim](https://github.com/gbprod/yanky.nvim): improved yank
 - \*[nvim-navic](https://github.com/SmiteshP/nvim-navic?tab=readme-ov-file): This shows where in the code structure you
   are - within functions, classes, etc - in the statusline.
 - telescope
