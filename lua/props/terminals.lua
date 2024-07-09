@@ -34,8 +34,7 @@ return function()
         cmd = "glow -p " .. vim.api.nvim_buf_get_name(0),
         display_name = "Preview",
         hidden = true,
-        direction = "vertical",
-        size = 40,
+        direction = "float", -- for right to work, we need to modify edgy settings
         close_on_exit = true,
       })
     end,

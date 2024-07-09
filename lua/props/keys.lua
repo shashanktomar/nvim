@@ -23,6 +23,9 @@ M.global_keys = function()
   map("i", "jj", "<Esc>", { desc = "Exit insert mode", nowait = true })
   map("i", "<Esc>", "<Nop>")
 
+  -- print neovim version
+  map("n", "<leader>v", "<cmd>version<cr>", { desc = "Print Neovim Version" })
+
   ----------------------------------------------
   --------------- Movement ---------------------
   ----------------------------------------------
@@ -174,8 +177,8 @@ M.lsp = {
 
 -- There are three operations wrt text_objects: select, move and swap
 -- select: this is handled by mini_ai, here we are defining additional text_objects but they are also defined by lazyvim and mini itself. Check http://www.lazyvim.org/plugins/treesitter#nvim-treesitter
--- swap: ?
--- move: ?
+-- swap: this is handled by nvim-treesitter-textobjects
+-- move: this is handled by both
 M.text_objects = {
   -- the following text objects are provide by nvim-treesitter-textobjects which is setup by lazyvim. mini.ai support them and that is what we are doing here
   mini_ai = {
@@ -262,6 +265,21 @@ M.yanky = {
   { "]p", "<Plug>(YankyCycleBackward)", desc = "Cycle Backward Through Yank History" },
 }
 
+M.copilot = {
+  {
+    "<leader>ua",
+    function()
+      vim.g.copilot_enabled = not vim.g.copilot_enabled
+      if vim.g.copilot_enabled then
+        vim.cmd("Copilot enable")
+      else
+        vim.cmd("Copilot disable")
+      end
+    end,
+    desc = "Toggle Copilot",
+  },
+}
+
 M.dial = function()
   -- copied from https://github.com/LazyVim/LazyVim/blob/73e72ee21d7673e4040bb99f4de834410219d6cb/lua/lazyvim/plugins/extras/editor/dial.lua#L5s
   ---@param increment boolean
@@ -335,7 +353,7 @@ M.toggle_term = {
     { "<c-/>", false },
     { "<leader>ft", false },
     { "<leader>fT", false },
-    { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "terminal" },
+    { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "terminal", mode = { "n", "t" } },
     { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "terminal" },
     { "<leader>t2", "<cmd>2ToggleTerm name=second<CR>", desc = "2nd split terminal" },
     { "<leader>t3", "<cmd>3ToggleTerm name=third<CR>", desc = "3nd split terminal" },

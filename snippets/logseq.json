@@ -1,0 +1,7 @@
+{
+  "Insert Video": {
+    "prefix": "video",
+    "body": ["{{video ${0}}}"],
+    "description": "Add embedded video"
+  }
+}

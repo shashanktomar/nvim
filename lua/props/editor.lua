@@ -4,6 +4,19 @@ local M = {}
 -- lazyvim https://github.com/LazyVim/LazyVim/blob/78cf6ee024cbf6a17dc8406555eb131994cd8b63/lua/lazyvim/config/keymaps.lua#L117
 M.toggles = {
   CMP = { flag = "cmp_enabled", text = "Toggle Completion", default = true, key = "c" },
+  Copilot = {
+    flag = "copilot_enabled",
+    text = "Toggle Copilot (AI)",
+    default = false,
+    key = "a",
+    cmd = function(flag)
+      if flag then
+        vim.cmd("Copilot enable")
+      else
+        vim.cmd("Copilot disable")
+      end
+    end,
+  },
 }
 
 -- close some filetypes with <q>

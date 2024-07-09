@@ -4,6 +4,7 @@ local keys = require("props.keys")
 return {
   {
     "LazyVim/LazyVim",
+    version = false,
     opts = {
       news = {
         lazyvim = true,
@@ -22,6 +23,18 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = keys.neo_tree,
+    -- init = function()
+    --   vim.cmd("Neotree show reveal=false")
+    -- end,
+  },
+
+  {
+    "folke/edgy.nvim",
+    opts = {
+      animate = {
+        enabled = false,
+      },
+    },
   },
 
   {
@@ -30,6 +43,8 @@ return {
     lazy = true,
     cmd = { "ToggleTerm" },
     opts = {
+      open_mapping = "[[<c-\\>]]",
+      terminal_mappings = true,
       size = function(term)
         if term.direction == "horizontal" then
           return 15

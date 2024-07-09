@@ -62,6 +62,7 @@
 - [dressing.nvim](https://github.com/stevearc/dressing.nvim): better vim.ui with telescope
 - [mini.surround](https://github.com/echasnovski/mini.surround): surround actions
 - [yanky.nvim](https://github.com/gbprod/yanky.nvim): improved yank
+- [toggleterm](https://github.com/akinsho/toggleterm.nvim): terminals
 
 ### UI
 
@@ -76,6 +77,8 @@
 - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons): icons
 - [nui.nvim](https://github.com/MunifTanjim/nui.nvim): ui components
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim): dashboard
+- [edgy.nvim](https://github.com/folke/edgy.nvim): A Neovim plugin to easily create and manage predefined window
+  layouts, bringing a new edge to your workflow.
 
 ### Utils
 
@@ -160,8 +163,6 @@
 
 ### Editor
 
-- \*[edgy.nvim](https://github.com/folke/edgy.nvim): A Neovim plugin to easily create and manage predefined window
-  layouts, bringing a new edge to your workflow.
 - \*[nvim-navic](https://github.com/SmiteshP/nvim-navic?tab=readme-ov-file): This shows where in the code structure you
   are - within functions, classes, etc - in the statusline.
 - telescope
@@ -177,6 +178,10 @@
 - \*[neoconf.nvim](https://github.com/folke/neoconf.nvim): neoconf.nvim is a Neovim plugin to manage global and
   project-local settings.
 - \*[project.nvim](https://github.com/ahmedkhalf/project.nvim): project management
+- llm tools
+  - try [gp.nvim](https://github.com/Robitx/gp.nvim/), it is praised on reddit for its features
+  - try [chatgpt.nvim](https://github.com/jackMort/ChatGPT.nvim)
+  - try mods on terminal and see if its a better workflow
 
 ### UI
 

@@ -19,6 +19,7 @@ M.cmp = {
     snippets = "[Snippet]",
     cmdline = "[CMD]",
     path = "[Path]",
+    copilot = "[Copilot]",
   },
 }
 

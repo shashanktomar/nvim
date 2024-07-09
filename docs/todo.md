@@ -16,6 +16,8 @@
 - [ ] project specific settings
 - [ ] revisit my-help and set it up using markdown and [panvimdoc](https://github.com/kdheepak/panvimdoc). Folke's
       plugin generate help like this. Maybe generate is from documentation in this repo
+- [ ] fix tmux shortcuts and add tmux.nvim plugin
+- [ ] fix relative line numbers
 
 ## Mappings, Autocmds and Options
 
@@ -101,6 +103,7 @@
 
 ## Other Workflows
 
+- [x] can `nvchad` themes be ported for `lazyvim`?
 - [ ] reconcile old setup
   - [ ] toggles
     - [x] toggle format on save (already provided)

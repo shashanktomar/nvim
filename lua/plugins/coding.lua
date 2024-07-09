@@ -37,6 +37,15 @@ return {
     },
   },
 
+  {
+    "zbirenbaum/copilot.lua",
+    init = function()
+      if not vim.g.copilot_enabled then
+        vim.cmd("Copilot disable")
+      end
+    end,
+  },
+
   ----------------------------------------------
   ------------------ CMP -----------------------
   ----------------------------------------------
@@ -94,8 +103,12 @@ return {
       end
 
       local cmp = require("cmp")
-
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<CR>"] = cmp.mapping({
+          i = cmp.mapping.confirm({ select = true }),
+          s = cmp.mapping.confirm({ select = true }),
+          c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
@@ -109,7 +122,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { "i", "s", "c" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
@@ -120,7 +133,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { "i", "s", "c" }),
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
