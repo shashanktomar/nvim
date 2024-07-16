@@ -24,6 +24,10 @@
 - snippets
   - [nvim-snippets](https://github.com/garymjr/nvim-snippets): allow vscode style snippets to be used with nvim snippets
   - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets): a collection of snippets
+- llm
+  - [copilot.lua](https://github.com/zbirenbaum/copilot.lua)
+    - [CopilotChat.nvim](https://github.com/CopilotC-Nvim/CopilotChat.nvim)
+    - [copilot-cmp](https://github.com/zbirenbaum/copilot-cmp)
 - syntax tree and text objects
   - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter): syntax-tree builder
   - [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects): Syntax aware
@@ -121,9 +125,6 @@
   - \*[conform.nvim](https://github.com/stevearc/conform.nvim): Lightweight yet powerful formatter plugin for Neovim
 - llm tools
   - \*[codeium.nvim](https://github.com/Exafunction/codeium.nvim)
-  - \*[copilot.lua](https://github.com/zbirenbaum/copilot.lua)
-    - \*[CopilotChat.nvim](https://github.com/CopilotC-Nvim/CopilotChat.nvim)
-    - \*[copilot-cmp](https://github.com/zbirenbaum/copilot-cmp)
   - \*[tabnine-nvim](https://github.com/codota/tabnine-nvim)
     - \*[cmp-tabnine](https://github.com/tzachar/cmp-tabnine)
 - snippets
@@ -154,6 +155,9 @@
   - \*[refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim): The Refactoring library based off the
     Refactoring book by Martin Fowler
   - [treeSJ](https://github.com/Wansmer/treesj)
+- other
+  - check lspsaga
+  - check [glance](https://github.com/DNLHC/glance.nvim)
 
 ### Git
 
@@ -168,6 +172,7 @@
 - telescope
   - \*[telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim): FZF sorter for telescope
     written in c
+  - try [telescope file-explorer](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - movement:
   - \*[leap](https://github.com/ggandor/leap.nvim): jump to locations
   - \*[flit.nvim](https://github.com/ggandor/flit.nvim): f/F/t/T motions on steroids, building on the Leap interface.

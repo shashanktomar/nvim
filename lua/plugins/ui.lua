@@ -43,11 +43,12 @@ return {
       icons = {
         separator = "  ", -- symbol used between a key and it's label
         group = " ",
+        rules = props.icons.which_key.rules,
       },
       layout = {
         spacing = 6, -- spacing between columns
       },
-      window = {
+      win = {
         border = "single",
       },
     },

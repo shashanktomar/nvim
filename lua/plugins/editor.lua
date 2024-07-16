@@ -16,7 +16,8 @@ return {
     "folke/which-key.nvim",
     init = function()
       local wk = require("which-key")
-      wk.register(keys.which_key.groups)
+      wk.add(keys.which_key.groups)
+      wk.add(keys.which_key.keys)
     end,
   },
 
@@ -115,7 +116,7 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
-    keys = keys.telescope,
+    keys = keys.telescope.keys,
     opts = function(_, opts)
       local ta = require("telescope.actions")
       local more_opts = {
@@ -136,7 +137,7 @@ return {
           buffers = {
             ignore_current_buffer = true,
             sort_mru = true,
-            mappings = {},
+            mappings = keys.telescope.buffers,
           },
           diagnostics = {
             initial_mode = "normal",

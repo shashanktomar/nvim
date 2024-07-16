@@ -1,5 +1,6 @@
 local keys = require("props.keys")
 local editor = require("props.editor")
+local copilot_chat = require("props.copilot-chat")
 
 return {
   {
@@ -26,7 +27,7 @@ return {
         k[key] = mini_ai.gen_spec.treesitter(value)
       end
       opts.custom_textobjects = vim.tbl_deep_extend("force", opts.custom_textobjects, k)
-      require("which-key").register(keys.text_objects.which_key)
+      require("which-key").add(keys.text_objects.which_key)
     end,
   },
 
@@ -46,6 +47,14 @@ return {
     end,
   },
 
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    keys = keys.copilot_chat,
+    opts = {
+      prompts = copilot_chat.prompts,
+    },
+  },
+
   ----------------------------------------------
   ------------------ CMP -----------------------
   ----------------------------------------------
@@ -54,6 +63,10 @@ return {
     "hrsh7th/nvim-cmp",
     opts = {
       enabled = function()
+        local ft = vim.bo.filetype
+        if ft.find(ft, "neo%-tree") or ft.find(ft, "Telescope") then
+          return false
+        end
         return vim.g[editor.toggles.CMP.flag]
       end,
     },

@@ -3,10 +3,10 @@ local M = {}
 -- this is primarily for custom toggles. For vim toggles that involve vim options, use toggle like in
 -- lazyvim https://github.com/LazyVim/LazyVim/blob/78cf6ee024cbf6a17dc8406555eb131994cd8b63/lua/lazyvim/config/keymaps.lua#L117
 M.toggles = {
-  CMP = { flag = "cmp_enabled", text = "Toggle Completion", default = true, key = "c" },
+  CMP = { flag = "cmp_enabled", text = "Completion", default = true, key = "c" },
   Copilot = {
     flag = "copilot_enabled",
-    text = "Toggle Copilot (AI)",
+    text = "AI (Copilot)",
     default = false,
     key = "a",
     cmd = function(flag)

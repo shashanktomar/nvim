@@ -29,14 +29,11 @@ local checklist = augend.user.new({
     for _, pattern in ipairs(list_patterns) do
       leading_spaces, list_marker, line_text = string.match(text, pattern)
       if list_marker then
+        local normalized_marker = list_marker:lower()
+        local new_marker = get_next_marker(normalized_marker, addend)
+        text = leading_spaces .. new_marker .. line_text
         break
       end
-    end
-
-    if list_marker then
-      local normalized_marker = list_marker:lower()
-      local new_marker = get_next_marker(normalized_marker, addend)
-      text = leading_spaces .. new_marker .. line_text
     end
 
     ---@diagnostic disable-next-line: redundant-return-value

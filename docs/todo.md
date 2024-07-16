@@ -159,3 +159,4 @@
 - [ ] check lazyvim tips and tricks as per document
 - [ ] go through brew install list in dotfiles and see what can be integrated with nvim
 - [x] add markdown checklist toggle
+- [ ] if a word is selected in cmp, auto insert a space after it

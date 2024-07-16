@@ -1,4 +1,6 @@
 local editor = require("props.editor")
+local copilot_chat = require("props.copilot-chat")
+local icons = require("props.ui").icons.which_key.custom_icons
 
 local M = {}
 M.global_keys = function()
@@ -13,9 +15,18 @@ M.global_keys = function()
 
   unmap("n", "<leader>`") -- Remove switch to last buffer binding
 
+  -- we are using toggleTerm, disable lazyvim terminal
+  unmap("n", "<c-/>") -- FIX: this unmap is not working
+  unmap("n", "<leader>ft")
+  unmap("n", "<leader>fT")
+
+  -- disable other lazyvim bindings
+  unmap("n", "<leader>uT") -- we don't use Treesitter highlight toggle
+
   ----------------------------------------------
   ---------------- Generic ---------------------
   ----------------------------------------------
+  -- FIX: not working if defined using which_key
 
   map("n", ";", ":", { desc = "Command mode" })
 
@@ -23,74 +34,22 @@ M.global_keys = function()
   map("i", "jj", "<Esc>", { desc = "Exit insert mode", nowait = true })
   map("i", "<Esc>", "<Nop>")
 
-  -- print neovim version
-  map("n", "<leader>v", "<cmd>version<cr>", { desc = "Print Neovim Version" })
-
   ----------------------------------------------
   --------------- Movement ---------------------
   ----------------------------------------------
 
   -- In insert mode
-  map("i", "<C-e>", "<End>", { desc = "󰞔 Goto end of line" })
-  map("i", "<C-b>", "<ESC>^i", { desc = "󰞓 Goto beginning of line" })
-  map("i", "<C-h>", "<Left>", { desc = " Move left" })
-  map("i", "<C-l>", "<Right>", { desc = " Move right" })
-  map("i", "<C-k>", "<Up>", { desc = " Move up" })
-  map("i", "<C-j>", "<Down>", { desc = " Move down" })
+  map("i", "<C-e>", "<End>", { desc = "Goto end of line" })
+  map("i", "<C-b>", "<ESC>^i", { desc = "Goto beginning of line" })
+  map("i", "<C-h>", "<Left>", { desc = "Move left" })
+  map("i", "<C-l>", "<Right>", { desc = "Move right" })
+  map("i", "<C-k>", "<Up>", { desc = "Move up" })
+  map("i", "<C-j>", "<Down>", { desc = "Move down" })
 
+  -- FIX: not working if defined using which_key
   -- Quick movement on line
   map("n", "H", "^", { desc = "󰞓 Goto beginning of line" })
   map("n", "L", "$", { desc = "󰞔 Goto end of line" })
-
-  -- Goto to last buffer
-  map("n", "<leader>a", "<cmd> b# <CR>", { desc = "󰒮 Previous buffer" })
-
-  ----------------------------------------------
-  -------------- Yank and Save -----------------
-  ----------------------------------------------
-
-  -- Copy whole file
-  map("n", "<C-c>", "<cmd> %y+ <CR>", { desc = "󰆏 Copy whole file" })
-
-  -- Save all files
-  -- map({ "i", "v", "n", "s" }, "<C-S>", "<cmd>wa<cr><esc>", { desc = " Save all files" })
-
-  -- Paste from yank register
-  -- map("n", "gp", '"0p', { desc = "p from yank register" })
-  -- map("n", "gP", '"0P', { desc = "P from yank register" })
-
-  ----------------------------------------------
-  ------------------- Insert -------------------
-  ----------------------------------------------
-
-  map("n", "<leader>iO", "O<Esc>", { desc = "󰞕 Insert a new line up" })
-  map("n", "<leader>io", "o<Esc>", { desc = "󰞒 Insert a new line down" })
-  map("n", "<leader>iw", "gsaiw", { desc = "󰡎 Surround word", remap = true })
-  map("n", "<leader>iW", "gsaiw?", { desc = "󰡎 Surround word interactively", remap = true })
-  map("n", "<leader>iw", "gsaiw", { desc = "󰡎 Surround word", remap = true })
-
-  ----------------------------------------------
-  ------------------- Debug --------------------
-  ----------------------------------------------
-
-  map("n", "<F2>s", "<cmd>luafile lua/scratch/test.lua<cr>", { desc = "Execute scratch/test.lua" })
-
-  ----------------------------------------------
-  ---------------- Treesitter ------------------
-  ----------------------------------------------
-
-  map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos (Treesitter)" })
-  map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree (Treesitter)" })
-  map("n", "<leader>uq", "<cmd>EditQuery<cr>", { desc = "Edit Query (Treesitter)" })
-
-  ----------------------------------------------
-  -------------- External Programs -------------
-  ----------------------------------------------
-
-  map("n", "<leader>fw", function()
-    local word = vim.fn.expand("<cword>")
-    vim.fn.system("open dict://" .. word)
-  end)
 
   ----------------------------------------------
   ------------------- Toggles ------------------
@@ -148,16 +107,61 @@ end
 
 M.which_key = {
   groups = {
-    ["<leader>"] = {
-      name = "|____|",
-      i = { name = "+insert" },
-      t = { name = "+terminals" },
-      m = { name = "+move", a = "@parameter.inner" }, -- need atleast one command inside to regiseter this, its a which_key bug
-      ["sv"] = { name = "+vim" },
-      ["cl"] = { name = "+lsp" },
-      ["tc"] = { name = "+commands" },
+    { "<F2>", group = "debug" },
+    { "<leader>", group = "|____|" },
+    { "<leader>cl", group = "lsp info" },
+    { "<leader>i", group = "insert" },
+    { "<leader>m", group = "move" },
+    { "<leader>sv", group = "vim" },
+    { "<leader>t", group = "terminals" },
+    { "<leader>tc", group = "commands" },
+  },
+  keys = {
+    -- movement
+    { "<leader>o", "<cmd>b#<CR>", desc = "Previous buffer", mode = "n" },
+    { "H", "^", desc = "Goto beginning of line", mode = "n", remap = true }, -- FIX: Not working through whichkey
+    { "L", "$", desc = "Goto end of line", mode = "n", remap = true }, -- FIX: Not working through whichkey
+    -- yank and save
+    { "<C-c>", "<cmd>%y+<CR>", desc = "Copy whole file", mode = "n" },
+    { "<leader>bs", "<cmd>wa<cr><esc>", desc = "Save all buffers", mode = "n" },
+    -- insert
+    {
+      "<leader>io",
+      "o<Esc>",
+      desc = "Insert a new line down",
+      mode = "n",
+      icon = icons.line_down,
     },
-    ["<F2>"] = { name = "+debug" },
+    {
+      "<leader>iO",
+      "O<Esc>",
+      desc = "Insert a new line up",
+      mode = "n",
+      icon = icons.line_up,
+    },
+    { "<leader>iw", "gsaiw", desc = "Surround word", remap = true, mode = "n" },
+    { "<leader>iW", "gsaiw?", desc = "Surround word interactively", remap = true, mode = "n" },
+    -- move
+    { "<leader>ma", desc = "@parameter.inner" },
+    --debug
+    { "<F2>s", "<cmd>luafile lua/scratch/test.lua<cr>", desc = "Execute scratch/test.lua", mode = "n" },
+    --external commands
+    {
+      "<leader>fw",
+      function()
+        local word = vim.fn.expand("<cword>")
+        vim.fn.system("open dict://" .. word)
+      end,
+      desc = "Define Word (dictionary)",
+      icon = icons.dict,
+    },
+    -- treesitter
+    { "<leader>ui", "<cmd>InspectTree<cr>", desc = "Inspect Tree (Treesitter)", mode = "n" },
+    { "<leader>uI", ":lua vim.show_pos()", desc = "Inspect Pos (Treesitter)", mode = "n" },
+    { "<leader>uq", "<cmd>EditQuery<cr>", desc = "Edit Query (Treesitter)", mode = "n" },
+    -- system
+    { "<leader>v", "<cmd>version<cr>", desc = "Print Neovim Info", mode = "n" },
+    { "<leader>uT", desc = "Colorscheme(Theme) with Preview" },
   },
 }
 
@@ -240,20 +244,18 @@ M.text_objects = {
   },
 
   which_key = {
-    mode = { "o", "x" },
-    a = {
-      ["/"] = "Comment",
-      v = "Variable Assignment",
-      y = "LHS In Assignment",
-      x = "RHS In Assignment",
-      S = "Statement Outer",
-    },
-    i = {
-      ["/"] = "Comment",
-      v = "Variable Assignment Current Side",
-      y = "LHS In Assignment",
-      x = "RHS In Assignment",
-      S = "Statement Inner",
+    {
+      mode = { "o", "x" },
+      { "a/", desc = "Comment" },
+      { "aS", desc = "Statement Outer" },
+      { "av", desc = "Variable Assignment" },
+      { "ax", desc = "RHS In Assignment" },
+      { "ay", desc = "LHS In Assignment" },
+      { "i/", desc = "Comment" },
+      { "iS", desc = "Statement Inner" },
+      { "iv", desc = "Variable Assignment Current Side" },
+      { "ix", desc = "RHS In Assignment" },
+      { "iy", desc = "LHS In Assignment" },
     },
   },
 }
@@ -267,7 +269,7 @@ M.yanky = {
 
 M.copilot = {
   {
-    "<leader>ua",
+    "<leader>at",
     function()
       vim.g.copilot_enabled = not vim.g.copilot_enabled
       if vim.g.copilot_enabled then
@@ -276,8 +278,22 @@ M.copilot = {
         vim.cmd("Copilot disable")
       end
     end,
-    desc = "Toggle Copilot",
+    desc = "Toggle Copilot Suggestions",
   },
+}
+
+M.copilot_chat = {
+  {
+    "<leader>a.",
+    function()
+      return require("CopilotChat").stop()
+    end,
+    desc = "Stop Chat Output (CopilotChat)",
+    mode = { "n", "v" },
+  },
+  { "<leader>aQ", copilot_chat.quick_chat_on_buffer, desc = "Quick Chat On Buffer (CopilotChat)" },
+  { "<leader>as", copilot_chat.save_chat, desc = "Save To History (CopilotChat)" },
+  { "<leader>al", copilot_chat.load_chat, desc = "Load From History (CopilotChat)" },
 }
 
 M.dial = function()
@@ -349,10 +365,6 @@ M.toggle_term = {
     ["<leader>tw"] = { cmd = "wtfutil" },
   },
   keys = {
-    -- disable lazyvim terminal bindings, FIX: None of the disables is working
-    { "<c-/>", false },
-    { "<leader>ft", false },
-    { "<leader>fT", false },
     { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "terminal", mode = { "n", "t" } },
     { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "terminal" },
     { "<leader>t2", "<cmd>2ToggleTerm name=second<CR>", desc = "2nd split terminal" },
@@ -362,48 +374,74 @@ M.toggle_term = {
 }
 
 M.telescope = {
-  -- change the keymap for switching buffers
-  { "<leader>,", false }, -- disable lazyvim binding
-  { "<leader>e", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+  keys = {
+    -- change the keymap for switching buffers
+    { "<leader>,", false }, -- disable lazyvim binding
+    { "<leader>e", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 
-  -- overrides
-  { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0 theme=ivy height=25<cr>", desc = "Document Diagnostics" },
-  { "<leader>sD", "<cmd>Telescope diagnostics theme=ivy height=25<cr>", desc = "Workspace Diagnostics" },
+    -- additional find file commands
+    { -- find files in the same directory of current buffer
+      "<leader>f.",
+      function()
+        require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
+      end,
+      desc = "Sibling Files",
+    },
 
-  -- insert
-  { '<leader>s"', false }, -- disable lazyvim binding
-  -- { "<leader>is", "<cmd>Telescope symbols<cr>", desc = "😊 Symbols/Emojis" },
-  { '<leader>i"', "<cmd>Telescope registers<cr>", desc = "Paste From Registers" },
+    -- change the keymap for recent buffers
+    { "<leader>fr", false }, -- disable lazyvim binding
+    { "<leader>fR", false }, -- disable lazyvim binding
+    { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    { "<leader>fO", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
 
-  -- additonal search commands
-  { "<leader>sH", "<cmd>Telescope search_history<cr>", desc = "Search History" },
-  { "<leader>se", "<cmd>Telescope env<cr>", desc = "Environment Vars" },
-  {
-    "<leader>sE",
-    function()
-      require("telescope.builtin").symbols({ sources = { "emoji", "kaomoji", "gitmoji" } })
-    end,
-    desc = "Telescope Symbols",
+    -- overrides
+    { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0 theme=ivy height=25<cr>", desc = "Document Diagnostics" },
+    { "<leader>sD", "<cmd>Telescope diagnostics theme=ivy height=25<cr>", desc = "Workspace Diagnostics" },
+
+    -- insert
+    { '<leader>s"', false }, -- disable lazyvim binding
+    -- { "<leader>is", "<cmd>Telescope symbols<cr>", desc = "😊 Symbols/Emojis" },
+    { '<leader>i"', "<cmd>Telescope registers<cr>", desc = "Paste From Registers" },
+
+    -- additonal search commands
+    { "<leader>sH", "<cmd>Telescope search_history<cr>", desc = "Search History" },
+    { "<leader>se", "<cmd>Telescope env<cr>", desc = "Environment Vars" },
+    {
+      "<leader>sE",
+      function()
+        require("telescope.builtin").symbols({ sources = { "emoji", "kaomoji", "gitmoji" } })
+      end,
+      desc = "Telescope Symbols",
+    },
+    { "<leader>sQ", "<cmd>Telescope quickfixhistory<cr>", desc = "Quickfix History" },
+    { "<leader>sN", "<cmd>Telescope notify<cr>", desc = "Notification History" },
+
+    -- vim search commands
+    { "<leader>sa", false }, -- disable auto command search set by lazyvim
+    { "<leader>sva", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+    { "<leader>sC", false }, -- disable command search set by lazyvim
+    { "<leader>svc", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    { "<leader>svh", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+    { "<leader>sk", false }, -- disable keymaps search set by lazyvim
+    { "<leader>svk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+    { "<leader>so", false }, -- disable vim_options search set by lazyvim
+    { "<leader>svo", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+    { "<leader>svf", "<cmd>Telescope filetypes<cr>", desc = "Filetypes" },
+
+    -- change colorscheme shortcut
+    { "<leader>uC", false },
+    {
+      "<leader>uu",
+      LazyVim.pick("colorscheme", { enable_preview = true, previewer = false, layout_config = { width = 0.3 } }),
+      desc = "UI Colorscheme with Preview",
+      remap = true,
+    },
   },
-  { "<leader>sQ", "<cmd>Telescope quickfixhistory<cr>", desc = "Quickfix History" },
-  { "<leader>sN", "<cmd>Telescope notify<cr>", desc = "Notification History" },
-
-  -- vim search commands
-  { "<leader>sa", false }, -- disable auto command search set by lazyvim
-  { "<leader>sva", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
-  { "<leader>sC", false }, -- disable command search set by lazyvim
-  { "<leader>svc", "<cmd>Telescope commands<cr>", desc = "Commands" },
-  { "<leader>svh", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
-  { "<leader>sk", false }, -- disable keymaps search set by lazyvim
-  { "<leader>svk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
-  { "<leader>so", false }, -- disable vim_options search set by lazyvim
-  { "<leader>svo", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-  { "<leader>svf", "<cmd>Telescope filetypes<cr>", desc = "Filetypes" },
-
-  -- change colorscheme shortcut
-  { "<leader>uC", false },
-  { "<leader>uT", false }, -- we don't use Treesitter highlight toggle
-  { "<leader>uT", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme(Theme) with Preview" },
+  buffers = {
+    n = {
+      ["d"] = require("telescope.actions").delete_buffer,
+    },
+  },
 }
 
 return M
