@@ -5,6 +5,7 @@
   - [ ] spelling suggestions with `z=`. This is a builtin in vim but hijacked by `whichkey` in our setup
   - [ ] proper use of `_` register. It is a discard register. Example `"_dd` to delete a line without copying it
   - [ ] movement in insert mode (see custom keymaps)
+  - [ ] comments with `gc` around text objects and `gcc` on a line. Also deleting full comment using `dgc`
 - flash
   - [ ] start using labelled search
   - [x] start using jump labels, `s`

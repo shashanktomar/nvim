@@ -145,6 +145,15 @@ M.which_key = {
     { "<leader>ma", desc = "@parameter.inner" },
     --debug
     { "<F2>s", "<cmd>luafile lua/scratch/test.lua<cr>", desc = "Execute scratch/test.lua", mode = "n" },
+    -- buffers
+    {
+      "<leader>bf",
+      function()
+        LazyVim.info(vim.bo.filetype)
+      end,
+      desc = "Print filetype",
+      mode = "n",
+    },
     --external commands
     {
       "<leader>fw",
@@ -212,6 +221,11 @@ M.text_objects = {
       a = "@statement.outer",
       i = "@statement.inner",
     },
+    -- custom loaded from after/queries directory
+    P = { -- FIX: Not working
+      a = "@tag.attribute",
+      i = "@tag.attribute",
+    },
   },
 
   treesitter = {
@@ -235,10 +249,12 @@ M.text_objects = {
       swap_next = {
         ["<leader>ma"] = "@parameter.inner",
         ["<leader>mf"] = "@function.outer",
+        ["<leader>mp"] = "@tag.attribute",
       },
       swap_previous = {
         ["<leader>mA"] = "@parameter.inner",
         ["<leader>mF"] = "@function.outer",
+        ["<leader>mP"] = "@tag.attribute",
       },
     },
   },
@@ -247,11 +263,13 @@ M.text_objects = {
     {
       mode = { "o", "x" },
       { "a/", desc = "Comment" },
+      { "aP", desc = "Attribute" },
       { "aS", desc = "Statement Outer" },
       { "av", desc = "Variable Assignment" },
       { "ax", desc = "RHS In Assignment" },
       { "ay", desc = "LHS In Assignment" },
       { "i/", desc = "Comment" },
+      { "iP", desc = "Attribute" },
       { "iS", desc = "Statement Inner" },
       { "iv", desc = "Variable Assignment Current Side" },
       { "ix", desc = "RHS In Assignment" },

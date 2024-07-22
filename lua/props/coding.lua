@@ -8,6 +8,7 @@ M.flags = {
     dev_ops = true,
     frontend = true,
     markdown = true,
+    mdx = true,
     python = true,
     typescript = true,
   },
