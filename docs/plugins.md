@@ -55,7 +55,7 @@
 
 - [telescope](./plugins/telescope.md): picker
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim): file system explorer
-- [nvim-spectre](https://github.com/nvim-pack/nvim-spectre): search/replace in multiple files
+- [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim): search/replace in multiple files
 - [flash.nvim](https://github.com/folke/flash.nvim?tab=readme-ov-file): show labels at the end of each match, letting
   you quickly jump to a specific location.
 - [which-key.nvim](https://github.com/folke/which-key.nvim): keybindings help
@@ -156,6 +156,7 @@
     Refactoring book by Martin Fowler
   - [treeSJ](https://github.com/Wansmer/treesj)
 - other
+  - \*[kulala.nvim](https://github.com/mistweaverco/kulala.nvim.git) - REST client
   - check lspsaga
   - check [glance](https://github.com/DNLHC/glance.nvim)
 
