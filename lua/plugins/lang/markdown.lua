@@ -19,7 +19,6 @@ return {
         ["markdownlint-cli2"] = {
           -- only enable markdown lint if .markdownlint.jsonc file is found
           condition = function(ctx)
-            P(vim.fs.find({ ".markdownlint.jsonc" }, { path = ctx.filename, upward = true })[1])
             return vim.fs.find({ ".markdownlint.jsonc" }, { path = ctx.filename, upward = true })[1]
           end,
         },
