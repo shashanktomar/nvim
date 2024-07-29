@@ -63,5 +63,16 @@ return function()
         end,
       })
     end,
+
+    --#project specific
+    lighthouse_mongo_uat = function()
+      return Terminal:new({
+        cmd = "mongosh $(security find-generic-password -a ${USER} -s lighthouse-mongo-uat -w)",
+        display_name = "mongo-uat",
+        hidden = true,
+        direction = "float", -- for right to work, we need to modify edgy settings
+        close_on_exit = true,
+      })
+    end,
   }
 end
