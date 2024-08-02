@@ -6,34 +6,12 @@ return {
       colorscheme = "catppuccin-frappe",
     },
   },
-  -- {
-  --   "shashanktomar/themes.nvim",
-  --   -- dev = true,
-  --   cmd = "Themes",
-  --   config = function()
-  --     require("themes").setup({
-  --       theme = "chadracula",
-  --     })
-  --   end,
-  --   lazy = false,
-  -- },
   {
     "nvim-telescope/telescope.nvim",
     -- keys = keys.telescope,
     opts = {
       defaults = {
-        layout_config = { -- make telescope windows a bit wider
-          horizontal = {
-            preview_width = 0.55,
-            results_width = 0.8,
-          },
-          vertical = {
-            mirror = false,
-          },
-          width = 0.87,
-          height = 0.80,
-          preview_cutoff = 120,
-        },
+        layout_config = props.layout.telescope,
       },
     },
   },
@@ -41,31 +19,23 @@ return {
     "folke/which-key.nvim",
     opts = {
       icons = {
-        separator = "  ", -- symbol used between a key and it's label
-        group = " ",
+        separator = props.icons.which_key.separator,
+        group = props.icons.which_key.group,
         rules = props.icons.which_key.rules,
       },
-      layout = {
-        spacing = 6, -- spacing between columns
-      },
-      win = {
-        border = "single",
-      },
+      layout = props.layout.which_key,
+      win = props.win.which_key,
     },
   },
   {
     "williamboman/mason.nvim",
     opts = {
-      ui = {
-        border = "single",
-      },
+      ui = props.win.mason,
     },
   },
   {
     "nvimtools/none-ls.nvim",
-    opts = {
-      border = "single",
-    },
+    opts = props.win.none_ls,
   },
   {
     "neovim/nvim-lspconfig",

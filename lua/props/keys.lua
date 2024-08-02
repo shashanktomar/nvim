@@ -82,26 +82,6 @@ end
 -- end, { desc = "organize imports" })
 
 ----------------------------------------------
-------------------- TODO ---------------------
-----------------------------------------------
-
---  TODO: Find alternate keys for these
-
--- Move Lines
--- map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
--- map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
--- map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
--- map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
--- map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
--- map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
---
--- ['<C-M-j>'] = { '<Esc>:m .+1<CR>', ' move line down' },
--- ['<C-M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
--- ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
--- ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
---
-
-----------------------------------------------
 ------------------- Plugins ------------------
 ----------------------------------------------
 
