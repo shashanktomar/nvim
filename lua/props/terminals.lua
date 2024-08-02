@@ -29,6 +29,15 @@ return function()
         close_on_exit = false,
       })
     end,
+    k9s = function()
+      return Terminal:new({
+        cmd = "k9s",
+        display_name = "k9s",
+        hidden = true,
+        direction = "float",
+        close_on_exit = true,
+      })
+    end,
     glow = function()
       return Terminal:new({
         cmd = "glow -p " .. vim.api.nvim_buf_get_name(0),

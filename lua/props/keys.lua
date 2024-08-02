@@ -383,6 +383,7 @@ M.toggle_term = {
     ["<leader>tn"] = { cmd = "neofetch" },
     ["<leader>tw"] = { cmd = "wtfutil" },
     ["<leader>zm"] = { cmd = "lighthouse_mongo_uat" },
+    ["<leader>tk"] = { cmd = "k9s" },
   },
   keys = {
     { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "terminal", mode = { "n", "t" } },
