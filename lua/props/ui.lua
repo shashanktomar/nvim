@@ -25,10 +25,42 @@ M.cmp = {
   },
 }
 
+M.layout = {
+  which_key = {
+    spacing = 6,
+  },
+  telescope = { -- make telescope windows a bit wider
+    horizontal = {
+      preview_width = 0.55,
+      results_width = 0.8,
+    },
+    vertical = {
+      mirror = false,
+    },
+    width = 0.87,
+    height = 0.80,
+    preview_cutoff = 120,
+  },
+}
+
+M.win = {
+  which_key = {
+    border = "single",
+  },
+  mason = {
+    border = "single",
+  },
+  none_ls = {
+    border = "single",
+  },
+}
+
 M.icons = {
   -- valid colors are: azure, blue, cyan, green, grey, orange, purple, red, yellow
   -- valid categories are: file, filetype, extension
   which_key = {
+    separator = "  ", -- symbol used between a key and it's label
+    group = " ",
     custom_icons = {
       line_up = {
         icon = "󰞕",

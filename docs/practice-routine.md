@@ -1,6 +1,7 @@
 # Practice Routine
 
 - vim
+  - [ ] next and previous reference using `[[` and `]]`
   - [ ] finish vim tutor, run `vimtutor` from cli (not from inside vim)
   - [ ] spelling suggestions with `z=`. This is a builtin in vim but hijacked by `whichkey` in our setup
   - [ ] proper use of `_` register. It is a discard register. Example `"_dd` to delete a line without copying it
