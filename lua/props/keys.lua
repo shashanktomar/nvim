@@ -381,6 +381,7 @@ M.toggle_term = {
     ["<leader>tm"] = { cmd = "glow", ft = "markdown" },
     ["<leader>tn"] = { cmd = "neofetch" },
     ["<leader>tw"] = { cmd = "wtfutil" },
+    ["<leader>tk"] = { cmd = "k9s" },
   },
   keys = {
     { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "terminal", mode = { "n", "t" } },
