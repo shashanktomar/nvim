@@ -17,6 +17,28 @@ M.toggles = {
       end
     end,
   },
+  DiagnosticsText = {
+    flag = "diagnostics_text",
+    text = "Diagnostics Text",
+    default = "true",
+    key = "D",
+    cmd = function(flag)
+      -- toggle diagnostic text
+      vim.diagnostic.config({
+        virtual_text = {
+          format = function(diagnostic)
+            if flag then
+              return diagnostic.message
+            end
+            -- this is different from virtual_text = false. Setting virtual text to false
+            -- disable all the diagnostic messages. This way we just disable the messages
+            -- but boxes are still printed
+            return ""
+          end,
+        },
+      })
+    end,
+  },
 }
 
 -- close some filetypes with <q>
