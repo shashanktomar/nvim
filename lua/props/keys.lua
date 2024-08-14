@@ -93,8 +93,8 @@ M.which_key = {
     { "<leader>i", group = "insert" },
     { "<leader>m", group = "move" },
     { "<leader>sv", group = "vim" },
-    { "<leader>t", group = "terminals" },
-    { "<leader>tc", group = "commands" },
+    { "<leader>T", group = "terminals" },
+    { "<leader>Tc", group = "commands" },
     { "<leader>z", group = "project specific" },
   },
   keys = {
@@ -357,20 +357,20 @@ M.neo_tree = {
 
 M.toggle_term = {
   terminals = {
-    ["<leader>tcp"] = { cmd = "pnpm_install" },
-    ["<leader>th"] = { cmd = "htop" },
-    ["<leader>tm"] = { cmd = "glow", ft = "markdown" },
-    ["<leader>tn"] = { cmd = "neofetch" },
-    ["<leader>tw"] = { cmd = "wtfutil" },
+    ["<leader>Tcp"] = { cmd = "pnpm_install" },
+    ["<leader>Th"] = { cmd = "htop" },
+    ["<leader>Tm"] = { cmd = "glow", ft = "markdown" },
+    ["<leader>Tn"] = { cmd = "neofetch" },
+    ["<leader>Tw"] = { cmd = "wtfutil" },
+    ["<leader>Tk"] = { cmd = "k9s" },
     ["<leader>zm"] = { cmd = "lighthouse_mongo_uat" },
-    ["<leader>tk"] = { cmd = "k9s" },
   },
   keys = {
     { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "terminal", mode = { "n", "t" } },
-    { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "terminal" },
-    { "<leader>t2", "<cmd>2ToggleTerm name=second<CR>", desc = "2nd split terminal" },
-    { "<leader>t3", "<cmd>3ToggleTerm name=third<CR>", desc = "3nd split terminal" },
-    { "<leader>ts", "<cmd>TermSelect<CR>", desc = "select terminal" },
+    { "<leader>Tt", "<cmd>ToggleTerm<CR>", desc = "terminal" },
+    { "<leader>T2", "<cmd>2ToggleTerm name=second<CR>", desc = "2nd split terminal" },
+    { "<leader>T3", "<cmd>3ToggleTerm name=third<CR>", desc = "3nd split terminal" },
+    { "<leader>Ts", "<cmd>TermSelect<CR>", desc = "select terminal" },
   },
 }
 
