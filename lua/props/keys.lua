@@ -272,7 +272,7 @@ M.bookmarks = {
   { "gma", "<cmd>BookmarksCommands<cr>", desc = "Bookmarks: All commands" },
   { "gmr", "<cmd>BookmarksGotoRecent<cr>", desc = "Bookmarks: Go to recent visited/created bookmark" },
   { "gmx", "<cmd>BookmarksEditJsonFile<cr>", desc = "Bookmarks: Edit Bookmarks JSON file" },
-  { "gmu", "<cmd>BookmarksTree<cr>", desc = "Bookmarks: Toggle UI" },
+  { "gmu", "<cmd>BookmarksTree<cr>", desc = "Bookmarks: Open UI" },
 }
 
 M.copilot = {

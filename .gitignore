@@ -1,2 +1,3 @@
 .alt
 lua/config/env.lua
+local-data/
