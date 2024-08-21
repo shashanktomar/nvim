@@ -33,4 +33,20 @@ return {
       require("null-ls").disable({ "markdownlint" })
     end,
   },
+
+  -- This is cool, try it when you have time. Will need to disable markdow preview provided by lazyvim
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   lazy = false, -- Recommended
+  --   -- ft = "markdown" -- If you decide to lazy-load anyway
+  --
+  --   dependencies = {
+  --     -- You will not need this if you installed the
+  --     -- parsers manually
+  --     -- Or if the parsers are in your $RUNTIMEPATH
+  --     "nvim-treesitter/nvim-treesitter",
+  --
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  -- },
 }
