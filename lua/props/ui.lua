@@ -51,6 +51,7 @@ M.icons = {
     },
     rules = {
       { pattern = "beginning", icon = "󰞓 ", color = "cyan" },
+      { pattern = "bookmark", icon = " ", color = "cyan" },
       { pattern = "end", icon = "󰞔 ", color = "cyan" },
       { pattern = "up", icon = " ", color = "cyan" },
       { pattern = "down", icon = " ", color = "cyan" },

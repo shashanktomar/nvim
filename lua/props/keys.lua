@@ -108,6 +108,7 @@ end
 M.which_key = {
   groups = {
     { "<F2>", group = "debug" },
+    { "gm", group = "bookmarks" },
     { "<leader>", group = "|____|" },
     { "<leader>cl", group = "lsp info" },
     { "<leader>i", group = "insert" },
@@ -283,6 +284,15 @@ M.yanky = {
   { "gP", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indented Before Cursor (Linewise)" },
   { "[p", "<Plug>(YankyCycleForward)", desc = "Cycle Forward Through Yank History" },
   { "]p", "<Plug>(YankyCycleBackward)", desc = "Cycle Backward Through Yank History" },
+}
+
+M.bookmarks = {
+  { "gmm", "<cmd>BookmarksMark<cr>", desc = "Bookmarks: Mark line into current active list" },
+  { "gmo", "<cmd>BookmarksGoto<cr>", desc = "Bookmarks: Open active list" },
+  { "gma", "<cmd>BookmarksCommands<cr>", desc = "Bookmarks: All commands" },
+  { "gmr", "<cmd>BookmarksGotoRecent<cr>", desc = "Bookmarks: Go to recent visited/created bookmark" },
+  { "gmx", "<cmd>BookmarksEditJsonFile<cr>", desc = "Bookmarks: Edit Bookmarks JSON file" },
+  { "gmu", "<cmd>BookmarksTree<cr>", desc = "Bookmarks: Toggle UI" },
 }
 
 M.copilot = {
