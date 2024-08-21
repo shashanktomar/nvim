@@ -161,6 +161,37 @@ return {
   },
 
   {
+    "LintaoAmons/bookmarks.nvim",
+    dependencies = {
+      { "nvim-telescope/telescope.nvim" },
+      { "stevearc/dressing.nvim" },
+    },
+    opts = {
+      json_db_path = vim.fs.normalize(vim.fn.stdpath("config") .. "/local-data/bookmarks.db.json"),
+      signs = {
+        mark = { icon = "󰃁", color = "#81c8be", line_bg = "#364f4c" },
+      },
+      -- treeview = {
+      --         bookmark_format = function(bookmark)
+      --           return bookmark.name .. " [" .. bookmark.location.project_name .. "] " .. bookmark.location.relative_path .. " : " .. bookmark.content
+      --         end,
+      --         keymap = {
+      --           quit = { "q", "<ESC>" },
+      --           refresh = "R",
+      --           create_folder = "a",
+      --           tree_cut = "x",
+      --           tree_paste = "p",
+      --           collapse = "o",
+      --           delete = "d",
+      --           active = "s",
+      --           copy = "c",
+      --         },
+      --       },
+    },
+    keys = keys.bookmarks,
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     keys = keys.telescope.keys,
     opts = function(_, opts)
