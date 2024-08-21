@@ -161,6 +161,20 @@ return {
   },
 
   {
+    "LintaoAmons/bookmarks.nvim",
+    dependencies = {
+      { "nvim-telescope/telescope.nvim" },
+      { "stevearc/dressing.nvim" },
+    },
+    opts = {
+      signs = {
+        mark = { icon = "󰃁", color = "#81c8be", line_bg = "#364f4c" },
+      },
+    },
+    keys = keys.bookmarks,
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     keys = keys.telescope.keys,
     opts = function(_, opts)
