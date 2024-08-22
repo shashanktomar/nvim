@@ -83,5 +83,15 @@ return function()
         close_on_exit = true,
       })
     end,
+
+    lighthouse_mongo_prod = function()
+      return Terminal:new({
+        cmd = "mongosh $(security find-generic-password -a ${USER} -s lighthouse-mongo-prod -w)",
+        display_name = "mongo-prod",
+        hidden = true,
+        direction = "float", -- for right to work, we need to modify edgy settings
+        close_on_exit = true,
+      })
+    end,
   }
 end

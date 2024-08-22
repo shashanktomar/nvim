@@ -96,7 +96,9 @@ M.which_key = {
     { "<leader>sv", group = "vim" },
     { "<leader>T", group = "terminals" },
     { "<leader>Tc", group = "commands" },
+    -- project specific
     { "<leader>z", group = "project specific" },
+    { "<leader>zm", group = "mongo" },
   },
   keys = {
     -- movement
@@ -373,7 +375,8 @@ M.toggle_term = {
     ["<leader>Tn"] = { cmd = "neofetch" },
     ["<leader>Tw"] = { cmd = "wtfutil" },
     ["<leader>Tk"] = { cmd = "k9s" },
-    ["<leader>zm"] = { cmd = "lighthouse_mongo_uat" },
+    ["<leader>zmu"] = { cmd = "lighthouse_mongo_uat" },
+    ["<leader>zmp"] = { cmd = "lighthouse_mongo_prod" },
   },
   keys = {
     { "<c-\\>", "<cmd>ToggleTerm<CR>", desc = "terminal", mode = { "n", "t" } },
