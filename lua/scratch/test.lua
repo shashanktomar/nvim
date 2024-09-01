@@ -1,5 +1,7 @@
-local bf = require("util.debug")
--- bf.output_in_scratch_buffer({ "hello", "world" })
+local api = require("image")
 
-local theme = false and {} or "bhah"
-bf.output_in_scratch_buffer(vim.inspect(theme))
+api.from_url("https://gist.ro/s/remote.png", {
+  -- all the same options from above
+}, function(img)
+  -- do stuff with the image
+end)
