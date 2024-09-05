@@ -21,6 +21,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.test.core" },
     { import = "lazyvim.plugins.extras.ui.edgy" },
     { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
+    { import = "lazyvim.plugins.extras.coding.neogen" },
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
     -- LazyVim language extras, see the setup code here
     -- https://github.com/LazyVim/LazyVim/tree/5e1c474192372caca7d95d4a85dd5939fe95cca3/lua/lazyvim/plugins/extras/lang
@@ -72,7 +73,6 @@ require("lazy").setup({
         "netrwPlugin",
         "netrwSettings",
         "optwin",
-        "rplugin",
         "rrhelper",
         "spellfile_plugin",
         "synmenu",
