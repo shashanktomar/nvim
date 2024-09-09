@@ -80,6 +80,7 @@ M.icons = {
       },
       enabled = { icon = " ", color = "green" },
       disabled = { icon = " ", color = "yellow" },
+      browser = { icon = "󰖟 ", color = "purple" },
     },
     rules = {
       { pattern = "beginning", icon = "󰞓 ", color = "cyan" },

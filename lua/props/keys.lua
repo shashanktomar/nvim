@@ -1,5 +1,6 @@
 local editor = require("props.editor")
 local copilot_chat = require("props.copilot-chat")
+local git = require("util.git")
 local icons = require("props.ui").icons.which_key.custom_icons
 
 local M = {}
@@ -52,6 +53,11 @@ M.global_keys = function()
   map("n", "L", "$", { desc = "󰞔 Goto end of line" })
 
   ----------------------------------------------
+  ------------------- Git ----------------------
+  ----------------------------------------------
+  map("n", "<leader>gol", git.gh_browse_current_position, { desc = "Open line in github (current branch)" })
+
+  ----------------------------------------------
   ------------------- Toggles ------------------
   ----------------------------------------------
 
@@ -91,6 +97,7 @@ M.which_key = {
     { "gm", group = "bookmarks" },
     { "<leader>", group = "|____|" },
     { "<leader>cl", group = "lsp info" },
+    { "<leader>go", group = "open in browser", icon = icons.browser },
     { "<leader>i", group = "insert" },
     { "<leader>m", group = "move" },
     { "<leader>sv", group = "vim" },
