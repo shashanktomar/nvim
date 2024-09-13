@@ -26,3 +26,5 @@ for category, values in pairs(coding.flags) do
     vim.g[category .. "_" .. key] = value
   end
 end
+
+vim.g.lazyvim_picker = editor.lazyvim_picker
