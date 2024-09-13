@@ -1,5 +1,8 @@
 local M = {}
 
+-- M.picker = 'fzf'
+M.lazyvim_picker = "telescope"
+
 -- this is primarily for custom toggles. For vim toggles that involve vim options, use toggle like in
 -- lazyvim https://github.com/LazyVim/LazyVim/blob/78cf6ee024cbf6a17dc8406555eb131994cd8b63/lua/lazyvim/config/keymaps.lua#L117
 M.toggles = {

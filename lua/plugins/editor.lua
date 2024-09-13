@@ -226,6 +226,15 @@ return {
   },
 
   {
+    "ibhagwan/fzf-lua",
+    lazy = false,
+    --  We want to enable this gradually
+    keys = function()
+      return {}
+    end,
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     keys = keys.telescope.keys,
     opts = function(_, opts)
