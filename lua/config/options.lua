@@ -10,6 +10,8 @@ local opt = vim.opt
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append("<>[]hl")
 
+opt.modeline = false
+
 -- load custom highlights
 for key, value in pairs(ui.highlights) do
   vim.api.nvim_set_hl(0, key, value)

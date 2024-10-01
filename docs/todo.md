@@ -62,6 +62,9 @@
           interesting
     - [ ] do we need [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)?
 - [x] `mason` setup
+- [ ] fzf setup
+- [ ] add diffview.nvim plugin
+- [ ] add nvim-bqf plugin
 
 ### Code
 
