@@ -235,6 +235,14 @@ return {
   },
 
   {
+    "pwntester/octo.nvim",
+    keys = keys.octo.keys,
+    opts = {
+      mappings = keys.octo.mappings,
+    },
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     keys = keys.telescope.keys,
     opts = function(_, opts)

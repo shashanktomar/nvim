@@ -27,7 +27,12 @@ return {
         k[key] = mini_ai.gen_spec.treesitter(value)
       end
       opts.custom_textobjects = vim.tbl_deep_extend("force", opts.custom_textobjects, k)
-      require("which-key").add(keys.text_objects.which_key)
+
+      local ok, wk = pcall(require, "which-key")
+      if not ok then
+        return
+      end
+      wk.add(keys.text_objects.which_key)
     end,
   },
 

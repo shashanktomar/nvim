@@ -22,7 +22,11 @@ end
 -- setup toggle global vars
 M.set_toggle = function(group, toggles)
   for _, toggle in pairs(toggles) do
-    local wk = require("which-key")
+    local ok, wk = pcall(require, "which-key")
+    if not ok then
+      return
+    end
+
     local key = group .. toggle.key
     wk.add({
       {
