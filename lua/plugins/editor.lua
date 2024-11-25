@@ -20,32 +20,32 @@ return {
       rocks = { "magick" },
     },
   },
-  {
-    "3rd/image.nvim",
-    version = "1.3.0",
-    event = "VeryLazy",
-    dependencies = { "luarocks.nvim" },
-    opts = {
-      backend = "kitty",
-      kitty_method = "normal",
-      integrations = {
-        markdown = {
-          enabled = true,
-          clear_in_insert_mode = false,
-          download_remote_images = true,
-          only_render_image_at_cursor = false,
-          filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
-        },
-      },
-      --- config suggested by molten.nvim
-      max_width = 100, -- tweak to preference
-      max_height = 12, -- ^
-      max_height_window_percentage = math.huge, -- this is necessary for a good experience
-      max_width_window_percentage = math.huge,
-      window_overlap_clear_enabled = true,
-      window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
-    },
-  },
+  -- {
+  --   "3rd/image.nvim",
+  --   version = "1.3.0",
+  --   event = "VeryLazy",
+  --   dependencies = { "luarocks.nvim" },
+  --   opts = {
+  --     backend = "kitty",
+  --     kitty_method = "normal",
+  --     integrations = {
+  --       markdown = {
+  --         enabled = true,
+  --         clear_in_insert_mode = false,
+  --         download_remote_images = true,
+  --         only_render_image_at_cursor = false,
+  --         filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+  --       },
+  --     },
+  --     --- config suggested by molten.nvim
+  --     max_width = 100, -- tweak to preference
+  --     max_height = 12, -- ^
+  --     max_height_window_percentage = math.huge, -- this is necessary for a good experience
+  --     max_width_window_percentage = math.huge,
+  --     window_overlap_clear_enabled = true,
+  --     window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
+  --   },
+  -- },
   {
     "folke/which-key.nvim",
     init = function()
