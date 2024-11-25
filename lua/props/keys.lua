@@ -394,6 +394,18 @@ M.toggle_term = {
   },
 }
 
+M.octo = {
+  keys = {
+    { "<leader>go", "<cmd>Octo actions<CR>", desc = "All Actions (Octo)" },
+  },
+  -- these mappings are passed in opts
+  mappings = {
+    submit_win = {
+      approve_review = { lhs = "<C-y>", desc = "approve review" },
+    },
+  },
+}
+
 M.telescope = {
   keys = {
     -- change the keymap for switching buffers
