@@ -1,1 +1,1 @@
-au BufRead,BufNewFile Tiltfile                set filetype=starlark
+au BufRead,BufNewFile Tiltfile set filetype=starlark
