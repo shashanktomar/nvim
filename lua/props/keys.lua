@@ -425,6 +425,11 @@ M.telescope = {
     -- overrides
     { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0 theme=ivy height=25<cr>", desc = "Document Diagnostics" },
     { "<leader>sD", "<cmd>Telescope diagnostics theme=ivy height=25<cr>", desc = "Workspace Diagnostics" },
+    {
+      "<leader>sg",
+      ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+      desc = "Grep (Root Dir)",
+    },
 
     -- insert
     { '<leader>s"', false }, -- disable lazyvim binding
@@ -442,7 +447,7 @@ M.telescope = {
       desc = "Telescope Symbols",
     },
     { "<leader>sQ", "<cmd>Telescope quickfixhistory<cr>", desc = "Quickfix History" },
-    { "<leader>sN", "<cmd>Telescope notify<cr>", desc = "Notification History" },
+    { "<leader>sN", "<cmd>NoiceHistory<cr>", desc = "Notification History" },
 
     -- vim search commands
     { "<leader>sa", false }, -- disable auto command search set by lazyvim

@@ -247,6 +247,7 @@ return {
     keys = keys.telescope.keys,
     opts = function(_, opts)
       local ta = require("telescope.actions")
+      local lga_actions = require("telescope-live-grep-args.actions")
       local more_opts = {
         defaults = {
           file_ignore_patterns = editor_props.telescope.file_ignore_patterns, -- files in .gitignore files are already ignored by rg and fd. Add any additional files/dir here
@@ -274,13 +275,32 @@ return {
       }
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, more_opts.defaults)
       opts.pickers = vim.tbl_deep_extend("force", opts.pickers or {}, more_opts.pickers)
+
+      opts.extensions = {
+        live_grep_args = {
+          auto_quoting = true, -- enable/disable auto-quoting
+          mappings = { -- extend mappings
+            i = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-h>"] = lga_actions.quote_prompt({ postfix = " --hidden " }),
+              ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+              -- freeze the current list and start a fuzzy search in the frozen list
+              ["<C-space>"] = ta.to_fuzzy_refine,
+            },
+          },
+        },
+      }
     end,
     dependencies = {
       "LinArcX/telescope-env.nvim",
       "nvim-telescope/telescope-symbols.nvim",
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        version = "^1.0.0",
+      },
     },
     init = function()
-      local extensions_list = { "env" }
+      local extensions_list = { "env", "live_grep_args" }
       for _, ext in ipairs(extensions_list) do
         require("telescope").load_extension(ext)
       end
