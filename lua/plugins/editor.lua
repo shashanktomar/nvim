@@ -53,6 +53,9 @@ return {
       wk.add(keys.which_key.groups)
       wk.add(keys.which_key.keys)
     end,
+    opts = {
+      preset = "classic",
+    },
   },
 
   {
@@ -196,6 +199,7 @@ return {
 
   {
     "LintaoAmons/bookmarks.nvim",
+    version = "1.4.2",
     dependencies = {
       { "nvim-telescope/telescope.nvim" },
       { "stevearc/dressing.nvim" },
@@ -226,15 +230,6 @@ return {
   },
 
   {
-    "ibhagwan/fzf-lua",
-    lazy = false,
-    --  We want to enable this gradually
-    keys = function()
-      return {}
-    end,
-  },
-
-  {
     "pwntester/octo.nvim",
     keys = keys.octo.keys,
     opts = {
@@ -242,68 +237,16 @@ return {
     },
   },
 
-  {
-    "nvim-telescope/telescope.nvim",
-    keys = keys.telescope.keys,
-    opts = function(_, opts)
-      local ta = require("telescope.actions")
-      local lga_actions = require("telescope-live-grep-args.actions")
-      local more_opts = {
-        defaults = {
-          file_ignore_patterns = editor_props.telescope.file_ignore_patterns, -- files in .gitignore files are already ignored by rg and fd. Add any additional files/dir here
-          path_display = { "truncate" }, -- truncate the beginning of long file names
-          mappings = {
-            i = {
-              ["<esc>"] = ta.close,
-            },
-          },
-        },
-        pickers = {
-          find_files = {
-            follow = true,
-            hidden = true,
-          },
-          buffers = {
-            ignore_current_buffer = true,
-            sort_mru = true,
-            mappings = keys.telescope.buffers,
-          },
-          diagnostics = {
-            initial_mode = "normal",
-          },
-        },
-      }
-      opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, more_opts.defaults)
-      opts.pickers = vim.tbl_deep_extend("force", opts.pickers or {}, more_opts.pickers)
+  { "folke/noice.nvim", keys = keys.noice },
 
-      opts.extensions = {
-        live_grep_args = {
-          auto_quoting = true, -- enable/disable auto-quoting
-          mappings = { -- extend mappings
-            i = {
-              ["<C-k>"] = lga_actions.quote_prompt(),
-              ["<C-h>"] = lga_actions.quote_prompt({ postfix = " --hidden " }),
-              ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-              -- freeze the current list and start a fuzzy search in the frozen list
-              ["<C-space>"] = ta.to_fuzzy_refine,
-            },
-          },
-        },
-      }
-    end,
-    dependencies = {
-      "LinArcX/telescope-env.nvim",
-      "nvim-telescope/telescope-symbols.nvim",
-      {
-        "nvim-telescope/telescope-live-grep-args.nvim",
-        version = "^1.0.0",
+  {
+    "ibhagwan/fzf-lua",
+    lazy = false,
+    keys = keys.fzf.keys,
+    opts = {
+      buffers = {
+        ignore_current_buffer = true,
       },
     },
-    init = function()
-      local extensions_list = { "env", "live_grep_args" }
-      for _, ext in ipairs(extensions_list) do
-        require("telescope").load_extension(ext)
-      end
-    end,
   },
 }
