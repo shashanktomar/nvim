@@ -53,7 +53,8 @@
 
 ### Editor
 
-- [telescope](./plugins/telescope.md): picker
+- ~~[telescope](./plugins/telescope.md): picker~~
+- fzf-lua
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim): file system explorer
 - [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim): search/replace in multiple files
 - [flash.nvim](https://github.com/folke/flash.nvim?tab=readme-ov-file): show labels at the end of each match, letting
@@ -164,7 +165,6 @@
 
 - \*[octo.nvim](https://github.com/pwntester/octo.nvim): Edit and review GitHub issues and pull requests from the
   comfort of your favorite editor
-  - also check [telescope-github](https://github.com/nvim-telescope/telescope-github.nvim) cli extension
 
 ### Editor
 

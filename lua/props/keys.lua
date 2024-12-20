@@ -100,6 +100,7 @@ M.which_key = {
     { "<leader>go", group = "open in browser", icon = icons.browser },
     { "<leader>i", group = "insert" },
     { "<leader>m", group = "move" },
+    { "<leader>sf", group = "fzf" },
     { "<leader>sv", group = "vim" },
     { "<leader>T", group = "terminals" },
     { "<leader>Tc", group = "commands" },
@@ -406,79 +407,65 @@ M.octo = {
   },
 }
 
-M.telescope = {
-  keys = {
-    -- change the keymap for switching buffers
-    { "<leader>,", false }, -- disable lazyvim binding
-    { "<leader>e", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+M.noice = {
+  { "<leader>sN", "<cmd>NoiceHistory<cr>", desc = "Notification History" },
+}
 
-    -- additional find file commands
+M.fzf = {
+  keys = {
+
+    ---------- Files -----------
+    { "<leader>fg", false }, -- disable find git files as I never use it
+    { "<leader>fc", false }, -- I never open nvim config files in another project
     { -- find files in the same directory of current buffer
       "<leader>f.",
       function()
-        require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
+        require("fzf-lua").files({ cwd = vim.fn.expand("%:p:h") })
       end,
       desc = "Sibling Files",
     },
 
-    -- change the keymap for recent buffers
     { "<leader>fr", false }, -- disable lazyvim binding
     { "<leader>fR", false }, -- disable lazyvim binding
-    { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-    { "<leader>fO", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
-
-    -- overrides
-    { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0 theme=ivy height=25<cr>", desc = "Document Diagnostics" },
-    { "<leader>sD", "<cmd>Telescope diagnostics theme=ivy height=25<cr>", desc = "Workspace Diagnostics" },
+    { "<leader>fO", "<cmd>FzfLua oldfiles<cr>", desc = "Recent (cwd" },
     {
-      "<leader>sg",
-      ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-      desc = "Grep (Root Dir)",
-    },
-
-    -- insert
-    { '<leader>s"', false }, -- disable lazyvim binding
-    -- { "<leader>is", "<cmd>Telescope symbols<cr>", desc = "😊 Symbols/Emojis" },
-    { '<leader>i"', "<cmd>Telescope registers<cr>", desc = "Paste From Registers" },
-
-    -- additonal search commands
-    { "<leader>sH", "<cmd>Telescope search_history<cr>", desc = "Search History" },
-    { "<leader>se", "<cmd>Telescope env<cr>", desc = "Environment Vars" },
-    {
-      "<leader>sE",
+      "<leader>fo",
       function()
-        require("telescope.builtin").symbols({ sources = { "emoji", "kaomoji", "gitmoji" } })
+        require("fzf-lua").oldfiles({ cwd = vim.uv.cwd() })
       end,
-      desc = "Telescope Symbols",
+      desc = "Recent",
     },
-    { "<leader>sQ", "<cmd>Telescope quickfixhistory<cr>", desc = "Quickfix History" },
-    { "<leader>sN", "<cmd>NoiceHistory<cr>", desc = "Notification History" },
 
-    -- vim search commands
+    ---------- Buffers -----------
+    { "<leader>,", false }, -- disable lazyvim binding for recent buffers
+    { "<leader>e", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    ------------------------------------------
+
+    ---------- Insert -----------
+    { '<leader>s"', false }, -- disable lazyvim binding
+    { '<leader>i"', "<cmd>FzfLua registers<cr>", desc = "Paste From Registers" },
+
+    ---------- Fzf Internal Commands ---------
+    { "<leader>sfb", "<cmd>FzfLua builtin<cr>", desc = "Fzf Builtins" },
+    { "<leader>sfp", "<cmd>FzfLua profiles<cr>", desc = "Fzf Profiles" },
+
+    ---------- VIM Search Commands -----------
     { "<leader>sa", false }, -- disable auto command search set by lazyvim
-    { "<leader>sva", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+    { "<leader>sva", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
     { "<leader>sC", false }, -- disable command search set by lazyvim
-    { "<leader>svc", "<cmd>Telescope commands<cr>", desc = "Commands" },
-    { "<leader>svh", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+    { "<leader>svc", "<cmd>FzfLua commands<cr>", desc = "Commands" },
+    { "<leader>svh", "<cmd>FzfLua highlights<cr>", desc = "Search Highlight Groups" },
     { "<leader>sk", false }, -- disable keymaps search set by lazyvim
-    { "<leader>svk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
-    { "<leader>so", false }, -- disable vim_options search set by lazyvim
-    { "<leader>svo", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-    { "<leader>svf", "<cmd>Telescope filetypes<cr>", desc = "Filetypes" },
+    { "<leader>svk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
+    { "<leader>svf", "<cmd>FzfLua filetypes<cr>", desc = "Filetypes" },
 
-    -- change colorscheme shortcut
+    ---------- Colorscheme -----------
     { "<leader>uC", false },
-    {
-      "<leader>uu",
-      LazyVim.pick("colorscheme", { enable_preview = true, previewer = false, layout_config = { width = 0.3 } }),
-      desc = "UI Colorscheme with Preview",
-      remap = true,
-    },
-  },
-  buffers = {
-    n = {
-      ["d"] = require("telescope.actions").delete_buffer,
-    },
+    { "<leader>uu", LazyVim.pick("colorschemes"), desc = "Colorscheme with Preview" },
+
+    ---------- Other Commands -----------
+    { "<leader>sQ", "<cmd>FzfLua quickfix_stack<cr>", desc = "Quickfix Stack" },
+    { "<leader>sH", "<cmd>FzfLua search_history<cr>", desc = "Search History" },
   },
 }
 

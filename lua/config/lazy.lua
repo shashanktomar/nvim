@@ -15,11 +15,11 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.coding.neogen" },
+    -- { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.fzf" },
-    { import = "lazyvim.plugins.extras.editor.telescope" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
     { import = "lazyvim.plugins.extras.test.core" },
     { import = "lazyvim.plugins.extras.ui.edgy" },
@@ -27,7 +27,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
     { import = "lazyvim.plugins.extras.util.dot" },
     { import = "lazyvim.plugins.extras.util.octo" },
-    { import = "lazyvim.plugins.extras.util.chezmoi" },
     { import = "lazyvim.plugins.extras.vscode" },
     -- LazyVim language extras, see the setup code here
     -- https://github.com/LazyVim/LazyVim/tree/5e1c474192372caca7d95d4a85dd5939fe95cca3/lua/lazyvim/plugins/extras/lang

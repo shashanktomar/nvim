@@ -7,15 +7,6 @@ return {
     },
   },
   {
-    "nvim-telescope/telescope.nvim",
-    -- keys = keys.telescope,
-    opts = {
-      defaults = {
-        layout_config = props.layout.telescope,
-      },
-    },
-  },
-  {
     "folke/which-key.nvim",
     opts = {
       icons = {
@@ -43,40 +34,40 @@ return {
       require("lspconfig.ui.windows").default_options.border = "single"
     end,
   },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = {
-      window = {
-        completion = require("cmp").config.window.bordered(),
-        documentation = require("cmp").config.window.bordered(),
-      },
-      formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, item)
-          local icons = LazyVim.config.icons.kinds
-          local sources = props.cmp.sources
-
-          local get_source = function(name)
-            if sources[name] then
-              return sources[name]
-            end
-
-            vim.notify_once(
-              ("CMP source is missing for %s, add it in props/ui.lua"):format(name),
-              vim.log.levels.WARN,
-              { title = "CMP source missing!" }
-            )
-            return "[UNKNOWN]"
-          end
-
-          if icons[item.kind] then
-            item.kind = icons[item.kind]
-          end
-
-          item.menu = get_source(entry.source.name)
-          return item
-        end,
-      },
-    },
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   opts = {
+  --     window = {
+  --       completion = require("cmp").config.window.bordered(),
+  --       documentation = require("cmp").config.window.bordered(),
+  --     },
+  --     formatting = {
+  --       fields = { "kind", "abbr", "menu" },
+  --       format = function(entry, item)
+  --         local icons = LazyVim.config.icons.kinds
+  --         local sources = props.cmp.sources
+  --
+  --         local get_source = function(name)
+  --           if sources[name] then
+  --             return sources[name]
+  --           end
+  --
+  --           vim.notify_once(
+  --             ("CMP source is missing for %s, add it in props/ui.lua"):format(name),
+  --             vim.log.levels.WARN,
+  --             { title = "CMP source missing!" }
+  --           )
+  --           return "[UNKNOWN]"
+  --         end
+  --
+  --         if icons[item.kind] then
+  --           item.kind = icons[item.kind]
+  --         end
+  --
+  --         item.menu = get_source(entry.source.name)
+  --         return item
+  --       end,
+  --     },
+  --   },
+  -- },
 }

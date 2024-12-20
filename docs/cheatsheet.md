@@ -1,7 +1,7 @@
 # Cheatsheet
 
 If something doesn't seem right, first thing you should do it run healthcheck for the plugin with
-`checkhealth <plugin-name>`. Example `checkhealth telescope`.
+`checkhealth <plugin-name>`
 
 ## Vim
 

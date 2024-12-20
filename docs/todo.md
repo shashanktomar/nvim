@@ -139,7 +139,7 @@
     - [ ] tmux.nvim
     - [ ] nvim-autopairs
     - [ ] gitsigns
-    - [ ] neotest
+    - [x] neotest
     - [ ] dap
       - [ ] nvim-dap-ui
       - [ ] nvim-dap-virtual-text
