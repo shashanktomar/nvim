@@ -130,6 +130,8 @@ M.which_key = {
     },
     { "<leader>iw", "gsaiw", desc = "Surround word", remap = true, mode = "n" },
     { "<leader>iW", "gsaiw?", desc = "Surround word interactively", remap = true, mode = "n" },
+    { "<leader>ic", "<cmd>Huefy<CR>", desc = "Pick Color", remap = true, mode = "n" },
+    { "<leader>iC", "<cmd>Shades<CR>", desc = "Color Shades", remap = true, mode = "n" },
     -- move
     { "<leader>ma", desc = "@parameter.inner" },
     --debug
