@@ -55,7 +55,7 @@ M.global_keys = function()
   ----------------------------------------------
   ------------------- Git ----------------------
   ----------------------------------------------
-  map("n", "<leader>gol", git.gh_browse_current_position, { desc = "Open line in github (current branch)" })
+  map("n", "<leader>gOl", git.gh_browse_current_position, { desc = "Open line in github (current branch)" })
 
   ----------------------------------------------
   ------------------- Toggles ------------------
@@ -97,7 +97,7 @@ M.which_key = {
     { "gm", group = "bookmarks" },
     { "<leader>", group = "|____|" },
     { "<leader>cl", group = "lsp info" },
-    { "<leader>go", group = "open in browser", icon = icons.browser },
+    { "<leader>gO", group = "open in browser", icon = icons.browser },
     { "<leader>i", group = "insert" },
     { "<leader>m", group = "move" },
     { "<leader>sf", group = "fzf" },
