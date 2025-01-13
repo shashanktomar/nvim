@@ -234,6 +234,7 @@ return {
     keys = keys.octo.keys,
     opts = {
       mappings = keys.octo.mappings,
+      picker = "fzf-lua",
     },
   },
 
