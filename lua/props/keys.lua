@@ -414,6 +414,10 @@ M.fzf = {
     ---------- Files -----------
     { "<leader>fg", false }, -- disable find git files as I never use it
     { "<leader>fc", false }, -- I never open nvim config files in another project
+    -- The default behaviour is to find file in the root, which is lsp root. This does not work in a monorepo.
+    -- Here we are changing the behaviour to find files in the current working directory, which is the directory
+    -- in which we opened neovim
+    { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
     { -- find files in the same directory of current buffer
       "<leader>f.",
       function()

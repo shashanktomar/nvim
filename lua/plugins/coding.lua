@@ -1,6 +1,4 @@
 local keys = require("props.keys")
-local editor = require("props.editor")
-local copilot_chat = require("props.copilot-chat")
 
 return {
   {
@@ -40,23 +38,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       textobjects = keys.text_objects.treesitter,
-    },
-  },
-
-  {
-    "zbirenbaum/copilot.lua",
-    init = function()
-      if not vim.g.copilot_enabled then
-        vim.cmd("Copilot disable")
-      end
-    end,
-  },
-
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    keys = keys.copilot_chat,
-    opts = {
-      prompts = copilot_chat.prompts,
     },
   },
 

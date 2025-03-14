@@ -11,6 +11,8 @@ M.flags = {
     mdx = true,
     python = true,
     typescript = true,
+    rust = true,
+    just = true,
   },
 }
 
