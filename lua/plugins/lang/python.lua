@@ -3,6 +3,22 @@ if not vim.g.lang_python then
 end
 
 return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        ruff = {
+          keys = {
+            {
+              "<leader>cx",
+              LazyVim.lsp.action["source.fixAll"],
+              desc = "Fix all auto-fixable issues",
+            },
+          },
+        },
+      },
+    },
+  },
   -- {
   --   -- plugin for jupyter notebooks
   --   "benlubas/molten-nvim",

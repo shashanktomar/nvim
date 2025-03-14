@@ -235,6 +235,7 @@ return {
     opts = {
       mappings = keys.octo.mappings,
       picker = "fzf-lua",
+      default_to_projects_v2 = true,
     },
   },
 
@@ -245,8 +246,23 @@ return {
     lazy = false,
     keys = keys.fzf.keys,
     opts = {
+      files = {
+        cwd_prompt = true,
+        path_shorten = 5,
+        formatter = "path.filename_first",
+      },
       buffers = {
         ignore_current_buffer = true,
+        path_shorten = 5,
+        formatter = "path.filename_first",
+      },
+      lsp = {
+        path_shorten = 5,
+        formatter = "path.filename_first",
+      },
+      oldfiles = {
+        path_shorten = 5,
+        formatter = "path.filename_first",
       },
     },
   },
