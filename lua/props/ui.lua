@@ -90,6 +90,7 @@ M.icons = {
       { pattern = "info", icon = " ", color = "cyan" },
       { pattern = "fold", icon = " ", color = "cyan" },
       { pattern = "goto", icon = "󱞿 ", color = "cyan" },
+      { pattern = "diff", icon = "󰕛 ", color = "yellow" },
     },
   },
 }

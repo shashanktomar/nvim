@@ -13,6 +13,12 @@ return {
     },
   },
   {
+    "snacks.nvim",
+    opts = {
+      scroll = { enabled = false },
+    },
+  },
+  {
     -- used to streamline the installation of luarocks packages directly within Neovim.
     "vhyrro/luarocks.nvim",
     priority = 1001, -- this plugin needs to run before anything else

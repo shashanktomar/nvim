@@ -19,4 +19,9 @@ M.gh_browse_current_position = function()
   vim.fn.system(cmd)
 end
 
+M.get_default_branch_name = function()
+  local res = vim.system({ "git", "rev-parse", "--verify", "main" }, { capture_output = true }):wait()
+  return res.code == 0 and "main" or "master"
+end
+
 return M
