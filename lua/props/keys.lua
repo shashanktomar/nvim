@@ -97,6 +97,7 @@ M.which_key = {
     { "gm", group = "bookmarks" },
     { "<leader>", group = "|____|" },
     { "<leader>cl", group = "lsp info" },
+    { "<leader>gd", group = "diff view" },
     { "<leader>gO", group = "open in browser", icon = icons.browser },
     { "<leader>i", group = "insert" },
     { "<leader>m", group = "move" },
@@ -472,6 +473,46 @@ M.fzf = {
     ---------- Other Commands -----------
     { "<leader>sQ", "<cmd>FzfLua quickfix_stack<cr>", desc = "Quickfix Stack" },
     { "<leader>sH", "<cmd>FzfLua search_history<cr>", desc = "Search History" },
+  },
+}
+
+M.diff_view = {
+  { "<leader>gdc", "<cmd>DiffviewOpen<cr>", desc = "Changes" },
+  {
+    "<leader>gdm",
+    function()
+      vim.cmd("DiffviewOpen " .. git.get_default_branch_name())
+    end,
+    desc = "Diff against main",
+  },
+  {
+    "<leader>gdM",
+    function()
+      vim.cmd("DiffviewOpen HEAD..origin/" .. git.get_default_branch_name())
+    end,
+    desc = "Diff against origin/main",
+  },
+  { "<leader>gdr", "<cmd>DiffviewFileHistory<cr>", desc = "Repo History" },
+  { "<leader>gdf", "<cmd>DiffviewFileHistory --follow %<cr>", desc = "File History" },
+  { "<leader>gdl", "<cmd>.DiffviewFileHistory --follow<cr>", desc = "Line History" },
+  { "<leader>gdv", "<Esc><Cmd>'<,'>DiffviewFileHistory --follow<CR>", desc = "Selection History" },
+  { "<leader>gdx", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
+
+  -- checkout the branch locally before running this
+  -- The symmetric difference rev range (triple dot) will here compare the changes on the current branch
+  -- (the PR branch) against its merge-base in origin/HEAD. This is different from comparing directly against
+  -- origin/HEAD if the branches have diverged, and is usually what you want when comparing changes in a PR.
+  -- The --imply-local flag option will here make diffview.nvim show the working tree versions1 of the changed
+  -- files on the right side of the diff. This means that if you have tools such as LSP set up, it will work for
+  -- all the diff buffers on the right side, giving you access to LSP features - such as diagnostics and
+  -- references - that can be useful while reviewing changes.
+  { "<leader>gdp", "<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<cr>", desc = "Diff PR" },
+  -- If you're reviewing a big PR composed of many commits, you might prefer to review the changes introduced in
+  -- each of those commits individually
+  {
+    "<leader>gdp",
+    "<cmd>DiffviewFileHistory --range=origin/HEAD...HEAD --right-only --no-merges<cr>",
+    desc = "Diff PR commits",
   },
 }
 

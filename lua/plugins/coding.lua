@@ -56,4 +56,17 @@ return {
       },
     },
   },
+  {
+    "sindrets/diffview.nvim",
+    lazy = true,
+    cmd = { "DiffviewFileHistory", "DiffviewOpen" },
+    keys = keys.diff_view,
+    opts = {
+      view = {
+        merge_tool = {
+          layout = "diff3_mixed",
+        },
+      },
+    },
+  },
 }
