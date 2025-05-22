@@ -30,3 +30,4 @@ for category, values in pairs(coding.flags) do
 end
 
 vim.g.lazyvim_picker = editor.lazyvim_picker
+vim.g.root_spec = { "cwd" }
