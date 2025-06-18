@@ -20,6 +20,15 @@ return function()
         close_on_exit = false,
       })
     end,
+    daylight = function()
+      return Terminal:new({
+        cmd = "daylight",
+        display_name = "daylight",
+        hidden = true,
+        direction = "float",
+        close_on_exit = false,
+      })
+    end,
     wtfutil = function()
       return Terminal:new({
         cmd = "wtfutil",

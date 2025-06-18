@@ -152,6 +152,10 @@ return {
       local terminal_keys = keys.toggle_term.keys
       for key, value in pairs(keys.toggle_term.terminals) do
         local cmd = function()
+          if not terms[value.cmd] then
+            vim.notify("Terminal command '" .. value.cmd .. "' not found", vim.log.levels.WARN)
+            return
+          end
           local term = terms[value.cmd]()
           term:toggle()
         end
