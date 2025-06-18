@@ -381,6 +381,7 @@ M.neo_tree = {
 M.toggle_term = {
   terminals = {
     ["<leader>Tcp"] = { cmd = "pnpm_install" },
+    ["<leader>Td"] = { cmd = "daylight" },
     ["<leader>Th"] = { cmd = "htop" },
     ["<leader>Tm"] = { cmd = "glow", ft = "markdown" },
     ["<leader>Tn"] = { cmd = "neofetch" },
