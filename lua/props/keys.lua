@@ -472,6 +472,10 @@ M.fzf = {
   },
 }
 
+M.oil = {
+  { "<leader>fd", "<cmd>Oil<cr>", desc = "Open directory" },
+}
+
 M.diff_view = {
   { "<leader>gdc", "<cmd>DiffviewOpen<cr>", desc = "Changes" },
   {
