@@ -19,3 +19,15 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+-- C# folding with #region/#endregion markers
+autocmd("FileType", {
+  group = augroup("cs_folding"),
+  pattern = "cs",
+  callback = function()
+    vim.opt_local.foldmethod = "marker"
+    vim.opt_local.foldmarker = "#region,#endregion"
+    vim.opt_local.foldlevelstart = 99
+    vim.opt_local.foldenable = true
+  end,
+})
