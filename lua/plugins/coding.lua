@@ -69,8 +69,4 @@ return {
       },
     },
   },
-  -- pin the mason version as 2.x have breaking changes
-  -- https://github.com/LazyVim/LazyVim/issues/6039#issuecomment-2856227817s
-  { "mason-org/mason.nvim", version = "1.11.0" },
-  { "mason-org/mason-lspconfig.nvim", version = "1.32.0" },
 }
