@@ -19,6 +19,16 @@
 - [ ] fix tmux shortcuts and add tmux.nvim plugin
 - [ ] fix relative line numbers
 
+## AI
+
+- [ ] codecompanion setup
+  - plugins and extensions
+    - [ ] [mcphub](https://codecompanion.olimorris.dev/installation.html)
+    - [ ] [rendermarkdown](https://codecompanion.olimorris.dev/installation.html)
+    - [ ] [markview](https://codecompanion.olimorris.dev/installation.html)
+    - [ ] [img-clip](https://codecompanion.olimorris.dev/installation.html)
+  - [ ] [completion](https://codecompanion.olimorris.dev/installation.html#completion)
+
 ## Mappings, Autocmds and Options
 
 - [ ] check lazyvim mappings
