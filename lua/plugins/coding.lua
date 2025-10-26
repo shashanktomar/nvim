@@ -17,7 +17,7 @@ return {
   { "mason.nvim", keys = keys.lsp.mason },
 
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     opts = function(_, opts)
       local mini_ai = require("mini.ai")
       local k = {}
