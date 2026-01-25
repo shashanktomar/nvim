@@ -6,7 +6,7 @@ return {
   {
     "mason-org/mason.nvim",
     opts = function(_, opts)
-      table.insert(opts.ensure_installed, "ruff")
+      vim.list_extend(opts.ensure_installed, { "ruff", "ty" })
     end,
   },
   {
@@ -23,12 +23,6 @@ return {
     opts = {
       servers = {
         ruff = {
-          -- Disable hover/diagnostics to prevent crashes
-          -- See: https://github.com/astral-sh/ruff/issues/10661
-          on_attach = function(client, bufnr)
-            -- Disable hover provider to prevent range errors
-            client.server_capabilities.hoverProvider = false
-          end,
           keys = {
             {
               "<leader>cx",
@@ -37,20 +31,9 @@ return {
             },
           },
         },
-        basedpyright = {
-          settings = {
-            basedpyright = {
-              -- Use ruff for organizing imports
-              disableOrganizeImports = true,
-            },
-            python = {
-              analysis = {
-                -- Ignore all files by default to let ruff handle it
-                ignore = { "*" },
-              },
-            },
-          },
-        },
+        ty = {},
+        pyright = { enabled = false },
+        basedpyright = { enabled = false },
       },
     },
   },

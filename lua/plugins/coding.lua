@@ -3,12 +3,17 @@ local keys = require("props.keys")
 return {
   {
     "neovim/nvim-lspconfig",
-    -- as suggested here http://www.lazyvim.org/plugins/lsp#%EF%B8%8F-customizing-lsp-keymaps
-    opts = function()
-      local lsp_keys = require("lazyvim.plugins.lsp.keymaps").get()
-      lsp_keys[#lsp_keys + 1] = keys.lsp.disable
-      lsp_keys[#lsp_keys + 1] = keys.lsp.enable
-    end,
+    opts = {
+      servers = {
+        -- Apply to all LSP servers
+        ["*"] = {
+          keys = {
+            keys.lsp.disable,
+            keys.lsp.enable,
+          },
+        },
+      },
+    },
   },
   {
     "nvimtools/none-ls.nvim",
