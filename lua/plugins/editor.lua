@@ -193,20 +193,22 @@ return {
 
   {
     "gbprod/yanky.nvim",
-    opts = {
-      system_clipboard = {
-        sync_with_ring = false,
-      },
-      picker = {
-        telescope = {
-          mappings = {
-            n = {
-              x = require("yanky.telescope.mapping").delete(),
+    opts = function()
+      return {
+        system_clipboard = {
+          sync_with_ring = false,
+        },
+        picker = {
+          telescope = {
+            mappings = {
+              n = {
+                x = require("yanky.telescope.mapping").delete(),
+              },
             },
           },
         },
-      },
-    },
+      }
+    end,
     keys = keys.yanky,
   },
 
