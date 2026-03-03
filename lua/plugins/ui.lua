@@ -30,8 +30,9 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    init = function()
+    opts = function(_, opts)
       require("lspconfig.ui.windows").default_options.border = "single"
+      return opts
     end,
   },
   -- {
