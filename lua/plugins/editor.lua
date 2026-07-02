@@ -245,12 +245,16 @@ return {
   },
 
   {
+    -- octo.nvim comes from `lazyvim.plugins.extras.util.octo` (imported in config/lazy.lua).
+    -- The extra already sets picker=fzf-lua (auto-detected), default_to_projects_v2, and all
+    -- the <leader>g* / <localleader> keymaps. Here we only add what the extra doesn't provide.
     "pwntester/octo.nvim",
-    keys = keys.octo.keys,
+    -- append to (not replace) the extra's keys so <leader>gp/<leader>gP survive
+    keys = function(_, keys_tbl)
+      return vim.list_extend(keys_tbl, keys.octo.keys)
+    end,
     opts = {
       mappings = keys.octo.mappings,
-      picker = "fzf-lua",
-      default_to_projects_v2 = true,
     },
   },
 
